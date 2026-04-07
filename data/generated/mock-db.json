@@ -1,0 +1,513 @@
+{
+  "sessions": {
+    "demo-session": {
+      "id": "demo-session",
+      "createdAt": "2026-04-07T04:02:31.026Z",
+      "updatedAt": "2026-04-07T04:10:06.864Z",
+      "birthDate": "1998-09-17",
+      "birthTime": "06:18",
+      "birthCity": "Seoul",
+      "focusTheme": "confidence",
+      "consentEntertainmentDisclaimer": true,
+      "email": "ritual@ood.aura",
+      "preview": {
+        "elementProfile": {
+          "metal": 76,
+          "wood": 42,
+          "water": 61,
+          "fire": 84,
+          "earth": 37,
+          "archetype": "The Magnetic Builder",
+          "palette": {
+            "base": "#0c1027",
+            "accent": "#ff6fd8",
+            "glow": "#7df9ff"
+          }
+        },
+        "teaser": "Your field is hottest when you stop asking for permission. Today rewards bold emotional clarity."
+      },
+      "reportId": "demo-report",
+      "latestOrderId": "demo-order",
+      "name": "Aster",
+      "baseProfile": {
+        "identity": {
+          "name": "Aster",
+          "birthday": "1998-09-17",
+          "birthTime": "06:18",
+          "birthLocation": "Seoul"
+        },
+        "chartType": "hexagram",
+        "chartVisual": {
+          "chartType": "hexagram",
+          "dominantElement": "earth",
+          "ringOrder": [
+            "metal",
+            "wood",
+            "water",
+            "fire",
+            "earth"
+          ],
+          "glowLabel": "Aster's live pattern"
+        },
+        "coreType": "The Velvet Instigator",
+        "elementDistribution": {
+          "metal": 59,
+          "wood": 77,
+          "water": 39,
+          "fire": 59,
+          "earth": 81,
+          "archetype": "The Velvet Instigator",
+          "palette": {
+            "base": "#181108",
+            "accent": "#d9a96a",
+            "glow": "#f3d6af"
+          }
+        },
+        "todaySignal": "今天最适合你的是处理一个长期悬而未决的问题，让自己更稳。",
+        "coreConclusion": "你现在最强的是承载力。你要学会在稳住自己之后再推进目标。",
+        "topInsights": [
+          {
+            "title": "你最容易卡住的地方",
+            "body": "你容易为了稳定而拖延变化，结果在真正该动的时候卡得更久。"
+          },
+          {
+            "title": "你最值得抓住的信号",
+            "body": "Aster 最近最强的是“承载力”，很适合做长期有效的现实铺垫。"
+          },
+          {
+            "title": "你下一步最该走的方向",
+            "body": "先走成长线和目标线，会更容易形成稳定推进感。"
+          }
+        ],
+        "recommendedTracks": [
+          {
+            "kind": "fandom-relationship",
+            "title": "追星 / 情感倾向",
+            "preview": "看看你的关系感应、靠近方式和当前情绪张力更偏向哪一类互动。",
+            "cta": "进入关系线",
+            "why": "你在关系里求稳，情感线会帮助你识别慢性消耗。"
+          },
+          {
+            "kind": "personal-growth",
+            "title": "个人成长",
+            "preview": "从你的盘里找出最容易反复卡住的行为模式和最值得调整的内在开关。",
+            "cta": "进入成长线",
+            "why": "成长线对你最有用，因为你需要看见自己是怎么把自己困住的。"
+          },
+          {
+            "kind": "fortune-upgrade",
+            "title": "运势提升",
+            "preview": "把你的今日信号转成更适合今天采取的方向、禁忌和强化动作。",
+            "cta": "进入运势线",
+            "why": "你的运势提升更偏稳态调频，不是即时暴冲。"
+          },
+          {
+            "kind": "goal-alignment",
+            "title": "目标达成",
+            "preview": "把盘面的动力、阻力和节奏感映射到现实推进方式。",
+            "cta": "进入目标线",
+            "why": "目标线最适合你，因为你的盘适合做长期推进。"
+          }
+        ]
+      }
+    },
+    "sess_GIhiTIQv7T22": {
+      "id": "sess_GIhiTIQv7T22",
+      "createdAt": "2026-04-07T04:13:19.849Z",
+      "updatedAt": "2026-04-07T04:13:19.849Z",
+      "birthDate": "1997-05-12",
+      "birthTime": "08:30",
+      "birthCity": "Shanghai",
+      "focusTheme": "career",
+      "consentEntertainmentDisclaimer": true,
+      "email": "preview@ood.aura",
+      "preview": {
+        "elementProfile": {
+          "metal": 35,
+          "wood": 53,
+          "water": 71,
+          "fire": 35,
+          "earth": 57,
+          "archetype": "The Magnetic Builder",
+          "palette": {
+            "base": "#061229",
+            "accent": "#57ccff",
+            "glow": "#9ae6ff"
+          }
+        },
+        "teaser": "Your field sharpens around decisive work and visible output. Your dominant pattern right now is the magnetic builder."
+      },
+      "name": "Aster",
+      "baseProfile": {
+        "identity": {
+          "name": "Aster",
+          "birthday": "1997-05-12",
+          "birthTime": "08:30",
+          "birthLocation": "Shanghai"
+        },
+        "chartType": "hexagram",
+        "chartVisual": {
+          "chartType": "hexagram",
+          "dominantElement": "earth",
+          "ringOrder": [
+            "metal",
+            "wood",
+            "water",
+            "fire",
+            "earth"
+          ],
+          "glowLabel": "Aster's live pattern"
+        },
+        "coreType": "The Magnetic Builder",
+        "elementDistribution": {
+          "metal": 64,
+          "wood": 82,
+          "water": 44,
+          "fire": 64,
+          "earth": 86,
+          "archetype": "The Magnetic Builder",
+          "palette": {
+            "base": "#181108",
+            "accent": "#d9a96a",
+            "glow": "#f3d6af"
+          }
+        },
+        "todaySignal": "今天最适合你的是处理一个长期悬而未决的问题，让自己更稳。",
+        "coreConclusion": "你现在最强的是承载力。你要学会在稳住自己之后再推进目标。",
+        "topInsights": [
+          {
+            "title": "你最容易卡住的地方",
+            "body": "你容易为了稳定而拖延变化，结果在真正该动的时候卡得更久。"
+          },
+          {
+            "title": "你最值得抓住的信号",
+            "body": "Aster 最近最强的是“承载力”，很适合做长期有效的现实铺垫。"
+          },
+          {
+            "title": "你下一步最该走的方向",
+            "body": "先走成长线和目标线，会更容易形成稳定推进感。"
+          }
+        ],
+        "recommendedTracks": [
+          {
+            "kind": "fandom-relationship",
+            "title": "追星 / 情感倾向",
+            "preview": "看看你的关系感应、靠近方式和当前情绪张力更偏向哪一类互动。",
+            "cta": "进入关系线",
+            "why": "你在关系里求稳，情感线会帮助你识别慢性消耗。"
+          },
+          {
+            "kind": "personal-growth",
+            "title": "个人成长",
+            "preview": "从你的盘里找出最容易反复卡住的行为模式和最值得调整的内在开关。",
+            "cta": "进入成长线",
+            "why": "成长线对你最有用，因为你需要看见自己是怎么把自己困住的。"
+          },
+          {
+            "kind": "fortune-upgrade",
+            "title": "运势提升",
+            "preview": "把你的今日信号转成更适合今天采取的方向、禁忌和强化动作。",
+            "cta": "进入运势线",
+            "why": "你的运势提升更偏稳态调频，不是即时暴冲。"
+          },
+          {
+            "kind": "goal-alignment",
+            "title": "目标达成",
+            "preview": "把盘面的动力、阻力和节奏感映射到现实推进方式。",
+            "cta": "进入目标线",
+            "why": "目标线最适合你，因为你的盘适合做长期推进。"
+          }
+        ]
+      }
+    },
+    "sess_pahOQv5Czz2p": {
+      "id": "sess_pahOQv5Czz2p",
+      "createdAt": "2026-04-07T04:43:42.327Z",
+      "updatedAt": "2026-04-07T04:56:24.183Z",
+      "birthDate": "2026-04-07",
+      "birthTime": "13:44",
+      "birthCity": "london",
+      "focusTheme": "love",
+      "consentEntertainmentDisclaimer": true,
+      "email": "123123@123.com",
+      "preview": {
+        "elementProfile": {
+          "metal": 62,
+          "wood": 80,
+          "water": 42,
+          "fire": 62,
+          "earth": 84,
+          "archetype": "The Soft Strategist",
+          "palette": {
+            "base": "#181108",
+            "accent": "#d9a96a",
+            "glow": "#f3d6af"
+          }
+        },
+        "teaser": "Romance opens when your signal gets simpler, not louder. Your dominant pattern right now is the soft strategist."
+      },
+      "latestOrderId": "ord_pHZ_z71u7LCf",
+      "name": "Aster",
+      "baseProfile": {
+        "identity": {
+          "name": "Aster",
+          "birthday": "2026-04-07",
+          "birthTime": "13:44",
+          "birthLocation": "london"
+        },
+        "chartType": "hexagram",
+        "chartVisual": {
+          "chartType": "hexagram",
+          "dominantElement": "metal",
+          "ringOrder": [
+            "metal",
+            "wood",
+            "water",
+            "fire",
+            "earth"
+          ],
+          "glowLabel": "Aster's live pattern"
+        },
+        "coreType": "The Magnetic Builder",
+        "elementDistribution": {
+          "metal": 81,
+          "wood": 43,
+          "water": 61,
+          "fire": 81,
+          "earth": 47,
+          "archetype": "The Magnetic Builder",
+          "palette": {
+            "base": "#111827",
+            "accent": "#d3d7df",
+            "glow": "#fafafa"
+          }
+        },
+        "todaySignal": "今天最适合你的是做出一个清晰判断，而不是继续模糊地拖着。",
+        "coreConclusion": "你现在最强的不是情绪，而是判断。你的盘更像一把正在变锋利的刀。",
+        "topInsights": [
+          {
+            "title": "你最容易卡住的地方",
+            "body": "你会在想表达之前先自我修剪，结果常常把最锋利的部分藏起来。"
+          },
+          {
+            "title": "你最值得抓住的信号",
+            "body": "Aster 当下最强的不是情绪爆发，而是判断变得异常清晰。"
+          },
+          {
+            "title": "你下一步最该走的方向",
+            "body": "先进入目标达成或成长线，会比先看泛泛运势更上头。"
+          }
+        ],
+        "recommendedTracks": [
+          {
+            "kind": "fandom-relationship",
+            "title": "追星 / 情感倾向",
+            "preview": "看看你的关系感应、靠近方式和当前情绪张力更偏向哪一类互动。",
+            "cta": "进入关系线",
+            "why": "你的盘面关系判断很锋利，但情绪表达被压着，关系线会最容易让你有“被说中”的感觉。"
+          },
+          {
+            "kind": "personal-growth",
+            "title": "个人成长",
+            "preview": "从你的盘里找出最容易反复卡住的行为模式和最值得调整的内在开关。",
+            "cta": "进入成长线",
+            "why": "你现在最需要的不是更多信息，而是看清自己一直在压掉什么。"
+          },
+          {
+            "kind": "fortune-upgrade",
+            "title": "运势提升",
+            "preview": "把你的今日信号转成更适合今天采取的方向、禁忌和强化动作。",
+            "cta": "进入运势线",
+            "why": "你的盘更适合精确的提醒，而不是泛泛鼓励。"
+          },
+          {
+            "kind": "goal-alignment",
+            "title": "目标达成",
+            "preview": "把盘面的动力、阻力和节奏感映射到现实推进方式。",
+            "cta": "进入目标线",
+            "why": "你的执行力和判断力正在变清楚，现实推进值得优先看。"
+          }
+        ]
+      }
+    },
+    "sess_ichz48NPi2Ne": {
+      "id": "sess_ichz48NPi2Ne",
+      "createdAt": "2026-04-07T12:21:26.983Z",
+      "updatedAt": "2026-04-07T12:21:26.983Z",
+      "name": "Guaizi",
+      "birthDate": "2026-03-29",
+      "birthTime": "09:00",
+      "birthCity": "Chengdu",
+      "consentEntertainmentDisclaimer": true,
+      "email": "123@123.com",
+      "baseProfile": {
+        "identity": {
+          "name": "Guaizi",
+          "birthday": "2026-03-29",
+          "birthTime": "09:00",
+          "birthLocation": "Chengdu"
+        },
+        "chartType": "hexagram",
+        "chartVisual": {
+          "chartType": "hexagram",
+          "dominantElement": "water",
+          "ringOrder": [
+            "metal",
+            "wood",
+            "water",
+            "fire",
+            "earth"
+          ],
+          "glowLabel": "Guaizi's live pattern"
+        },
+        "coreType": "The Luminous Operator",
+        "elementDistribution": {
+          "metal": 51,
+          "wood": 69,
+          "water": 87,
+          "fire": 51,
+          "earth": 73,
+          "archetype": "The Luminous Operator",
+          "palette": {
+            "base": "#061229",
+            "accent": "#57ccff",
+            "glow": "#9ae6ff"
+          }
+        },
+        "todaySignal": "Today is best used to read the emotional and relational signals first, then decide whether to move closer.",
+        "coreConclusion": "Your strongest force right now is sensitivity. Emotional and relational movement will register in you earlier than it does for most people.",
+        "topInsights": [
+          {
+            "title": "Where you tend to get stuck",
+            "body": "You feel everything in fine detail, which makes you easier to slow down through emotional weather, relationship undercurrents, and self-doubt."
+          },
+          {
+            "title": "The signal worth trusting",
+            "body": "Guaizi's strongest signal right now is sensitivity, which means emotional and timing cues are likely to land with unusual accuracy."
+          },
+          {
+            "title": "The best next direction",
+            "body": "Open relationship or fortune first, then decide whether a card draw should become today's extra signal."
+          }
+        ],
+        "recommendedTracks": [
+          {
+            "kind": "fandom-relationship",
+            "title": "Relationship and attraction",
+            "preview": "See how you read connection, how you move closer, and what emotional tension is most active right now.",
+            "cta": "Open relationship track",
+            "why": "You are most attuned to emotional and relational signals, so this track is likely to hit first."
+          },
+          {
+            "kind": "personal-growth",
+            "title": "Personal growth",
+            "preview": "Find the recurring behavior loop most likely to stall you and the inner switch most worth adjusting.",
+            "cta": "Open growth track",
+            "why": "The growth track helps explain why you often end up feeling more than other people notice."
+          },
+          {
+            "kind": "fortune-upgrade",
+            "title": "Fortune upgrade",
+            "preview": "Turn today's signal into a practical direction, a caution, and a move that strengthens the day.",
+            "cta": "Open fortune track",
+            "why": "Today's fortune is more about detail alerts and emotional blind-spot avoidance."
+          },
+          {
+            "kind": "goal-alignment",
+            "title": "Goal alignment",
+            "preview": "Map the profile's momentum, friction, and timing into a concrete way of moving real goals forward.",
+            "cta": "Open goal track",
+            "why": "Goal alignment helps you turn intuition into gentler but sustained motion."
+          }
+        ]
+      }
+    }
+  },
+  "orders": {
+    "demo-order": {
+      "id": "demo-order",
+      "intakeSessionId": "demo-session",
+      "reportId": "demo-report",
+      "email": "ritual@ood.aura",
+      "sku": {
+        "code": "manifest-receipt",
+        "title": "Manifest Receipt",
+        "price": 299,
+        "currency": "USD",
+        "deliveryMode": "instant_digital"
+      },
+      "stripeSessionId": "demo_stripe_session",
+      "paymentStatus": "paid",
+      "reportStatus": "ready",
+      "createdAt": "2026-04-07T04:02:31.026Z",
+      "updatedAt": "2026-04-07T04:10:06.865Z"
+    },
+    "ord_pHZ_z71u7LCf": {
+      "id": "ord_pHZ_z71u7LCf",
+      "intakeSessionId": "sess_pahOQv5Czz2p",
+      "email": "123123@123.com",
+      "sku": {
+        "code": "manifest-receipt",
+        "title": "Manifest Receipt",
+        "price": 299,
+        "currency": "USD",
+        "deliveryMode": "instant_digital"
+      },
+      "stripeSessionId": "mock_checkout_ord_pHZ_z71u7LCf",
+      "paymentStatus": "requires_payment",
+      "reportStatus": "not_started",
+      "createdAt": "2026-04-07T04:56:24.183Z",
+      "updatedAt": "2026-04-07T04:56:24.184Z"
+    }
+  },
+  "reports": {
+    "demo-report": {
+      "id": "demo-report",
+      "intakeSessionId": "demo-session",
+      "orderId": "demo-order",
+      "email": "ritual@ood.aura",
+      "createdAt": "2026-04-07T04:02:31.026Z",
+      "updatedAt": "2026-04-07T04:10:06.864Z",
+      "status": "ready",
+      "elementProfile": {
+        "metal": 76,
+        "wood": 42,
+        "water": 61,
+        "fire": 84,
+        "earth": 37,
+        "archetype": "The Magnetic Builder",
+        "palette": {
+          "base": "#0c1027",
+          "accent": "#ff6fd8",
+          "glow": "#7df9ff"
+        }
+      },
+      "disclaimer": "For entertainment and self-reflection only. O.O.D does not provide medical, legal, financial, or mental health advice.",
+      "assets": [
+        {
+          "kind": "html",
+          "url": "/api/report/demo-report/download?kind=html"
+        },
+        {
+          "kind": "png",
+          "url": "/api/report/demo-report/download?kind=png"
+        },
+        {
+          "kind": "pdf",
+          "url": "/api/report/demo-report/download?kind=pdf"
+        }
+      ],
+      "receipt": {
+        "date": "April 7, 2026",
+        "theme": "confidence",
+        "energyScore": 60,
+        "tarotCard": "Strength",
+        "action": "Lead with the sentence you usually save for last.",
+        "caution": "Do not shrink the signal to make other people comfortable.",
+        "mantra": "My power becomes visible when I stop editing it down.",
+        "summary": "The Magnetic Builder energy leads today. Your glow returns the second you stop rehearsing for permission. Lead with the sentence you usually save for last.",
+        "shareCaption": "My O.O.D receipt for today: My power becomes visible when I stop editing it down."
+      }
+    }
+  }
+}

@@ -1,65 +1,134 @@
-import Image from "next/image";
+import Link from "next/link";
+
+import { EmailHistoryForm } from "@/components/email-history-form";
+import { RitualHero } from "@/components/ritual-hero";
+import { RitualCard } from "@/components/ritual-card";
+import { SectionLabel } from "@/components/section-label";
+import { ServiceCard } from "@/components/service-card";
+import { Shell } from "@/components/shell";
+import { TrackView } from "@/components/track-view";
+import { MANIFEST_RECEIPT_SKU, TRACKING_EVENTS } from "@/lib/constants";
+import { divinationServices } from "@/lib/site-content";
+import { currency } from "@/lib/utils";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <Shell className="space-y-14" activeHref="/">
+      <TrackView event={TRACKING_EVENTS.landingView} />
+
+      <RitualHero livePrice={currency(MANIFEST_RECEIPT_SKU.price)} />
+
+      <section className="grid gap-4 md:grid-cols-4">
+        {[
+          { label: "Primary entry", value: "Start the reading" },
+          { label: "Primary asset", value: "Base profile" },
+          { label: "Quick result", value: "One core line + 3 insights" },
+          { label: "Next step", value: "4 recommended tracks" },
+        ].map((item) => (
+          <div
+            key={item.label}
+            className="rounded-[24px] border border-white/10 bg-white/[0.04] p-5"
+          >
+            <p className="text-xs uppercase tracking-[0.26em] text-stone-400">{item.label}</p>
+            <p className="mt-3 font-serif text-2xl text-stone-50">{item.value}</p>
+          </div>
+        ))}
+      </section>
+
+      <section className="grid gap-8 lg:grid-cols-[1fr_1fr]">
+        <RitualCard className="space-y-5">
+          <SectionLabel>What Happens First</SectionLabel>
+          <div className="space-y-3">
+            {[
+              "Enter your name, birthday, birth time, and birth city",
+              "We generate your hexagram base profile first",
+              "You get one core conclusion and three key insights",
+              "Then you continue into the track that fits best",
+            ].map((item, index) => (
+              <div key={item} className="flex items-center gap-4">
+                <div className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/[0.05] text-sm text-stone-100">
+                  {index + 1}
+                </div>
+                <div className="text-sm text-stone-200">{item}</div>
+              </div>
+            ))}
+          </div>
+        </RitualCard>
+
+        <RitualCard className="space-y-5">
+          <SectionLabel>Supporting Entry Points</SectionLabel>
+          <p className="text-sm leading-7 text-stone-300">
+            Demo reports, history, and the shop still exist, but they should not land in the
+            user&apos;s head before &quot;start my base profile reading.&quot;
           </p>
+          <div className="flex flex-wrap gap-3">
+            <Link
+              href="/report/demo-report?email=ritual%40ood.aura"
+              className="rounded-full border border-white/10 px-4 py-2 text-sm text-stone-100 transition hover:bg-white/8"
+            >
+              Open demo report
+            </Link>
+            <Link
+              href="/me/history?email=ritual%40ood.aura"
+              className="rounded-full border border-white/10 px-4 py-2 text-sm text-stone-100 transition hover:bg-white/8"
+            >
+              Open history
+            </Link>
+          </div>
+        </RitualCard>
+      </section>
+
+      <section className="space-y-5">
+        <div className="flex items-end justify-between gap-4">
+          <div>
+            <SectionLabel>Main Tracks</SectionLabel>
+            <h2 className="mt-2 font-serif text-4xl text-stone-50">
+              Get your base profile first, then follow the track that fits best
+            </h2>
+          </div>
+          <Link href="/divination" className="text-sm text-cyan-200">
+            View all tracks
+          </Link>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        <div className="grid gap-5 lg:grid-cols-4">
+          {divinationServices.map((service) => (
+            <ServiceCard key={service.slug} service={service} />
+          ))}
         </div>
-      </main>
-    </div>
+      </section>
+
+      <section className="grid gap-8 lg:grid-cols-[1fr_1fr]">
+        <RitualCard className="space-y-5">
+          <SectionLabel>Lightweight Add-Ons</SectionLabel>
+          <p className="text-sm leading-7 text-stone-300">
+            Card draws and the element quiz are no longer parallel homepage entry points. They
+            belong after the base profile as lighter supporting signals.
+          </p>
+          <div className="flex flex-wrap gap-3">
+            <Link
+              href="/tests/card/star"
+              className="rounded-full border border-white/10 px-4 py-2 text-sm text-stone-100 transition hover:bg-white/8"
+            >
+              Card draw demo
+            </Link>
+            <Link
+              href="/tests/element/water"
+              className="rounded-full border border-white/10 px-4 py-2 text-sm text-stone-100 transition hover:bg-white/8"
+            >
+              Element quiz demo
+            </Link>
+          </div>
+        </RitualCard>
+
+        <RitualCard className="space-y-5">
+          <SectionLabel>Return Entry</SectionLabel>
+          <p className="text-sm leading-7 text-stone-300">
+            Once a user already has a profile and artifacts, history and profile become the places
+            they return to keep exploring.
+          </p>
+          <EmailHistoryForm />
+        </RitualCard>
+      </section>
+    </Shell>
   );
 }
