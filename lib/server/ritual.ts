@@ -76,6 +76,47 @@ function normalize(value: number, min = 32, max = 88) {
   return min + (value % (max - min));
 }
 
+function seasonOffsets(birthDate: string) {
+  const month = Number(birthDate.split("-")[1] ?? 0);
+  if ([3, 4, 5].includes(month)) {
+    return { wood: 12, fire: 4, earth: 3, metal: -6, water: -4 };
+  }
+  if ([6, 7, 8].includes(month)) {
+    return { wood: 2, fire: 12, earth: 6, metal: -5, water: -8 };
+  }
+  if ([9, 10, 11].includes(month)) {
+    return { wood: -6, fire: -2, earth: 3, metal: 12, water: 4 };
+  }
+  return { wood: -4, fire: -7, earth: 2, metal: 3, water: 12 };
+}
+
+function dayOffsets(birthDate: string) {
+  const day = Number(birthDate.split("-")[2] ?? 0);
+  return {
+    metal: (day * 3) % 11,
+    wood: (day * 5) % 13,
+    water: (day * 7) % 17,
+    fire: (day * 11) % 19,
+    earth: (day * 13) % 23,
+  };
+}
+
+function timeOffsets(birthTime?: string) {
+  if (!birthTime) {
+    return { metal: 0, wood: 0, water: 0, fire: 0, earth: 0 };
+  }
+
+  const [hourRaw, minuteRaw] = birthTime.split(":");
+  const hour = Number(hourRaw ?? 0);
+  const minute = Number(minuteRaw ?? 0);
+  const bucket = (hour * 60 + minute) % 24;
+
+  if (bucket < 6) return { metal: 1, wood: -1, water: 9, fire: -3, earth: 2 };
+  if (bucket < 12) return { metal: 0, wood: 8, water: 1, fire: 3, earth: 2 };
+  if (bucket < 18) return { metal: 2, wood: 1, water: -2, fire: 9, earth: 3 };
+  return { metal: 6, wood: -1, water: 4, fire: 0, earth: 5 };
+}
+
 export function buildElementProfile(payload: IntakePayload): ElementProfile {
   const seed = hash(
     [
@@ -86,11 +127,15 @@ export function buildElementProfile(payload: IntakePayload): ElementProfile {
     ].join("|"),
   );
 
-  const metal = normalize(seed + 11);
-  const wood = normalize(seed + 29);
-  const water = normalize(seed + 47);
-  const fire = normalize(seed + 67);
-  const earth = normalize(seed + 89);
+  const season = seasonOffsets(payload.birthDate);
+  const day = dayOffsets(payload.birthDate);
+  const time = timeOffsets(payload.birthTime);
+
+  const metal = normalize(seed + 11 + season.metal + day.metal + time.metal);
+  const wood = normalize(seed + 29 + season.wood + day.wood + time.wood);
+  const water = normalize(seed + 47 + season.water + day.water + time.water);
+  const fire = normalize(seed + 67 + season.fire + day.fire + time.fire);
+  const earth = normalize(seed + 89 + season.earth + day.earth + time.earth);
 
   const scores: ElementScoreEntry[] = [
     ["metal", metal] as ElementScoreEntry,

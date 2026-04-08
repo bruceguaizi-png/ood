@@ -27,15 +27,15 @@ export default function ProfilePage() {
   return (
     <Shell className="space-y-12" activeHref="/profile">
       <PageHero
-        eyebrow="User center"
-        title="Your ritual table, archive, and objects in one place."
-        body="This center should feel less like an account backend and more like a living surface: recent readings, staged goods, saved amulets, and quick re-entry into the world."
+        eyebrow="Personal Altar"
+        title="Return to your archive, objects, and open signals."
+        body="This should feel like a living console, not an account backend."
       />
 
       <section className="grid gap-5 lg:grid-cols-3">
         {profileModules.map((item) => (
           <RitualCard key={item.title} className="space-y-4">
-            <h2 className="font-serif text-3xl text-stone-50">{item.title}</h2>
+            <h2 className="text-balance font-serif text-3xl text-stone-50">{item.title}</h2>
             <p className="text-sm leading-7 text-stone-300">{item.body}</p>
             <Link
               href={item.href}

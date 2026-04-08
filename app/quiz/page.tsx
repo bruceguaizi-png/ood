@@ -11,20 +11,20 @@ export default function QuizPage() {
       <TrackView event={TRACKING_EVENTS.quizStart} />
 
       <section className="space-y-6">
-        <SectionLabel>Base Profile Intake</SectionLabel>
-        <h1 className="max-w-xl font-serif text-5xl leading-[0.96] text-stone-50 sm:text-6xl">
-          Generate your base profile first, then decide which track to explore.
+        <SectionLabel>Full Ritual Intake</SectionLabel>
+        <h1 className="max-w-xl text-balance font-serif text-5xl leading-[0.96] text-stone-50 sm:text-6xl">
+          Enter the deeper chamber.
         </h1>
-        <p className="max-w-xl text-lg leading-8 text-stone-300">
-          This is not a generic form. You move step by step through the essentials, and the system
-          responds with a profile that already feels recognizably yours.
+        <p className="max-w-xl text-pretty text-lg leading-8 text-stone-300">
+          The homepage opens the fast gate. This page keeps the full ritual path for anyone who
+          wants the longer entrance.
         </p>
         <div className="grid gap-4 sm:grid-cols-2">
           {[
-            "One step at a time instead of dumping every field at once",
-            "Base profile first, quick summary second",
-            "Every follow-up path branches from your profile",
-            "The product reads you before it tries to sell you anything",
+            "One field. One breath.",
+            "Signal first. Explanation second.",
+            "Birth time and city stay ready here.",
+            "Everything routes from the same base profile.",
           ].map((item) => (
             <div
               key={item}

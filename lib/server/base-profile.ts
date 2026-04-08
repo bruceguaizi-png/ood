@@ -53,6 +53,45 @@ function dominantElement(
   return ranked[0][0];
 }
 
+function rankedElements(profile: ReturnType<typeof buildElementProfile>) {
+  const ranked: [ElementKey, number][] = [
+    ["metal", profile.metal],
+    ["wood", profile.wood],
+    ["water", profile.water],
+    ["fire", profile.fire],
+    ["earth", profile.earth],
+  ];
+  ranked.sort((a, b) => b[1] - a[1]);
+  return ranked;
+}
+
+function weakestElement(profile: ReturnType<typeof buildElementProfile>): ElementKey {
+  const ranked = rankedElements(profile);
+  return ranked[ranked.length - 1][0];
+}
+
+function supportElement(profile: ReturnType<typeof buildElementProfile>): ElementKey {
+  const ranked = rankedElements(profile);
+  return ranked[1][0];
+}
+
+function seasonFromDate(date: string): "spring" | "summer" | "autumn" | "winter" {
+  const month = Number(date.split("-")[1] ?? 0);
+  if ([3, 4, 5].includes(month)) return "spring";
+  if ([6, 7, 8].includes(month)) return "summer";
+  if ([9, 10, 11].includes(month)) return "autumn";
+  return "winter";
+}
+
+function phaseFromTime(time?: string): "dawn" | "day" | "dusk" | "night" | "unknown" {
+  if (!time) return "unknown";
+  const hour = Number(time.split(":")[0] ?? 0);
+  if (hour < 6) return "night";
+  if (hour < 12) return "dawn";
+  if (hour < 18) return "day";
+  return "dusk";
+}
+
 function buildChartVisual(
   dominant: ElementKey,
   name: string,
@@ -67,17 +106,19 @@ function buildChartVisual(
 
 function buildInsights(
   dominant: ElementKey,
+  weakest: ElementKey,
+  support: ElementKey,
   name: string,
 ): QuickInsight[] {
   const insightMap: Record<ElementKey, QuickInsight[]> = {
     metal: [
       {
         title: "Where you tend to get stuck",
-        body: "You edit yourself before you express yourself, which often hides the sharpest part of what you really mean.",
+        body: `You edit yourself before you express yourself, especially when ${weakest} energy is running low and softness feels less available.`,
       },
       {
         title: "The signal worth trusting",
-        body: `${name}'s strongest signal right now is not emotional intensity but unusually sharp judgment.`,
+        body: `${name}'s strongest signal right now is sharp judgment, with ${support} acting like the hidden support beam behind it.`,
       },
       {
         title: "The best next direction",
@@ -87,11 +128,11 @@ function buildInsights(
     wood: [
       {
         title: "Where you tend to get stuck",
-        body: "You are not short on drive. Your energy spreads too wide, so not enough of it grows into a main trunk.",
+        body: `You are not short on drive. The issue is that ${weakest} stays underfed, so your momentum spreads wider than it roots.`,
       },
       {
         title: "The signal worth trusting",
-        body: "Growth is the strongest tone in your profile right now, which means new action paths are easier to open.",
+        body: `Growth is the strongest tone in your profile right now, with ${support} helping turn expansion into real movement.`,
       },
       {
         title: "The best next direction",
@@ -101,11 +142,11 @@ function buildInsights(
     water: [
       {
         title: "Where you tend to get stuck",
-        body: "You feel everything in fine detail, which makes you easier to slow down through emotional weather, relationship undercurrents, and self-doubt.",
+        body: `You feel everything in fine detail, and when ${weakest} dips too low, emotional weather can flood the whole field.`,
       },
       {
         title: "The signal worth trusting",
-        body: `${name}'s strongest signal right now is sensitivity, which means emotional and timing cues are likely to land with unusual accuracy.`,
+        body: `${name}'s strongest signal right now is sensitivity, while ${support} quietly helps timing cues become usable instead of overwhelming.`,
       },
       {
         title: "The best next direction",
@@ -115,11 +156,11 @@ function buildInsights(
     fire: [
       {
         title: "Where you tend to get stuck",
-        body: "You usually know what you want, but when your energy overheats you can rush past the point where patience was still useful.",
+        body: `You usually know what you want, but when ${weakest} falls behind, your heat can outrun the patience that would have made it cleaner.`,
       },
       {
         title: "The signal worth trusting",
-        body: "The brightest force in your profile right now is action heat. Once you pick the right direction, momentum builds quickly.",
+        body: `The brightest force in your profile right now is action heat, with ${support} helping momentum build once the direction is right.`,
       },
       {
         title: "The best next direction",
@@ -129,11 +170,11 @@ function buildInsights(
     earth: [
       {
         title: "Where you tend to get stuck",
-        body: "You can delay change in the name of stability, which leaves you stuck longer exactly when movement would help most.",
+        body: `You can delay change in the name of stability, especially when ${weakest} energy is too quiet to reassure you that movement is safe.`,
       },
       {
         title: "The signal worth trusting",
-        body: `${name}'s strongest quality lately is steadiness, which makes this a strong moment for practical groundwork that lasts.`,
+        body: `${name}'s strongest quality lately is steadiness, with ${support} making this a better moment for durable progress than dramatic change.`,
       },
       {
         title: "The best next direction",
@@ -197,24 +238,29 @@ function buildRecommendedTracks(
 export function buildBaseProfile(payload: IntakePayload): BaseProfile {
   const elementDistribution = buildElementProfile(payload);
   const dominant = dominantElement(elementDistribution);
+  const weakest = weakestElement(elementDistribution);
+  const support = supportElement(elementDistribution);
   const chartVisual = buildChartVisual(dominant, payload.name);
-  const topInsights = buildInsights(dominant, payload.name);
+  const season = seasonFromDate(payload.birthDate);
+  const dayPhase = phaseFromTime(payload.birthTime);
+  const tensionPair: [ElementKey, ElementKey] = [dominant, weakest];
+  const topInsights = buildInsights(dominant, weakest, support, payload.name);
   const recommendedTracks = buildRecommendedTracks(dominant);
 
   const coreConclusionMap: Record<ElementKey, string> = {
-    metal: "Your strongest force right now is not emotion but judgment. This profile feels more like a blade getting sharper.",
-    wood: "Your strongest force right now is growth drive. The issue is not a lack of roads but the need for one clearer road.",
-    water: "Your strongest force right now is sensitivity. Emotional and relational movement will register in you earlier than it does for most people.",
-    fire: "Your strongest force right now is action heat. Picking the right direction matters more than storing more energy.",
-    earth: "Your strongest force right now is steadiness. Secure your footing first, then move the goal forward.",
+    metal: `Your field leads with metal while ${weakest} stays quieter underneath it. This makes the profile feel less emotional than precise, but the real work is letting sharp judgment stay connected to human timing.`,
+    wood: `Your field leads with wood while ${weakest} is still asking for support. The profile is not short on movement. It is asking for one path strong enough to hold your growth.`,
+    water: `Your field leads with water while ${weakest} keeps the edge of your sensitivity exposed. Emotional and relational signals will arrive early for you, so your power depends on reading them cleanly rather than resisting them.`,
+    fire: `Your field leads with fire while ${weakest} lowers your tolerance for delay. The profile is hot, direct, and ready to move, but it works best when that heat has a target.`,
+    earth: `Your field leads with earth while ${weakest} makes change feel riskier than it is. This profile gains power by stabilizing first, then moving without breaking its own rhythm.`,
   };
 
   const todaySignalMap: Record<ElementKey, string> = {
-    metal: "Today is best used to make one clear decision instead of dragging something forward in ambiguity.",
-    wood: "Today is best used to name the first step of a long-term idea instead of continuing to imagine it.",
-    water: "Today is best used to read the emotional and relational signals first, then decide whether to move closer.",
-    fire: "Today is best used to make one immediate move and turn raw heat into real feedback.",
-    earth: "Today is best used to resolve one long-pending issue so your foundation feels steadier.",
+    metal: `Today favors one clean decision. ${support} is strong enough to help the choice land if you stop dragging it through ambiguity.`,
+    wood: `Today favors naming the first real step. ${support} wants growth to become directional instead of staying conceptual.`,
+    water: `Today favors reading emotional and timing signals first. ${support} helps you respond without drowning in subtlety.`,
+    fire: `Today favors one immediate move. ${support} can turn raw heat into usable momentum if you act before the field cools.`,
+    earth: `Today favors resolving one long-pending issue. ${support} helps the foundation strengthen once the stuck point is cleared.`,
   };
 
   return {
@@ -228,6 +274,14 @@ export function buildBaseProfile(payload: IntakePayload): BaseProfile {
     chartVisual,
     coreType: elementDistribution.archetype,
     elementDistribution,
+    profileRationale: {
+      dominantElement: dominant,
+      weakestElement: weakest,
+      supportElement: support,
+      seasonalTone: season,
+      dayPhase,
+      tensionPair,
+    },
     todaySignal: todaySignalMap[dominant],
     coreConclusion: coreConclusionMap[dominant],
     topInsights,

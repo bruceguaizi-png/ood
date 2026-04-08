@@ -18,7 +18,7 @@ export function ShopCatalogClient(props: {
       <div className="flex items-center justify-between gap-4">
         <div>
           <p className="text-xs uppercase tracking-[0.24em] text-stone-400">Ritual bag</p>
-          <h2 className="mt-2 font-serif text-3xl text-stone-50">
+          <h2 className="mt-2 text-balance font-serif text-3xl text-stone-50">
             {bag.length === 0 ? "No saved drops yet" : `${bag.length} saved items`}
           </h2>
         </div>
@@ -33,7 +33,7 @@ export function ShopCatalogClient(props: {
           return (
             <div
               key={product.slug}
-              className={`rounded-2xl border p-4 text-left transition ${
+                  className={`rounded-2xl border p-4 text-left transition ${
                 active
                   ? "border-pink-300/30 bg-pink-300/10"
                   : "border-white/10 bg-white/[0.03] hover:bg-white/[0.06]"
@@ -41,12 +41,12 @@ export function ShopCatalogClient(props: {
             >
               <div className="flex items-center justify-between gap-3">
                 <div>
-                  <div className="font-serif text-2xl text-stone-50">{product.title}</div>
+                  <div className="text-balance font-serif text-2xl text-stone-50">{product.title}</div>
                   <div className="mt-1 text-xs uppercase tracking-[0.18em] text-stone-400">
                     {product.type}
                   </div>
                 </div>
-                <div className="rounded-full border border-white/10 px-3 py-1 text-xs text-stone-200">
+                <div className="tabular-nums rounded-full border border-white/10 px-3 py-1 text-xs text-stone-200">
                   {product.priceLabel}
                 </div>
               </div>
@@ -67,7 +67,7 @@ export function ShopCatalogClient(props: {
                     });
                     setBag(readBag());
                   }}
-                  className="rounded-full border border-white/10 px-3 py-1 text-xs text-stone-200 transition hover:bg-white/8"
+                  className="rounded-full border border-white/10 px-3 py-1 text-xs text-stone-200 transition hover:bg-white/8 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-200/45"
                 >
                   Add to tray
                 </button>
@@ -84,7 +84,7 @@ export function ShopCatalogClient(props: {
             {bag.map((item, index) => (
               <div
                 key={`${item.slug}-${index}`}
-                className="rounded-full border border-white/10 px-3 py-1 text-xs text-stone-200"
+                className="tabular-nums rounded-full border border-white/10 px-3 py-1 text-xs text-stone-200"
               >
                 {item.title} · {item.priceLabel}
               </div>

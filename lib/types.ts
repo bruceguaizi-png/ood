@@ -63,6 +63,14 @@ export type BaseProfile = {
   chartVisual: BaseChartVisual;
   coreType: string;
   elementDistribution: ElementProfile;
+  profileRationale: {
+    dominantElement: ElementKey;
+    weakestElement: ElementKey;
+    supportElement: ElementKey;
+    seasonalTone: "spring" | "summer" | "autumn" | "winter";
+    dayPhase: "dawn" | "day" | "dusk" | "night" | "unknown";
+    tensionPair: [ElementKey, ElementKey];
+  };
   todaySignal: string;
   coreConclusion: string;
   topInsights: QuickInsight[];

@@ -1,133 +1,87 @@
 import Link from "next/link";
 
-import { EmailHistoryForm } from "@/components/email-history-form";
-import { RitualHero } from "@/components/ritual-hero";
-import { RitualCard } from "@/components/ritual-card";
-import { SectionLabel } from "@/components/section-label";
-import { ServiceCard } from "@/components/service-card";
+import { QuickIntake } from "@/components/quick-intake";
 import { Shell } from "@/components/shell";
 import { TrackView } from "@/components/track-view";
-import { MANIFEST_RECEIPT_SKU, TRACKING_EVENTS } from "@/lib/constants";
-import { divinationServices } from "@/lib/site-content";
-import { currency } from "@/lib/utils";
+import { TRACKING_EVENTS } from "@/lib/constants";
 
 export default function Home() {
   return (
-    <Shell className="space-y-14" activeHref="/">
+    <Shell className="space-y-10" activeHref="/" navMode="minimal">
       <TrackView event={TRACKING_EVENTS.landingView} />
 
-      <RitualHero livePrice={currency(MANIFEST_RECEIPT_SKU.price)} />
+      <section className="relative overflow-hidden rounded-[40px] border border-white/10 bg-[radial-gradient(circle_at_top,rgba(95,230,255,0.18),transparent_26%),radial-gradient(circle_at_85%_10%,rgba(255,190,148,0.14),transparent_22%),linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.02))] px-6 py-8 sm:px-8 sm:py-10 lg:px-10 lg:py-12">
+        <div className="pointer-events-none absolute inset-0 opacity-30 [background-image:linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] [background-size:64px_64px]" />
+        <div className="pointer-events-none absolute left-[-8%] top-[14%] h-52 w-52 rounded-full border border-cyan-200/10 motion-safe:animate-[floatDrift_10s_ease-in-out_infinite]" />
+        <div className="pointer-events-none absolute right-[12%] top-[8%] h-80 w-80 rounded-full border border-white/8" />
+        <div className="pointer-events-none absolute right-[16%] top-[14%] h-52 w-52 rounded-full border border-amber-200/10 motion-safe:animate-[glowPulse_6s_ease-in-out_infinite]" />
 
-      <section className="grid gap-4 md:grid-cols-4">
+        <div className="relative grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+          <div className="space-y-5">
+            <p className="text-[11px] uppercase tracking-[0.42em] text-cyan-100/78">
+              O.O.D / Oracle Chamber
+            </p>
+            <h1 className="max-w-xl text-balance font-serif text-6xl leading-[0.88] text-stone-50 sm:text-7xl lg:text-8xl">
+              Begin with the signal.
+            </h1>
+            <p className="max-w-lg text-pretty text-base leading-8 text-stone-300 sm:text-lg">
+              No wall of lore. No crowded menu. Enter the essentials and let the first omen arrive.
+            </p>
+
+            <div className="grid gap-3 sm:grid-cols-3">
+              {[
+                ["Live Gate", "Open now"],
+                ["Input", "Name / date / email"],
+                ["Output", "Signal first"],
+              ].map(([label, value]) => (
+                <div
+                  key={label}
+                  className="rounded-2xl border border-white/10 bg-black/20 px-4 py-4"
+                >
+                  <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-stone-400">
+                    {label}
+                  </p>
+                  <p className="mt-3 text-balance font-serif text-2xl text-stone-50">{value}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex flex-wrap gap-3 text-sm text-stone-300">
+              <Link
+                href="/divination"
+                className="rounded-full border border-white/10 px-4 py-2 transition hover:border-cyan-200/25 hover:bg-white/8"
+              >
+                Explore the gates
+              </Link>
+              <Link
+                href="/report/demo-report?email=ritual%40ood.aura"
+                className="rounded-full border border-white/10 px-4 py-2 transition hover:border-cyan-200/25 hover:bg-white/8"
+              >
+                View a sample artifact
+              </Link>
+            </div>
+          </div>
+
+          <QuickIntake />
+        </div>
+      </section>
+
+      <section className="grid gap-4 md:grid-cols-3">
         {[
-          { label: "Primary entry", value: "Start the reading" },
-          { label: "Primary asset", value: "Base profile" },
-          { label: "Quick result", value: "One core line + 3 insights" },
-          { label: "Next step", value: "4 recommended tracks" },
-        ].map((item) => (
+          ["Signal", "A fast reading opens first."],
+          ["Archive", "The wider universe appears after the omen."],
+          ["Depth", "Full ritual paths stay ready when you want more."],
+        ].map(([label, text]) => (
           <div
-            key={item.label}
-            className="rounded-[24px] border border-white/10 bg-white/[0.04] p-5"
+            key={label}
+            className="rounded-[28px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02))] p-5"
           >
-            <p className="text-xs uppercase tracking-[0.26em] text-stone-400">{item.label}</p>
-            <p className="mt-3 font-serif text-2xl text-stone-50">{item.value}</p>
+            <p className="font-mono text-[11px] uppercase tracking-[0.26em] text-stone-400">
+              {label}
+            </p>
+            <p className="mt-3 text-balance font-serif text-3xl text-stone-50">{text}</p>
           </div>
         ))}
-      </section>
-
-      <section className="grid gap-8 lg:grid-cols-[1fr_1fr]">
-        <RitualCard className="space-y-5">
-          <SectionLabel>What Happens First</SectionLabel>
-          <div className="space-y-3">
-            {[
-              "Enter your name, birthday, birth time, and birth city",
-              "We generate your hexagram base profile first",
-              "You get one core conclusion and three key insights",
-              "Then you continue into the track that fits best",
-            ].map((item, index) => (
-              <div key={item} className="flex items-center gap-4">
-                <div className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/[0.05] text-sm text-stone-100">
-                  {index + 1}
-                </div>
-                <div className="text-sm text-stone-200">{item}</div>
-              </div>
-            ))}
-          </div>
-        </RitualCard>
-
-        <RitualCard className="space-y-5">
-          <SectionLabel>Supporting Entry Points</SectionLabel>
-          <p className="text-sm leading-7 text-stone-300">
-            Demo reports, history, and the shop still exist, but they should not land in the
-            user&apos;s head before &quot;start my base profile reading.&quot;
-          </p>
-          <div className="flex flex-wrap gap-3">
-            <Link
-              href="/report/demo-report?email=ritual%40ood.aura"
-              className="rounded-full border border-white/10 px-4 py-2 text-sm text-stone-100 transition hover:bg-white/8"
-            >
-              Open demo report
-            </Link>
-            <Link
-              href="/me/history?email=ritual%40ood.aura"
-              className="rounded-full border border-white/10 px-4 py-2 text-sm text-stone-100 transition hover:bg-white/8"
-            >
-              Open history
-            </Link>
-          </div>
-        </RitualCard>
-      </section>
-
-      <section className="space-y-5">
-        <div className="flex items-end justify-between gap-4">
-          <div>
-            <SectionLabel>Main Tracks</SectionLabel>
-            <h2 className="mt-2 font-serif text-4xl text-stone-50">
-              Get your base profile first, then follow the track that fits best
-            </h2>
-          </div>
-          <Link href="/divination" className="text-sm text-cyan-200">
-            View all tracks
-          </Link>
-        </div>
-        <div className="grid gap-5 lg:grid-cols-4">
-          {divinationServices.map((service) => (
-            <ServiceCard key={service.slug} service={service} />
-          ))}
-        </div>
-      </section>
-
-      <section className="grid gap-8 lg:grid-cols-[1fr_1fr]">
-        <RitualCard className="space-y-5">
-          <SectionLabel>Lightweight Add-Ons</SectionLabel>
-          <p className="text-sm leading-7 text-stone-300">
-            Card draws and the element quiz are no longer parallel homepage entry points. They
-            belong after the base profile as lighter supporting signals.
-          </p>
-          <div className="flex flex-wrap gap-3">
-            <Link
-              href="/tests/card/star"
-              className="rounded-full border border-white/10 px-4 py-2 text-sm text-stone-100 transition hover:bg-white/8"
-            >
-              Card draw demo
-            </Link>
-            <Link
-              href="/tests/element/water"
-              className="rounded-full border border-white/10 px-4 py-2 text-sm text-stone-100 transition hover:bg-white/8"
-            >
-              Element quiz demo
-            </Link>
-          </div>
-        </RitualCard>
-
-        <RitualCard className="space-y-5">
-          <SectionLabel>Return Entry</SectionLabel>
-          <p className="text-sm leading-7 text-stone-300">
-            Once a user already has a profile and artifacts, history and profile become the places
-            they return to keep exploring.
-          </p>
-          <EmailHistoryForm />
-        </RitualCard>
       </section>
     </Shell>
   );

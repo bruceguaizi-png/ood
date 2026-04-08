@@ -33,16 +33,16 @@ export default function UniversePage() {
   return (
     <Shell className="space-y-12" activeHref="/universe">
       <PageHero
-        eyebrow="IP universe"
-        title="The archive is a cast of entities, rules, and objects, not just a wall of lore."
-        body="This page should make the world understandable at a glance: who lives here, what each entity does, and which artifact or service each one governs."
+        eyebrow="Archive Constellation"
+        title="The archive should feel navigable before it feels explained."
+        body="See the cast, the objects, and the transmissions at a glance. Lore comes second."
       />
 
       <section className="grid gap-5 lg:grid-cols-4">
         {archiveRoles.map((role) => (
           <RitualCard key={role.name} className="space-y-3">
             <p className="text-xs uppercase tracking-[0.24em] text-pink-200/75">Entity archive</p>
-            <h2 className="font-serif text-3xl text-stone-50">{role.name}</h2>
+            <h2 className="text-balance font-serif text-3xl text-stone-50">{role.name}</h2>
             <p className="text-sm leading-7 text-stone-300">{role.duty}</p>
             <div className="rounded-full border border-white/10 px-3 py-1 text-xs text-stone-200">
               {role.object}
@@ -65,7 +65,7 @@ export default function UniversePage() {
         ].map((rule) => (
           <RitualCard key={rule} className="space-y-3">
             <p className="text-xs uppercase tracking-[0.24em] text-cyan-200/70">Ritual rule</p>
-            <p className="text-sm leading-7 text-stone-300">{rule}</p>
+            <p className="text-balance text-sm leading-7 text-stone-300">{rule}</p>
           </RitualCard>
         ))}
       </section>
@@ -84,14 +84,14 @@ export default function UniversePage() {
                   archive object
                 </div>
               </div>
-              <h3 className="font-serif text-3xl text-stone-50">{artifact.title}</h3>
+              <h3 className="text-balance font-serif text-3xl text-stone-50">{artifact.title}</h3>
               <p className="text-sm leading-7 text-stone-300">{artifact.function}</p>
               <p className="text-sm leading-7 text-stone-400">{artifact.symbolism}</p>
               <Link
                 href={artifact.destination}
                 className="inline-flex rounded-full border border-white/10 px-4 py-2 text-sm text-stone-100 transition hover:bg-white/8"
               >
-                Open object
+                Open Object
               </Link>
             </RitualCard>
           ))}
@@ -102,7 +102,7 @@ export default function UniversePage() {
         {universeFeed.map((item) => (
           <RitualCard key={item} className="space-y-3">
             <p className="text-xs uppercase tracking-[0.24em] text-cyan-200/70">Latest transmission</p>
-            <p className="text-sm leading-7 text-stone-300">{item}</p>
+            <p className="text-balance text-sm leading-7 text-stone-300">{item}</p>
           </RitualCard>
         ))}
       </section>

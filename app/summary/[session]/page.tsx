@@ -21,19 +21,19 @@ export default async function SummaryPage({ params }: SummaryPageProps) {
   return (
     <Shell className="space-y-10">
       <div className="space-y-4">
-        <SectionLabel>Quick Summary</SectionLabel>
-        <h1 className="font-serif text-5xl text-stone-50 sm:text-6xl">
+        <SectionLabel>First Omen</SectionLabel>
+        <h1 className="text-balance font-serif text-5xl text-stone-50 sm:text-6xl">
           {profile.identity.name}&apos;s core reading
         </h1>
-        <p className="max-w-3xl text-lg leading-8 text-stone-300">
-          Start with what matters. Your base profile has already surfaced the three directions most
-          worth paying attention to.
+        <p className="max-w-3xl text-pretty text-lg leading-8 text-stone-300">
+          Start with the line that matters. The base profile has already surfaced the strongest
+          directions around you.
         </p>
       </div>
 
       <RitualCard className="space-y-4">
         <p className="text-xs uppercase tracking-[0.24em] text-pink-200/75">Core conclusion</p>
-        <h2 className="font-serif text-4xl text-stone-50">{profile.coreConclusion}</h2>
+        <h2 className="text-balance font-serif text-4xl text-stone-50">{profile.coreConclusion}</h2>
       </RitualCard>
 
       <section className="grid gap-5 lg:grid-cols-3">
@@ -50,13 +50,13 @@ export default async function SummaryPage({ params }: SummaryPageProps) {
           href={`/tracks/${session.id}`}
           className="rounded-full bg-stone-100 px-5 py-3 text-sm font-semibold text-stone-950 transition hover:bg-cyan-100"
         >
-          Show me the best next track
+          Show Me The Best Next Track
         </Link>
         <Link
           href={`/report/${session.reportId ?? "demo-report"}?email=${encodeURIComponent(session.email ?? "ritual@ood.aura")}`}
           className="rounded-full border border-white/10 px-5 py-3 text-sm text-stone-100 transition hover:bg-white/8"
         >
-          View the full artifact example
+          View The Full Artifact Example
         </Link>
       </div>
     </Shell>

@@ -421,6 +421,499 @@
           }
         ]
       }
+    },
+    "sess_ZiReYBVdZeD_": {
+      "id": "sess_ZiReYBVdZeD_",
+      "createdAt": "2026-04-08T05:18:58.892Z",
+      "updatedAt": "2026-04-08T05:18:58.892Z",
+      "name": "Bruce",
+      "birthDate": "2001-03-29",
+      "birthTime": "09:18",
+      "birthCity": "Shanghai",
+      "consentEntertainmentDisclaimer": true,
+      "email": "123@123.com",
+      "baseProfile": {
+        "identity": {
+          "name": "Bruce",
+          "birthday": "2001-03-29",
+          "birthTime": "09:18",
+          "birthLocation": "Shanghai"
+        },
+        "chartType": "hexagram",
+        "chartVisual": {
+          "chartType": "hexagram",
+          "dominantElement": "earth",
+          "ringOrder": [
+            "metal",
+            "wood",
+            "water",
+            "fire",
+            "earth"
+          ],
+          "glowLabel": "Bruce's live pattern"
+        },
+        "coreType": "The Velvet Instigator",
+        "elementDistribution": {
+          "metal": 54,
+          "wood": 72,
+          "water": 34,
+          "fire": 54,
+          "earth": 76,
+          "archetype": "The Velvet Instigator",
+          "palette": {
+            "base": "#181108",
+            "accent": "#d9a96a",
+            "glow": "#f3d6af"
+          }
+        },
+        "todaySignal": "Today is best used to resolve one long-pending issue so your foundation feels steadier.",
+        "coreConclusion": "Your strongest force right now is steadiness. Secure your footing first, then move the goal forward.",
+        "topInsights": [
+          {
+            "title": "Where you tend to get stuck",
+            "body": "You can delay change in the name of stability, which leaves you stuck longer exactly when movement would help most."
+          },
+          {
+            "title": "The signal worth trusting",
+            "body": "Bruce's strongest quality lately is steadiness, which makes this a strong moment for practical groundwork that lasts."
+          },
+          {
+            "title": "The best next direction",
+            "body": "Move into growth and goal alignment first to create a steadier feeling of progress."
+          }
+        ],
+        "recommendedTracks": [
+          {
+            "kind": "fandom-relationship",
+            "title": "Relationship and attraction",
+            "preview": "See how you read connection, how you move closer, and what emotional tension is most active right now.",
+            "cta": "Open relationship track",
+            "why": "You seek steadiness in connection, and this track helps you spot slow emotional drain early."
+          },
+          {
+            "kind": "personal-growth",
+            "title": "Personal growth",
+            "preview": "Find the recurring behavior loop most likely to stall you and the inner switch most worth adjusting.",
+            "cta": "Open growth track",
+            "why": "Growth is especially useful here because you need to see the pattern by which you keep containing yourself."
+          },
+          {
+            "kind": "fortune-upgrade",
+            "title": "Fortune upgrade",
+            "preview": "Turn today's signal into a practical direction, a caution, and a move that strengthens the day.",
+            "cta": "Open fortune track",
+            "why": "Your fortune upgrade is more about stable recalibration than a sudden spike."
+          },
+          {
+            "kind": "goal-alignment",
+            "title": "Goal alignment",
+            "preview": "Map the profile's momentum, friction, and timing into a concrete way of moving real goals forward.",
+            "cta": "Open goal track",
+            "why": "Goal alignment fits you best because your profile supports long-term, grounded progress."
+          }
+        ]
+      }
+    },
+    "sess_Q9QFTh-WJk8J": {
+      "id": "sess_Q9QFTh-WJk8J",
+      "createdAt": "2026-04-08T05:19:49.965Z",
+      "updatedAt": "2026-04-08T05:19:49.965Z",
+      "name": "Bruce",
+      "birthDate": "2026-04-08",
+      "birthTime": "13:19",
+      "birthCity": "123",
+      "consentEntertainmentDisclaimer": true,
+      "email": "123@123.com",
+      "baseProfile": {
+        "identity": {
+          "name": "Bruce",
+          "birthday": "2026-04-08",
+          "birthTime": "13:19",
+          "birthLocation": "123"
+        },
+        "chartType": "hexagram",
+        "chartVisual": {
+          "chartType": "hexagram",
+          "dominantElement": "earth",
+          "ringOrder": [
+            "metal",
+            "wood",
+            "water",
+            "fire",
+            "earth"
+          ],
+          "glowLabel": "Bruce's live pattern"
+        },
+        "coreType": "The Ritual Architect",
+        "elementDistribution": {
+          "metal": 64,
+          "wood": 82,
+          "water": 44,
+          "fire": 64,
+          "earth": 86,
+          "archetype": "The Ritual Architect",
+          "palette": {
+            "base": "#181108",
+            "accent": "#d9a96a",
+            "glow": "#f3d6af"
+          }
+        },
+        "todaySignal": "Today is best used to resolve one long-pending issue so your foundation feels steadier.",
+        "coreConclusion": "Your strongest force right now is steadiness. Secure your footing first, then move the goal forward.",
+        "topInsights": [
+          {
+            "title": "Where you tend to get stuck",
+            "body": "You can delay change in the name of stability, which leaves you stuck longer exactly when movement would help most."
+          },
+          {
+            "title": "The signal worth trusting",
+            "body": "Bruce's strongest quality lately is steadiness, which makes this a strong moment for practical groundwork that lasts."
+          },
+          {
+            "title": "The best next direction",
+            "body": "Move into growth and goal alignment first to create a steadier feeling of progress."
+          }
+        ],
+        "recommendedTracks": [
+          {
+            "kind": "fandom-relationship",
+            "title": "Relationship and attraction",
+            "preview": "See how you read connection, how you move closer, and what emotional tension is most active right now.",
+            "cta": "Open relationship track",
+            "why": "You seek steadiness in connection, and this track helps you spot slow emotional drain early."
+          },
+          {
+            "kind": "personal-growth",
+            "title": "Personal growth",
+            "preview": "Find the recurring behavior loop most likely to stall you and the inner switch most worth adjusting.",
+            "cta": "Open growth track",
+            "why": "Growth is especially useful here because you need to see the pattern by which you keep containing yourself."
+          },
+          {
+            "kind": "fortune-upgrade",
+            "title": "Fortune upgrade",
+            "preview": "Turn today's signal into a practical direction, a caution, and a move that strengthens the day.",
+            "cta": "Open fortune track",
+            "why": "Your fortune upgrade is more about stable recalibration than a sudden spike."
+          },
+          {
+            "kind": "goal-alignment",
+            "title": "Goal alignment",
+            "preview": "Map the profile's momentum, friction, and timing into a concrete way of moving real goals forward.",
+            "cta": "Open goal track",
+            "why": "Goal alignment fits you best because your profile supports long-term, grounded progress."
+          }
+        ]
+      }
+    },
+    "sess__tM915wEq_ug": {
+      "id": "sess__tM915wEq_ug",
+      "createdAt": "2026-04-08T07:27:57.899Z",
+      "updatedAt": "2026-04-08T07:27:57.899Z",
+      "name": "bruce",
+      "birthDate": "2001-03-29",
+      "birthTime": "",
+      "birthCity": "",
+      "consentEntertainmentDisclaimer": true,
+      "email": "123@123.com",
+      "baseProfile": {
+        "identity": {
+          "name": "bruce",
+          "birthday": "2001-03-29",
+          "birthTime": "",
+          "birthLocation": ""
+        },
+        "chartType": "hexagram",
+        "chartVisual": {
+          "chartType": "hexagram",
+          "dominantElement": "earth",
+          "ringOrder": [
+            "metal",
+            "wood",
+            "water",
+            "fire",
+            "earth"
+          ],
+          "glowLabel": "bruce's live pattern"
+        },
+        "coreType": "The Soft Strategist",
+        "elementDistribution": {
+          "metal": 55,
+          "wood": 83,
+          "water": 43,
+          "fire": 70,
+          "earth": 85,
+          "archetype": "The Soft Strategist",
+          "palette": {
+            "base": "#181108",
+            "accent": "#d9a96a",
+            "glow": "#f3d6af"
+          }
+        },
+        "profileRationale": {
+          "dominantElement": "earth",
+          "weakestElement": "water",
+          "supportElement": "wood",
+          "seasonalTone": "spring",
+          "dayPhase": "unknown",
+          "tensionPair": [
+            "earth",
+            "water"
+          ]
+        },
+        "todaySignal": "Today favors resolving one long-pending issue. wood helps the foundation strengthen once the stuck point is cleared.",
+        "coreConclusion": "Your field leads with earth while water makes change feel riskier than it is. This profile gains power by stabilizing first, then moving without breaking its own rhythm.",
+        "topInsights": [
+          {
+            "title": "Where you tend to get stuck",
+            "body": "You can delay change in the name of stability, especially when water energy is too quiet to reassure you that movement is safe."
+          },
+          {
+            "title": "The signal worth trusting",
+            "body": "bruce's strongest quality lately is steadiness, with wood making this a better moment for durable progress than dramatic change."
+          },
+          {
+            "title": "The best next direction",
+            "body": "Move into growth and goal alignment first to create a steadier feeling of progress."
+          }
+        ],
+        "recommendedTracks": [
+          {
+            "kind": "fandom-relationship",
+            "title": "Relationship and attraction",
+            "preview": "See how you read connection, how you move closer, and what emotional tension is most active right now.",
+            "cta": "Open relationship track",
+            "why": "You seek steadiness in connection, and this track helps you spot slow emotional drain early."
+          },
+          {
+            "kind": "personal-growth",
+            "title": "Personal growth",
+            "preview": "Find the recurring behavior loop most likely to stall you and the inner switch most worth adjusting.",
+            "cta": "Open growth track",
+            "why": "Growth is especially useful here because you need to see the pattern by which you keep containing yourself."
+          },
+          {
+            "kind": "fortune-upgrade",
+            "title": "Fortune upgrade",
+            "preview": "Turn today's signal into a practical direction, a caution, and a move that strengthens the day.",
+            "cta": "Open fortune track",
+            "why": "Your fortune upgrade is more about stable recalibration than a sudden spike."
+          },
+          {
+            "kind": "goal-alignment",
+            "title": "Goal alignment",
+            "preview": "Map the profile's momentum, friction, and timing into a concrete way of moving real goals forward.",
+            "cta": "Open goal track",
+            "why": "Goal alignment fits you best because your profile supports long-term, grounded progress."
+          }
+        ]
+      }
+    },
+    "sess_6mvRmTwdqRjg": {
+      "id": "sess_6mvRmTwdqRjg",
+      "createdAt": "2026-04-08T07:28:38.482Z",
+      "updatedAt": "2026-04-08T07:28:38.482Z",
+      "name": "bruce",
+      "birthDate": "2001-03-29",
+      "birthTime": "12:23",
+      "birthCity": "123",
+      "consentEntertainmentDisclaimer": true,
+      "email": "213@213.com",
+      "baseProfile": {
+        "identity": {
+          "name": "bruce",
+          "birthday": "2001-03-29",
+          "birthTime": "12:23",
+          "birthLocation": "123"
+        },
+        "chartType": "hexagram",
+        "chartVisual": {
+          "chartType": "hexagram",
+          "dominantElement": "wood",
+          "ringOrder": [
+            "metal",
+            "wood",
+            "water",
+            "fire",
+            "earth"
+          ],
+          "glowLabel": "bruce's live pattern"
+        },
+        "coreType": "The Magnetic Builder",
+        "elementDistribution": {
+          "metal": 65,
+          "wood": 86,
+          "water": 51,
+          "fire": 74,
+          "earth": 38,
+          "archetype": "The Magnetic Builder",
+          "palette": {
+            "base": "#07170f",
+            "accent": "#6dde88",
+            "glow": "#cfffe0"
+          }
+        },
+        "profileRationale": {
+          "dominantElement": "wood",
+          "weakestElement": "earth",
+          "supportElement": "fire",
+          "seasonalTone": "spring",
+          "dayPhase": "day",
+          "tensionPair": [
+            "wood",
+            "earth"
+          ]
+        },
+        "todaySignal": "Today favors naming the first real step. fire wants growth to become directional instead of staying conceptual.",
+        "coreConclusion": "Your field leads with wood while earth is still asking for support. The profile is not short on movement. It is asking for one path strong enough to hold your growth.",
+        "topInsights": [
+          {
+            "title": "Where you tend to get stuck",
+            "body": "You are not short on drive. The issue is that earth stays underfed, so your momentum spreads wider than it roots."
+          },
+          {
+            "title": "The signal worth trusting",
+            "body": "Growth is the strongest tone in your profile right now, with fire helping turn expansion into real movement."
+          },
+          {
+            "title": "The best next direction",
+            "body": "Go to growth and goal alignment first so abstract desire can become a visible path."
+          }
+        ],
+        "recommendedTracks": [
+          {
+            "kind": "fandom-relationship",
+            "title": "Relationship and attraction",
+            "preview": "See how you read connection, how you move closer, and what emotional tension is most active right now.",
+            "cta": "Open relationship track",
+            "why": "You enter relationships with a strong growth drive, so this track will likely mirror you quickly."
+          },
+          {
+            "kind": "personal-growth",
+            "title": "Personal growth",
+            "preview": "Find the recurring behavior loop most likely to stall you and the inner switch most worth adjusting.",
+            "cta": "Open growth track",
+            "why": "Your profile is especially ready for growth work and directional clarity first."
+          },
+          {
+            "kind": "fortune-upgrade",
+            "title": "Fortune upgrade",
+            "preview": "Turn today's signal into a practical direction, a caution, and a move that strengthens the day.",
+            "cta": "Open fortune track",
+            "why": "Your current fortune question is about choosing a direction, not waiting for luck."
+          },
+          {
+            "kind": "goal-alignment",
+            "title": "Goal alignment",
+            "preview": "Map the profile's momentum, friction, and timing into a concrete way of moving real goals forward.",
+            "cta": "Open goal track",
+            "why": "Your profile is very supportive of long-horizon progress toward meaningful goals."
+          }
+        ]
+      }
+    },
+    "sess_MBiUoZKAJ2fx": {
+      "id": "sess_MBiUoZKAJ2fx",
+      "createdAt": "2026-04-08T08:02:14.290Z",
+      "updatedAt": "2026-04-08T08:02:14.290Z",
+      "name": "123",
+      "birthDate": "2001-03-29",
+      "birthTime": "",
+      "birthCity": "",
+      "consentEntertainmentDisclaimer": true,
+      "email": "123@123.com",
+      "baseProfile": {
+        "identity": {
+          "name": "123",
+          "birthday": "2001-03-29",
+          "birthTime": "",
+          "birthLocation": ""
+        },
+        "chartType": "hexagram",
+        "chartVisual": {
+          "chartType": "hexagram",
+          "dominantElement": "metal",
+          "ringOrder": [
+            "metal",
+            "wood",
+            "water",
+            "fire",
+            "earth"
+          ],
+          "glowLabel": "123's live pattern"
+        },
+        "coreType": "The Luminous Operator",
+        "elementDistribution": {
+          "metal": 84,
+          "wood": 56,
+          "water": 72,
+          "fire": 43,
+          "earth": 58,
+          "archetype": "The Luminous Operator",
+          "palette": {
+            "base": "#111827",
+            "accent": "#d3d7df",
+            "glow": "#fafafa"
+          }
+        },
+        "profileRationale": {
+          "dominantElement": "metal",
+          "weakestElement": "fire",
+          "supportElement": "water",
+          "seasonalTone": "spring",
+          "dayPhase": "unknown",
+          "tensionPair": [
+            "metal",
+            "fire"
+          ]
+        },
+        "todaySignal": "Today favors one clean decision. water is strong enough to help the choice land if you stop dragging it through ambiguity.",
+        "coreConclusion": "Your field leads with metal while fire stays quieter underneath it. This makes the profile feel less emotional than precise, but the real work is letting sharp judgment stay connected to human timing.",
+        "topInsights": [
+          {
+            "title": "Where you tend to get stuck",
+            "body": "You edit yourself before you express yourself, especially when fire energy is running low and softness feels less available."
+          },
+          {
+            "title": "The signal worth trusting",
+            "body": "123's strongest signal right now is sharp judgment, with water acting like the hidden support beam behind it."
+          },
+          {
+            "title": "The best next direction",
+            "body": "Start with goal alignment or personal growth before you spend time on broad fortune prompts."
+          }
+        ],
+        "recommendedTracks": [
+          {
+            "kind": "fandom-relationship",
+            "title": "Relationship and attraction",
+            "preview": "See how you read connection, how you move closer, and what emotional tension is most active right now.",
+            "cta": "Open relationship track",
+            "why": "Your relationship judgment is sharp, but your emotional expression stays compressed. This track is most likely to feel uncannily accurate."
+          },
+          {
+            "kind": "personal-growth",
+            "title": "Personal growth",
+            "preview": "Find the recurring behavior loop most likely to stall you and the inner switch most worth adjusting.",
+            "cta": "Open growth track",
+            "why": "What you need now is not more information but a clearer look at what you keep cutting away from yourself."
+          },
+          {
+            "kind": "fortune-upgrade",
+            "title": "Fortune upgrade",
+            "preview": "Turn today's signal into a practical direction, a caution, and a move that strengthens the day.",
+            "cta": "Open fortune track",
+            "why": "Your profile responds better to precise timing cues than generic encouragement."
+          },
+          {
+            "kind": "goal-alignment",
+            "title": "Goal alignment",
+            "preview": "Map the profile's momentum, friction, and timing into a concrete way of moving real goals forward.",
+            "cta": "Open goal track",
+            "why": "Your execution and judgment are clarifying. Real-world momentum is worth prioritizing."
+          }
+        ]
+      }
     }
   },
   "orders": {

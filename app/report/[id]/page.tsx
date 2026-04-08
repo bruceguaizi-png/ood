@@ -39,18 +39,56 @@ export default async function ReportPage({ params, searchParams }: ReportPagePro
 
       <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
         <RitualCard className="space-y-6">
-          <SectionLabel>Manifest receipt</SectionLabel>
+          <SectionLabel>Manifest Receipt</SectionLabel>
           <div className="space-y-3">
-            <h1 className="font-serif text-4xl text-stone-50 sm:text-5xl">
+            <h1 className="text-balance font-serif text-4xl text-stone-50 sm:text-5xl">
               {receipt?.theme
                 ? `${receipt.theme.charAt(0).toUpperCase()}${receipt.theme.slice(1)} Ritual`
                 : "Receipt pending"}
             </h1>
-            <p className="text-lg leading-8 text-stone-300">
+            <p className="text-pretty text-lg leading-8 text-stone-300">
               {receipt?.summary ??
-                "Your report is still rendering. Leave this tab open and it will refresh itself."}
+                "Your report is still rendering. Leave this page open and it will refresh itself."}
             </p>
           </div>
+
+          {receipt ? (
+            <div className="rounded-[28px] border border-white/10 bg-[radial-gradient(circle_at_top,rgba(255,194,153,0.14),transparent_26%),radial-gradient(circle_at_bottom,rgba(111,232,255,0.12),transparent_28%),linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.02))] p-6">
+              <div className="grid gap-4 md:grid-cols-[0.9fr_1.1fr] md:items-center">
+                <div className="relative flex min-h-[260px] items-center justify-center overflow-hidden rounded-[24px] border border-white/10 bg-black/20">
+                  <div className="absolute h-52 w-52 rounded-full border border-amber-200/18 motion-safe:animate-[orbitSpin_18s_linear_infinite]" />
+                  <div className="absolute h-36 w-36 rounded-full border border-cyan-200/16 motion-safe:animate-[orbitSpin_12s_linear_infinite_reverse]" />
+                  <div className="absolute h-24 w-24 rounded-full border border-white/12" />
+                  <div className="z-10 text-center">
+                    <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-stone-400">
+                      Today&apos;s pull
+                    </p>
+                    <p className="mt-3 text-balance font-serif text-3xl text-stone-50">
+                      {receipt.tarotCard}
+                    </p>
+                  </div>
+                </div>
+                <div className="grid gap-3 sm:grid-cols-2">
+                  {[
+                    ["Energy", `${receipt.energyScore}/100`],
+                    ["Action", receipt.action],
+                    ["Caution", receipt.caution],
+                    ["Mantra", receipt.mantra],
+                  ].map(([label, value]) => (
+                    <div
+                      key={label}
+                      className="rounded-2xl border border-white/10 bg-black/20 p-4"
+                    >
+                      <div className="font-mono text-xs uppercase tracking-[0.22em] text-stone-400">
+                        {label}
+                      </div>
+                      <div className="mt-3 text-sm leading-7 text-stone-100">{value}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ) : null}
 
           <ReportStatusPoller
             reportId={report.id}
@@ -66,11 +104,11 @@ export default async function ReportPage({ params, searchParams }: ReportPagePro
           {receipt ? (
             <div className="grid gap-4 md:grid-cols-2">
               {[
-                ["Today's pull", receipt.tarotCard],
+                ["Theme", receipt.theme],
                 ["Energy score", `${receipt.energyScore}/100`],
-                ["Best move today", receipt.action],
-                ["Avoid today", receipt.caution],
-                ["Mantra", receipt.mantra],
+                ["Best move", receipt.action],
+                ["Avoid", receipt.caution],
+                ["Share line", receipt.shareCaption],
                 ["Archetype", report.elementProfile.archetype],
               ].map(([label, value]) => (
                 <div
@@ -95,7 +133,7 @@ export default async function ReportPage({ params, searchParams }: ReportPagePro
                 ? "This beta link is open because the provided email matches the delivery record."
                 : "Open this page from the delivery email for auto-verified access."}
             </p>
-            <div className="space-y-2 text-sm text-stone-400">
+            <div className="tabular-nums space-y-2 text-sm text-stone-400">
               <p>Email: {report.email}</p>
               <p>Status: {report.status}</p>
               <p>Date: {receipt?.date ?? "Pending"}</p>
@@ -124,7 +162,7 @@ export default async function ReportPage({ params, searchParams }: ReportPagePro
               href={`/me/history?email=${encodeURIComponent(report.email)}`}
               className="inline-flex rounded-full bg-pink-200 px-4 py-2 text-sm font-semibold text-stone-950 transition hover:bg-pink-100"
             >
-              Open my full history
+              Open My Full History
             </Link>
           </RitualCard>
         </div>

@@ -5,6 +5,10 @@ import { useState } from "react";
 
 import { RitualCard } from "@/components/ritual-card";
 import {
+  readActiveSession,
+  type ActiveSessionSnapshot,
+} from "@/lib/client/active-session";
+import {
   readAmuletDraft,
   readBag,
   readRecentReports,
@@ -22,39 +26,51 @@ export function ProfileCenterClient() {
   const [testSummary] = useState<TestSummary | null>(() => readTestSummary());
   const [testDetail] = useState(() => readTestResultDetail());
   const [amulet] = useState<AmuletDraft | null>(() => readAmuletDraft());
+  const [activeSession] = useState<ActiveSessionSnapshot | null>(() => readActiveSession());
 
   return (
     <div className="grid gap-5">
       <div className="grid gap-5 lg:grid-cols-[1.05fr_0.95fr]">
         <RitualCard className="space-y-4">
-          <p className="text-xs uppercase tracking-[0.24em] text-cyan-200/80">Today&apos;s signal</p>
-          <h2 className="font-serif text-4xl text-stone-50">
-            {testSummary ? testSummary.title : "No fresh reading yet"}
+          <p className="text-xs uppercase tracking-[0.24em] text-cyan-200/80">Latest signal</p>
+          <h2 className="text-balance font-serif text-4xl text-stone-50">
+            {testSummary
+              ? testSummary.title
+              : activeSession
+                ? activeSession.coreType
+                : "No base reading yet"}
           </h2>
           <p className="text-sm leading-7 text-stone-300">
             {testSummary
               ? testSummary.summary
-              : "Pull a card or run the element quiz from the homepage to create a lighter first-touch reading."}
+              : activeSession
+                ? "Your base reading is active. Run a side ritual to generate a fresh secondary signal."
+                : "Start your base reading first. Side rituals unlock after the first intake."}
           </p>
+          {activeSession ? (
+            <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4 text-sm text-stone-300">
+              Base reading: <span className="font-medium text-stone-100">{activeSession.coreType}</span>
+            </div>
+          ) : null}
           <div className="flex flex-wrap gap-3">
             <Link
               href="/"
               className="rounded-full bg-stone-100 px-4 py-2 text-sm font-semibold text-stone-950 transition hover:bg-cyan-100"
             >
-              Re-open entry tests
+              Return to Oracle Entry
             </Link>
             <Link
               href="/quiz"
               className="rounded-full border border-white/10 px-4 py-2 text-sm text-stone-100 transition hover:bg-white/8"
             >
-              Start full ritual
+              Open Full Ritual
             </Link>
             {testDetail ? (
               <Link
                 href={testDetail.nextHref}
                 className="rounded-full border border-white/10 px-4 py-2 text-sm text-stone-100 transition hover:bg-white/8"
               >
-                Re-open last test
+                Re-open Latest Side Ritual
               </Link>
             ) : null}
           </div>
@@ -62,7 +78,7 @@ export function ProfileCenterClient() {
 
         <RitualCard className="space-y-4">
           <p className="text-xs uppercase tracking-[0.24em] text-pink-200/75">My ritual bag</p>
-          <h2 className="font-serif text-4xl text-stone-50">
+          <h2 className="text-balance font-serif text-4xl text-stone-50">
             {bag.length === 0 ? "Empty altar" : `${bag.length} staged items`}
           </h2>
           <div className="flex flex-wrap gap-2">
@@ -74,7 +90,7 @@ export function ProfileCenterClient() {
               bag.map((item, index) => (
                 <div
                   key={`${item.slug}-${index}`}
-                  className="rounded-full border border-white/10 px-3 py-1 text-xs text-stone-100"
+                  className="tabular-nums rounded-full border border-white/10 px-3 py-1 text-xs text-stone-100"
                 >
                   {item.title} · {item.priceLabel}
                 </div>
@@ -85,7 +101,7 @@ export function ProfileCenterClient() {
             href="/shop"
             className="inline-flex rounded-full border border-white/10 px-4 py-2 text-sm text-stone-100 transition hover:bg-white/8"
           >
-            Open shop drawer
+            Open Artifact Vault
           </Link>
         </RitualCard>
       </div>
@@ -109,8 +125,8 @@ export function ProfileCenterClient() {
                 href={`/report/${report.reportId}`}
                 className="block rounded-2xl border border-white/10 bg-white/[0.03] p-4 transition hover:bg-white/[0.06]"
               >
-                <div className="font-serif text-2xl text-stone-50">{report.title}</div>
-                <div className="mt-2 text-sm text-stone-300">
+                <div className="text-balance font-serif text-2xl text-stone-50">{report.title}</div>
+                <div className="tabular-nums mt-2 text-sm text-stone-300">
                   {report.theme} · {report.date}
                 </div>
               </Link>
@@ -122,7 +138,7 @@ export function ProfileCenterClient() {
           <p className="text-xs uppercase tracking-[0.24em] text-stone-400">My artifacts</p>
           {amulet ? (
             <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4">
-              <div className="font-serif text-3xl text-stone-50">{amulet.name}</div>
+              <div className="text-balance font-serif text-3xl text-stone-50">{amulet.name}</div>
               <div className="mt-2 text-sm uppercase tracking-[0.18em] text-cyan-200/75">
                 {amulet.element} channel · {amulet.sigil}
               </div>
@@ -138,13 +154,13 @@ export function ProfileCenterClient() {
               href="/collection"
               className="rounded-full border border-white/10 px-4 py-2 text-sm text-stone-100 transition hover:bg-white/8"
             >
-              Open collection lab
+              Open Collection Lab
             </Link>
             <Link
               href="/me/history?email=ritual%40ood.aura"
               className="rounded-full border border-white/10 px-4 py-2 text-sm text-stone-100 transition hover:bg-white/8"
             >
-              Full history
+              Full History
             </Link>
           </div>
         </RitualCard>

@@ -20,17 +20,21 @@ export function EmailHistoryForm() {
     >
       <input
         required
+        name="email"
+        autoComplete="email"
+        spellCheck={false}
+        inputMode="email"
         type="email"
         value={email}
         onChange={(event) => setEmail(event.target.value)}
-        placeholder="you@ritual.email"
-        className="h-12 flex-1 rounded-full border border-white/10 bg-black/25 px-4 text-stone-100 outline-none placeholder:text-stone-500"
+        placeholder="you@ritual.email…"
+        className="h-12 flex-1 rounded-full border border-white/10 bg-black/25 px-4 text-stone-100 placeholder:text-stone-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-200/45"
       />
       <button
         type="submit"
-        className="h-12 rounded-full bg-stone-100 px-5 text-sm font-semibold text-stone-950 transition hover:bg-cyan-100"
+        className="h-12 rounded-full bg-stone-100 px-5 text-sm font-semibold text-stone-950 transition hover:bg-cyan-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-200/45"
       >
-        Open my history
+        Open My History
       </button>
     </form>
   );

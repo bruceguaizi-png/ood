@@ -20,12 +20,12 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
   return (
     <Shell className="space-y-12" activeHref="/shop">
       <PageHero
-        eyebrow="Digital goods"
-        title="A shop designed for emotional artifacts, not generic SKUs."
-        body="The first release keeps commerce intentionally narrow: fewer products, stronger identity, and clearer emotional reasons to buy."
+        eyebrow="Artifact Vault"
+        title="Collect the objects that keep the signal alive."
+        body="Fewer drops. Stronger identity. Each object should feel like part of a ritual archive, not a generic SKU."
         side={
           <div className="space-y-3">
-            <p className="text-xs uppercase tracking-[0.24em] text-stone-400">Featured product</p>
+            <p className="text-xs uppercase tracking-[0.24em] text-stone-400">Featured object</p>
             <p className="font-serif text-4xl text-stone-50">{selected.title}</p>
             <p className="text-sm leading-7 text-stone-300">{selected.description}</p>
           </div>
@@ -40,12 +40,12 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
 
       <section className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
         <RitualCard className="space-y-4">
-          <SectionLabel>Selected detail</SectionLabel>
-          <h2 className="font-serif text-4xl text-stone-50">{selected.title}</h2>
+          <SectionLabel>Selected Object</SectionLabel>
+          <h2 className="text-balance font-serif text-4xl text-stone-50">{selected.title}</h2>
           <p className="text-sm leading-7 text-stone-300">{selected.description}</p>
           <div className="grid gap-3 sm:grid-cols-2">
             <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4 text-sm text-stone-300">
-              Price: {selected.priceLabel}
+              Price: <span className="tabular-nums">{selected.priceLabel}</span>
             </div>
             <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4 text-sm text-stone-300">
               Mood: {selected.mood}
@@ -56,13 +56,13 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
               href={selected.live ? "/quiz" : "/collection"}
               className="rounded-full bg-stone-100 px-5 py-3 text-sm font-semibold text-stone-950 transition hover:bg-cyan-100"
             >
-              {selected.live ? "Buy via live flow" : "See related collectible"}
+              {selected.live ? "Open Live Flow" : "See Related Collectible"}
             </Link>
             <Link
               href="/profile"
               className="rounded-full border border-white/10 px-5 py-3 text-sm text-stone-100 transition hover:bg-white/8"
             >
-              View cart / profile state
+              Open Profile Console
             </Link>
           </div>
         </RitualCard>

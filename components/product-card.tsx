@@ -9,9 +9,9 @@ export function ProductCard({ product }: { product: ProductCardType }) {
       <div className="flex items-start justify-between gap-4">
         <div>
           <p className="text-xs uppercase tracking-[0.24em] text-stone-400">{product.type}</p>
-          <h3 className="mt-2 font-serif text-3xl text-stone-50">{product.title}</h3>
+          <h3 className="mt-2 text-balance font-serif text-3xl text-stone-50">{product.title}</h3>
         </div>
-        <div className="rounded-full border border-white/10 px-3 py-1 text-sm text-stone-100">
+        <div className="tabular-nums rounded-full border border-white/10 px-3 py-1 text-sm text-stone-100">
           {product.priceLabel}
         </div>
       </div>
@@ -22,7 +22,7 @@ export function ProductCard({ product }: { product: ProductCardType }) {
           href={product.live ? "/quiz" : `/shop?product=${product.slug}`}
           className="inline-flex rounded-full border border-white/10 px-4 py-2 text-sm text-stone-100 transition hover:bg-white/8"
         >
-          {product.live ? "Open live flow" : "View product"}
+          {product.live ? "Open Live Flow" : "View Product"}
         </Link>
       </div>
     </RitualCard>

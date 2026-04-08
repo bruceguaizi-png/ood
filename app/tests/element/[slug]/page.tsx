@@ -4,48 +4,41 @@ import { notFound } from "next/navigation";
 import { PageHero } from "@/components/page-hero";
 import { RitualCard } from "@/components/ritual-card";
 import { Shell } from "@/components/shell";
-
-const elementDetails = {
-  metal: {
-    title: "Metal dominant",
-    summary: "Your instinct is to sharpen. Choose rituals that clarify and refine.",
-    recommendation: "Open cleaner, more concise artifacts like the live receipt.",
-    companionProduct: "Manifest Receipt",
-  },
-  wood: {
-    title: "Wood dominant",
-    summary: "You grow through direction. Pick rituals that turn potential into path.",
-    recommendation: "Favor generative artifacts and future-facing products.",
-    companionProduct: "Energy Wallpaper",
-  },
-  water: {
-    title: "Water dominant",
-    summary: "You read subtle shifts well. Your rituals work best when they reduce noise.",
-    recommendation: "Open calm, reflective outputs and collectible keepsakes.",
-    companionProduct: "Aura Amulet",
-  },
-  fire: {
-    title: "Fire dominant",
-    summary: "Motion and declaration are your best accelerants.",
-    recommendation: "Choose quick outputs that can be acted on immediately.",
-    companionProduct: "Manifest Receipt",
-  },
-  earth: {
-    title: "Earth dominant",
-    summary: "You stabilize through structure and repetition.",
-    recommendation: "Pick rituals that feel held, repeatable, and ownable.",
-    companionProduct: "Ritual Starter Bundle",
-  },
-} as const;
+import { getSession } from "@/lib/server/store";
+import { deriveElementResult } from "@/lib/client/ritual-derivations";
+import { type ActiveSessionSnapshot } from "@/lib/client/active-session";
 
 type ElementResultPageProps = {
   params: Promise<{ slug: string }>;
+  searchParams: Promise<{ sessionId?: string }>;
 };
 
-export default async function ElementResultPage({ params }: ElementResultPageProps) {
+export default async function ElementResultPage({ params, searchParams }: ElementResultPageProps) {
   const { slug } = await params;
-  const detail = elementDetails[slug as keyof typeof elementDetails];
-  if (!detail) notFound();
+  const { sessionId } = await searchParams;
+  if (!sessionId) notFound();
+
+  const session = await getSession(sessionId);
+  if (!session) notFound();
+
+  const snapshot: ActiveSessionSnapshot = {
+    sessionId: session.id,
+    name: session.name,
+    email: session.email,
+    coreType: session.baseProfile.coreType,
+    dominantElement: session.baseProfile.profileRationale.dominantElement,
+    weakestElement: session.baseProfile.profileRationale.weakestElement,
+    elementDistribution: {
+      metal: session.baseProfile.elementDistribution.metal,
+      wood: session.baseProfile.elementDistribution.wood,
+      water: session.baseProfile.elementDistribution.water,
+      fire: session.baseProfile.elementDistribution.fire,
+      earth: session.baseProfile.elementDistribution.earth,
+    },
+    createdAt: session.createdAt,
+  };
+  const detail = deriveElementResult(snapshot);
+  if (detail.slug !== slug) notFound();
 
   return (
     <Shell className="space-y-12" activeHref="/">
@@ -66,6 +59,9 @@ export default async function ElementResultPage({ params }: ElementResultPagePro
         <RitualCard className="space-y-4">
           <p className="text-xs uppercase tracking-[0.24em] text-cyan-200/75">Element reading</p>
           <p className="text-sm leading-7 text-stone-300">{detail.summary}</p>
+          <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4 text-sm text-stone-300">
+            Derived from your base profile: <span className="font-medium text-stone-100">{detail.sourceProfileCoreType}</span>
+          </div>
         </RitualCard>
         <RitualCard className="space-y-4">
           <p className="text-xs uppercase tracking-[0.24em] text-stone-400">Next step</p>

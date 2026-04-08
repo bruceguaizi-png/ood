@@ -55,7 +55,7 @@ export default async function TracksPage({ params }: TracksPageProps) {
                 {track.cta}
               </Link>
               <Link
-                href="/tests/card/star"
+                href={`/tests/card/star?sessionId=${session.id}`}
                 className="rounded-full border border-white/10 px-4 py-2 text-sm text-stone-100 transition hover:bg-white/8"
               >
                 Draw a card

@@ -37,7 +37,10 @@ export function ReportStatusPoller(props: {
   if (status === "ready") return null;
 
   return (
-    <p className="rounded-full border border-cyan-300/20 bg-cyan-300/10 px-4 py-2 text-xs text-cyan-100">
+    <p
+      aria-live="polite"
+      className="rounded-full border border-cyan-300/20 bg-cyan-300/10 px-4 py-2 text-xs text-cyan-100"
+    >
       Ritual generation status: {status}. This page refreshes automatically.
     </p>
   );

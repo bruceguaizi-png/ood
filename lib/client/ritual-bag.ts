@@ -80,6 +80,10 @@ export type TestResultDetail = TestSummary & {
   recommendation: string;
   nextHref: string;
   companionProduct: string;
+  sessionId: string;
+  sourceProfileCoreType: string;
+  sourceDominantElement: "metal" | "wood" | "water" | "fire" | "earth";
+  generatedAt: string;
 };
 
 export function readTestSummary(): TestSummary | null {

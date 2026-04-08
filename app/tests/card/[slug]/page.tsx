@@ -4,36 +4,41 @@ import { notFound } from "next/navigation";
 import { PageHero } from "@/components/page-hero";
 import { RitualCard } from "@/components/ritual-card";
 import { Shell } from "@/components/shell";
-
-const cardDetails = {
-  star: {
-    title: "The Star",
-    summary: "You do not need more force. You need a cleaner signal and one brave reveal.",
-    recommendation: "Open a confidence ritual or a lighter shareable report.",
-    companionProduct: "Manifest Receipt",
-  },
-  strength: {
-    title: "Strength",
-    summary: "Momentum comes from directness. The clean sentence is the ritual.",
-    recommendation: "Buy the live receipt or stage a signal-driven artifact.",
-    companionProduct: "Aura Amulet",
-  },
-  wheel: {
-    title: "Wheel of Fortune",
-    summary: "The opening is already moving. Your task is to step in before delay hardens.",
-    recommendation: "Choose a fast artifact and treat movement as the answer.",
-    companionProduct: "Ritual Starter Bundle",
-  },
-} as const;
+import { getSession } from "@/lib/server/store";
+import { deriveCardResult } from "@/lib/client/ritual-derivations";
+import { type ActiveSessionSnapshot } from "@/lib/client/active-session";
 
 type CardResultPageProps = {
   params: Promise<{ slug: string }>;
+  searchParams: Promise<{ sessionId?: string }>;
 };
 
-export default async function CardResultPage({ params }: CardResultPageProps) {
+export default async function CardResultPage({ params, searchParams }: CardResultPageProps) {
   const { slug } = await params;
-  const detail = cardDetails[slug as keyof typeof cardDetails];
-  if (!detail) notFound();
+  const { sessionId } = await searchParams;
+  if (!sessionId) notFound();
+
+  const session = await getSession(sessionId);
+  if (!session) notFound();
+
+  const snapshot: ActiveSessionSnapshot = {
+    sessionId: session.id,
+    name: session.name,
+    email: session.email,
+    coreType: session.baseProfile.coreType,
+    dominantElement: session.baseProfile.profileRationale.dominantElement,
+    weakestElement: session.baseProfile.profileRationale.weakestElement,
+    elementDistribution: {
+      metal: session.baseProfile.elementDistribution.metal,
+      wood: session.baseProfile.elementDistribution.wood,
+      water: session.baseProfile.elementDistribution.water,
+      fire: session.baseProfile.elementDistribution.fire,
+      earth: session.baseProfile.elementDistribution.earth,
+    },
+    createdAt: session.createdAt,
+  };
+  const detail = deriveCardResult(snapshot);
+  if (detail.slug !== slug) notFound();
 
   return (
     <Shell className="space-y-12" activeHref="/">
@@ -54,6 +59,9 @@ export default async function CardResultPage({ params }: CardResultPageProps) {
         <RitualCard className="space-y-4">
           <p className="text-xs uppercase tracking-[0.24em] text-cyan-200/75">Reading</p>
           <p className="text-sm leading-7 text-stone-300">{detail.summary}</p>
+          <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4 text-sm text-stone-300">
+            Derived from your base profile: <span className="font-medium text-stone-100">{detail.sourceProfileCoreType}</span>
+          </div>
         </RitualCard>
         <RitualCard className="space-y-4">
           <p className="text-xs uppercase tracking-[0.24em] text-stone-400">Next step</p>

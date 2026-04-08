@@ -27,9 +27,9 @@ export function ShareButton(props: { text: string }) {
     <button
       type="button"
       onClick={() => void handleShare()}
-      className="rounded-full border border-pink-300/25 bg-pink-300/12 px-4 py-2 text-sm font-medium text-pink-100 transition hover:bg-pink-300/20"
+      className="rounded-full border border-pink-300/25 bg-pink-300/12 px-4 py-2 text-sm font-medium text-pink-100 transition hover:bg-pink-300/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-200/45"
     >
-      {copied ? "Copied ritual caption" : "Share this receipt"}
+      {copied ? "Copied ritual caption" : "Share This Receipt"}
     </button>
   );
 }

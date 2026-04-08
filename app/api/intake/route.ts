@@ -27,5 +27,6 @@ export async function POST(request: Request) {
   return NextResponse.json({
     sessionId: session.id,
     baseProfile: session.baseProfile,
+    email: session.email,
   });
 }

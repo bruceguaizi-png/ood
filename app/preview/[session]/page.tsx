@@ -42,23 +42,29 @@ export default async function PreviewPage({
 
       <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr]">
         <RitualCard className="space-y-6">
-          <SectionLabel>Your Base Profile</SectionLabel>
+          <SectionLabel>Base Signal</SectionLabel>
           <div className="space-y-3">
-            <h1 className="font-serif text-4xl text-stone-50 sm:text-5xl">{baseProfile.coreType}</h1>
-            <p className="max-w-2xl text-lg leading-8 text-stone-300">{baseProfile.coreConclusion}</p>
+            <h1 className="text-balance font-serif text-4xl text-stone-50 sm:text-5xl">
+              {baseProfile.coreType}
+            </h1>
+            <p className="max-w-2xl text-pretty text-lg leading-8 text-stone-300">
+              {baseProfile.coreConclusion}
+            </p>
           </div>
 
-          <div className="rounded-[28px] border border-white/10 bg-black/20 p-6">
+          <div className="rounded-[28px] border border-white/10 bg-[radial-gradient(circle_at_top,rgba(111,232,255,0.14),transparent_36%),linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.02))] p-6">
             <div className="grid place-items-center gap-4">
               <div className="relative flex h-72 w-72 items-center justify-center">
-                <div className="absolute inset-0 rotate-45 rounded-[32px] border border-pink-200/18" />
-                <div className="absolute inset-10 rotate-45 rounded-[24px] border border-cyan-200/18" />
+                <div className="absolute inset-0 rotate-45 rounded-[32px] border border-pink-200/18 motion-safe:animate-[orbitSpin_18s_linear_infinite]" />
+                <div className="absolute inset-10 rotate-45 rounded-[24px] border border-cyan-200/18 motion-safe:animate-[orbitSpin_12s_linear_infinite_reverse]" />
                 <div className="absolute inset-20 rotate-45 rounded-[18px] border border-white/12" />
                 <div className="z-10 text-center">
-                  <div className="text-xs uppercase tracking-[0.24em] text-stone-400">
-                    Hexagram base profile
+                  <div className="font-mono text-xs uppercase tracking-[0.24em] text-stone-400">
+                    Oracle Core
                   </div>
-                  <div className="mt-3 font-serif text-3xl text-stone-50">{baseProfile.chartVisual.glowLabel}</div>
+                  <div className="mt-3 text-balance font-serif text-3xl text-stone-50">
+                    {baseProfile.chartVisual.glowLabel}
+                  </div>
                   <div className="mt-2 text-sm text-stone-300">{baseProfile.todaySignal}</div>
                 </div>
               </div>
@@ -68,7 +74,7 @@ export default async function PreviewPage({
           <div className="grid gap-4">
             {bars.map(([label, value]) => (
               <div key={label} className="space-y-2">
-                <div className="flex items-center justify-between text-sm text-stone-300">
+                <div className="tabular-nums flex items-center justify-between text-sm text-stone-300">
                   <span>{label}</span>
                   <span>{value}</span>
                 </div>
@@ -84,38 +90,60 @@ export default async function PreviewPage({
 
           <div className="rounded-2xl border border-pink-300/15 bg-pink-300/8 p-5">
             <p className="text-sm uppercase tracking-[0.26em] text-pink-200/80">
-              Your signal for today
+              Today&apos;s signal
             </p>
             <p className="mt-3 text-sm leading-7 text-stone-200">{baseProfile.todaySignal}</p>
           </div>
         </RitualCard>
 
         <RitualCard className="space-y-5">
-          <SectionLabel>Next Step</SectionLabel>
+          <SectionLabel>Next Transmission</SectionLabel>
           <div className="space-y-3">
-            <h2 className="font-serif text-3xl text-stone-50">Open your quick summary first</h2>
+            <h2 className="text-balance font-serif text-3xl text-stone-50">
+              Open the first omen.
+            </h2>
             <p className="text-sm leading-7 text-stone-300">
-              Start with one core conclusion and three directions worth exploring next. The point is
-              to confirm the reading feels true before asking you to go deeper.
+              Start with one core conclusion and three clean directions. The wider archive opens
+              after the first reading lands.
             </p>
           </div>
 
           {canceled ? (
             <p className="rounded-2xl border border-amber-300/20 bg-amber-300/10 px-4 py-3 text-sm text-amber-100">
-              You left the old checkout flow, but your base profile is still saved here. You can
-              continue into the quick summary now.
+              You left the old checkout flow, but this signal is still saved. Continue from here.
             </p>
           ) : null}
+
+          <div className="grid gap-3 sm:grid-cols-3">
+            {[
+              ["Core", "1 omen"],
+              ["Direction", "3 clues"],
+              ["Path", "Tracks unlock next"],
+            ].map(([label, value]) => (
+              <div
+                key={label}
+                className="rounded-2xl border border-white/10 bg-black/20 p-4 text-center"
+              >
+                <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-stone-400">
+                  {label}
+                </p>
+                <p className="mt-3 font-serif text-2xl text-stone-50">{value}</p>
+              </div>
+            ))}
+          </div>
 
           <div className="flex flex-wrap gap-3">
             <Link
               href={`/summary/${session.id}`}
               className="rounded-full bg-stone-100 px-5 py-3 text-sm font-semibold text-stone-950 transition hover:bg-cyan-100"
             >
-              View my core reading
+              View My Core Reading
             </Link>
-            <Link href="/quiz" className="inline-flex items-center text-sm text-cyan-200 transition hover:text-cyan-100">
-              Start over
+            <Link
+              href="/quiz"
+              className="inline-flex items-center text-sm text-cyan-200 transition hover:text-cyan-100"
+            >
+              Restart the ritual
             </Link>
           </div>
         </RitualCard>

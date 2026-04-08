@@ -11,14 +11,14 @@ export default function DivinationPage() {
   return (
     <Shell className="space-y-12" activeHref="/divination">
       <PageHero
-        eyebrow="Divination layer"
-        title="Move between fast rituals, richer charts, and collectible outcomes."
-        body="This section is where users can actually test flows: one live paid receipt flow, lighter demo readings, and future deeper services staged behind clear product surfaces."
+        eyebrow="Ritual gates"
+        title="Not every question needs the same altar."
+        body="Choose the gate by mood, urgency, and the kind of answer you want returned."
         side={
           <div className="space-y-3 text-sm leading-7 text-stone-300">
-            <p>Live now: Manifest Receipt</p>
-            <p>Demo now: Tarot + destiny chart examples</p>
-            <p>Next: Deeper bazi and subscription-style rituals</p>
+            <p>Open gate: Manifest Receipt</p>
+            <p>Side omens: Tarot / Destiny Chart</p>
+            <p>Sealed gate: Deep Bazi Reading</p>
           </div>
         }
       />
@@ -31,30 +31,30 @@ export default function DivinationPage() {
 
       <section className="grid gap-8 lg:grid-cols-[1fr_1fr]">
         <RitualCard className="space-y-4">
-          <SectionLabel>Interactive flow</SectionLabel>
-          <h2 className="font-serif text-3xl text-stone-50">Run the live product path</h2>
+          <SectionLabel>Main gate</SectionLabel>
+          <h2 className="text-balance font-serif text-3xl text-stone-50">Start with the live ritual</h2>
           <p className="text-sm leading-7 text-stone-300">
-            Start with birth data intake, get a free preview, then unlock the paid manifest receipt.
+            Birth data in. Preview opens. Paid receipt unlocks after the first sign lands.
           </p>
           <Link
             href="/quiz"
             className="inline-flex rounded-full bg-stone-100 px-5 py-3 text-sm font-semibold text-stone-950 transition hover:bg-cyan-100"
           >
-            Open live flow
+            Open the live gate
           </Link>
         </RitualCard>
 
         <RitualCard className="space-y-4">
-          <SectionLabel>Reports & downloads</SectionLabel>
-          <h2 className="font-serif text-3xl text-stone-50">Inspect the artifact output</h2>
+          <SectionLabel>Artifact preview</SectionLabel>
+          <h2 className="text-balance font-serif text-3xl text-stone-50">Inspect the omen object</h2>
           <p className="text-sm leading-7 text-stone-300">
-            Open the demo report to verify how HTML, PDF, and share-card style delivery looks.
+            Open a sample report to feel the output: the page, the PDF, and the shareable card.
           </p>
           <Link
             href="/report/demo-report?email=ritual%40ood.aura"
             className="inline-flex rounded-full border border-white/10 px-5 py-3 text-sm text-stone-100 transition hover:bg-white/8"
           >
-            View demo report
+            View sample artifact
           </Link>
         </RitualCard>
       </section>

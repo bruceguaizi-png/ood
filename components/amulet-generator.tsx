@@ -48,26 +48,31 @@ export function AmuletGenerator() {
         <label className="block space-y-2">
           <span className="text-sm text-stone-300">Name</span>
           <input
+            name="amuletName"
+            autoComplete="off"
             value={name}
             onChange={(event) => setName(event.target.value)}
-            className="h-12 w-full rounded-2xl border border-white/10 bg-black/25 px-4 outline-none"
+            className="h-12 w-full rounded-2xl border border-white/10 bg-black/25 px-4 text-stone-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-200/45"
           />
         </label>
         <label className="block space-y-2">
           <span className="text-sm text-stone-300">Wish</span>
           <textarea
+            name="amuletWish"
+            autoComplete="off"
             value={wish}
             onChange={(event) => setWish(event.target.value)}
             rows={4}
-            className="w-full rounded-2xl border border-white/10 bg-black/25 px-4 py-3 outline-none"
+            className="w-full rounded-2xl border border-white/10 bg-black/25 px-4 py-3 text-stone-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-200/45"
           />
         </label>
         <label className="block space-y-2">
           <span className="text-sm text-stone-300">Primary element</span>
           <select
+            name="amuletElement"
             value={element}
             onChange={(event) => setElement(event.target.value as Element)}
-            className="h-12 w-full rounded-2xl border border-white/10 bg-black/25 px-4 outline-none"
+            className="h-12 w-full rounded-2xl border border-white/10 bg-black/25 px-4 text-stone-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-200/45"
           >
             {Object.keys(palettes).map((value) => (
               <option key={value} value={value}>

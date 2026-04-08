@@ -49,14 +49,18 @@ export function CheckoutButton(props: {
   return (
     <div className="space-y-4">
       <TurnstileField onToken={setToken} />
-      {error ? <p className="text-sm text-red-300">{error}</p> : null}
+      {error ? (
+        <p aria-live="polite" className="text-sm text-red-300">
+          {error}
+        </p>
+      ) : null}
       <button
         type="button"
         disabled={loading}
         onClick={() => void handleCheckout()}
-        className="h-14 rounded-full bg-pink-200 px-6 text-sm font-semibold text-stone-950 transition hover:bg-pink-100 disabled:cursor-not-allowed disabled:opacity-60"
+        className="h-14 rounded-full bg-pink-200 px-6 text-sm font-semibold text-stone-950 transition hover:bg-pink-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-200/45 disabled:cursor-not-allowed disabled:opacity-60"
       >
-        {loading ? "Opening checkout..." : `Unlock full receipt for ${currency(props.price)}`}
+        {loading ? "Opening checkout…" : `Unlock full receipt for ${currency(props.price)}`}
       </button>
     </div>
   );
