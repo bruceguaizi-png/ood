@@ -13,7 +13,13 @@ export async function getCheckoutContext(input: {
         ? await getSession(order.intakeSessionId)
         : null;
   const report =
-    input.reportId ? await getReport(input.reportId) : order?.reportId ? await getReport(order.reportId) : null;
+    input.reportId
+      ? await getReport(input.reportId)
+      : order?.reportId
+        ? await getReport(order.reportId)
+        : session?.crossoverReportId
+          ? await getReport(session.crossoverReportId)
+          : null;
 
   return {
     order,

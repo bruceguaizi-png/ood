@@ -21,8 +21,8 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
     <Shell className="space-y-12" activeHref="/shop">
       <PageHero
         eyebrow="Artifact Vault"
-        title="Collect the objects that keep the signal alive."
-        body="Fewer drops. Stronger identity. Each object should feel like part of a ritual archive, not a generic SKU."
+        title="Paid layers begin after the cross-over report."
+        body="Single deep dives come first. The bundle and wallpaper sit behind them as stronger and lighter upsells."
         side={
           <div className="space-y-3">
             <p className="text-xs uppercase tracking-[0.24em] text-stone-400">Featured object</p>
@@ -56,7 +56,7 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
               href={selected.live ? "/quiz" : "/collection"}
               className="rounded-full bg-stone-100 px-5 py-3 text-sm font-semibold text-stone-950 transition hover:bg-cyan-100"
             >
-              {selected.live ? "Open Live Flow" : "See Related Collectible"}
+              {selected.live ? "Open Paid Path" : "See Related Add-On"}
             </Link>
             <Link
               href="/profile"

@@ -1,6 +1,6 @@
 import Stripe from "stripe";
 
-import { MANIFEST_RECEIPT_SKU } from "@/lib/constants";
+import { type SKU } from "@/lib/types";
 import { env, hasStripe } from "@/lib/server/env";
 import { absoluteUrl } from "@/lib/utils";
 
@@ -16,6 +16,7 @@ export async function createCheckoutSession(input: {
   intakeSessionId: string;
   orderId: string;
   email: string;
+  sku: SKU;
 }) {
   const client = getStripe();
 
@@ -36,7 +37,7 @@ export async function createCheckoutSession(input: {
     metadata: {
       intakeSessionId: input.intakeSessionId,
       orderId: input.orderId,
-      sku: MANIFEST_RECEIPT_SKU.code,
+      sku: input.sku.code,
     },
     success_url: absoluteUrl(
       `/checkout/success?session_id={CHECKOUT_SESSION_ID}&order_id=${input.orderId}`,

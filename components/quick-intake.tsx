@@ -6,10 +6,9 @@ import { useMemo, useState } from "react";
 import { BirthDateField, isValidBirthDate } from "@/components/birth-date-field";
 import { TurnstileField } from "@/components/turnstile-field";
 import { writeActiveSession } from "@/lib/client/active-session";
-import { writeEmailHint } from "@/lib/client/local-history";
 import { captureClientEvent } from "@/lib/client/posthog";
 import { TRACKING_EVENTS } from "@/lib/constants";
-import { type ElementKey, type ElementProfile } from "@/lib/types";
+import { type BranchPreview, type ElementKey, type ElementProfile } from "@/lib/types";
 
 export function QuickIntake() {
   const router = useRouter();
@@ -17,7 +16,6 @@ export function QuickIntake() {
   const [birthDate, setBirthDate] = useState("");
   const [birthTime, setBirthTime] = useState("");
   const [birthCity, setBirthCity] = useState("");
-  const [email, setEmail] = useState("");
   const [consent, setConsent] = useState(false);
   const [expanded, setExpanded] = useState(false);
   const [token, setToken] = useState<string>();
@@ -26,8 +24,8 @@ export function QuickIntake() {
   const [birthDateError, setBirthDateError] = useState("");
 
   const canSubmit = useMemo(
-    () => Boolean(name && birthDate && email && consent && !submitting),
-    [birthDate, consent, email, name, submitting],
+    () => Boolean(name && birthDate && consent && !submitting),
+    [birthDate, consent, name, submitting],
   );
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
@@ -54,7 +52,6 @@ export function QuickIntake() {
           birthDate,
           birthTime,
           birthCity,
-          email,
           turnstileToken: token,
           consentEntertainmentDisclaimer: consent,
         }),
@@ -66,6 +63,11 @@ export function QuickIntake() {
 
       const data = (await response.json()) as {
         sessionId: string;
+        branchPreview: {
+          eastern: BranchPreview;
+          western: BranchPreview;
+        };
+        stage: string;
         baseProfile: {
           coreType: string;
           profileRationale: {
@@ -75,11 +77,9 @@ export function QuickIntake() {
           elementDistribution: ElementProfile;
         };
       };
-      writeEmailHint(email);
       writeActiveSession({
         sessionId: data.sessionId,
         name,
-        email,
         coreType: data.baseProfile.coreType,
         dominantElement: data.baseProfile.profileRationale.dominantElement,
         weakestElement: data.baseProfile.profileRationale.weakestElement,
@@ -155,22 +155,6 @@ export function QuickIntake() {
                 </p>
               ) : null}
             </div>
-
-            <label className="block space-y-2">
-              <span className="text-xs uppercase tracking-[0.24em] text-stone-400">Email</span>
-              <input
-                required
-                name="email"
-                autoComplete="email"
-                spellCheck={false}
-                inputMode="email"
-                type="email"
-                value={email}
-                onChange={(event) => setEmail(event.target.value)}
-                placeholder="you@ritual.email…"
-                className="h-14 w-full rounded-2xl border border-white/10 bg-black/25 px-4 text-stone-100 placeholder:text-stone-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-200/45"
-              />
-            </label>
           </div>
 
           <div className="space-y-4 rounded-[28px] border border-white/10 bg-white/[0.03] p-4">
@@ -190,8 +174,8 @@ export function QuickIntake() {
 
             <div className="grid gap-2 text-sm text-stone-300">
               <p>Enter the essentials.</p>
-              <p>See the base signal first.</p>
-              <p>Go deeper only if it feels true.</p>
+              <p>Reveal both systems.</p>
+              <p>Unlock the full reading later.</p>
             </div>
           </div>
         </div>
@@ -257,14 +241,14 @@ export function QuickIntake() {
 
         <div className="flex flex-wrap items-center justify-between gap-3">
           <p className="text-xs uppercase tracking-[0.22em] text-stone-500">
-            Fast entry. Full ritual later.
+            Basic test first. Email unlock later.
           </p>
           <button
             type="submit"
             disabled={!canSubmit}
             className="inline-flex min-h-14 items-center rounded-full bg-stone-100 px-6 text-sm font-semibold text-stone-950 transition hover:bg-cyan-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-200/45 disabled:cursor-not-allowed disabled:opacity-55"
           >
-            {submitting ? "Revealing your signal…" : "Reveal My Signal"}
+            {submitting ? "Opening your previews…" : "Reveal Both Signals"}
           </button>
         </div>
       </div>

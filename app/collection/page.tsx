@@ -8,18 +8,18 @@ import { Shell } from "@/components/shell";
 
 const collectionItems = [
   {
-    title: "Aura Amulet Prototype",
-    summary: "A collectible generated from missing-element compensation logic.",
+    title: "Signal Wallpaper",
+    summary: "An optional post-report visual add-on derived from your cross-over resonance.",
     status: "Demo collectible",
   },
   {
-    title: "Energy Wallpaper Draft",
-    summary: "A visual asset seeded from your dominant palette and current theme.",
+    title: "Aura Amulet Prototype",
+    summary: "A collectible object that can evolve from branch emphasis and missing-element logic.",
     status: "Prototype good",
   },
   {
-    title: "Receipt Share Card",
-    summary: "The lightweight collectible artifact already produced by the paid ritual flow.",
+    title: "Cross-Over Share Card",
+    summary: "The first shareable artifact produced by the free combined report.",
     status: "Live export",
   },
 ] as const;
@@ -29,8 +29,8 @@ export default function CollectionPage() {
     <Shell className="space-y-12" activeHref="/collection">
       <PageHero
         eyebrow="Collection Lab"
-        title="Keep the objects that stay after the reading."
-        body="Signals should leave residue: amulets, wallpapers, and shareable objects worth reopening."
+        title="The reading should leave something visible behind."
+        body="This layer holds the optional visual residue: share cards, wallpapers, and collectible prototypes."
       />
 
       <section className="grid gap-5 lg:grid-cols-3">

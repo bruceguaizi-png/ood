@@ -21,12 +21,13 @@ export default async function TracksPage({ params }: TracksPageProps) {
   return (
     <Shell className="space-y-10">
       <div className="space-y-4">
-        <SectionLabel>Recommended Next Tracks</SectionLabel>
-        <h1 className="font-serif text-5xl text-stone-50 sm:text-6xl">
-          Based on your base profile, these are the directions most likely to click first.
+        <SectionLabel>Paid Deep Dives</SectionLabel>
+        <h1 className="text-balance font-serif text-5xl text-stone-50 sm:text-6xl">
+          Choose the next paid lens.
         </h1>
         <p className="max-w-3xl text-lg leading-8 text-stone-300">
-          This is not a restart. It is the continuation of the profile you just generated.
+          The cross-over report is free. These deep dives turn one question into a more focused
+          paid interpretation.
         </p>
       </div>
 
@@ -37,28 +38,48 @@ export default async function TracksPage({ params }: TracksPageProps) {
       </div>
 
       <section className="grid gap-5 lg:grid-cols-2">
-        {profile.recommendedTracks.map((track) => (
-          <RitualCard key={track.kind} className="space-y-4">
+        {[
+          {
+            title: "Relationship Deep Dive",
+            body: "How your eastern structure and western timing behave inside attraction, intimacy, and emotional reciprocity.",
+            cta: "Unlock Relationship",
+          },
+          {
+            title: "Career Deep Dive",
+            body: "How your inner pattern and public signal combine around work, visibility, and execution.",
+            cta: "Unlock Career",
+          },
+          {
+            title: "Money Deep Dive",
+            body: "How your value pattern, exchange behavior, and timing distortions show up around money.",
+            cta: "Unlock Money",
+          },
+          {
+            title: "Healing & Personality Deep Dive",
+            body: "How the two systems explain your coping pattern, self-protection, and personality contradictions.",
+            cta: "Unlock Healing",
+          },
+        ].map((track) => (
+          <RitualCard key={track.title} className="space-y-4">
             <div className="flex items-center justify-between gap-3">
               <p className="font-serif text-3xl text-stone-50">{track.title}</p>
               <div className="rounded-full border border-white/10 px-3 py-1 text-xs text-stone-200">
-                recommended
+                paid
               </div>
             </div>
-            <p className="text-sm leading-7 text-stone-300">{track.why}</p>
-            <p className="text-sm leading-7 text-stone-400">{track.preview}</p>
+            <p className="text-sm leading-7 text-stone-300">{track.body}</p>
             <div className="flex flex-wrap gap-3">
               <Link
-                href={`/divination`}
+                href="/shop"
                 className="rounded-full bg-stone-100 px-4 py-2 text-sm font-semibold text-stone-950 transition hover:bg-cyan-100"
               >
                 {track.cta}
               </Link>
               <Link
-                href={`/tests/card/star?sessionId=${session.id}`}
+                href="/shop?product=ritual-bundle"
                 className="rounded-full border border-white/10 px-4 py-2 text-sm text-stone-100 transition hover:bg-white/8"
               >
-                Draw a card
+                View Bundle
               </Link>
             </div>
           </RitualCard>

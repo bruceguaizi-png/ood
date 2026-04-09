@@ -18,6 +18,15 @@ export type TrackKind = (typeof trackKinds)[number];
 
 export type ElementKey = "metal" | "wood" | "water" | "fire" | "earth";
 
+export type BranchSystem = "eastern" | "western";
+
+export type SessionStage =
+  | "basic_tested"
+  | "preview_unlocked"
+  | "email_captured"
+  | "crossover_generated"
+  | "deep_dive_started";
+
 export type ElementProfile = {
   metal: number;
   wood: number;
@@ -50,6 +59,16 @@ export type RecommendedTrack = {
   why: string;
   preview: string;
   cta: string;
+};
+
+export type BranchPreview = {
+  system: BranchSystem;
+  title: string;
+  visualKey: string;
+  teaser: string;
+  detailSummary: string;
+  personalityHook: string;
+  graphicLabel: string;
 };
 
 export type BaseProfile = {
@@ -89,8 +108,27 @@ export type ManifestReceipt = {
   shareCaption: string;
 };
 
+export type CrossoverReport = {
+  eastern: BranchPreview;
+  western: BranchPreview;
+  synthesisTitle: string;
+  synthesisSummary: string;
+  resonance: string;
+  tension: string;
+  personalityPattern: string;
+  currentTimingSignal: string;
+  nextMove: string;
+  shareCaption: string;
+};
+
 export type SKU = {
-  code: "manifest-receipt";
+  code:
+    | "crossover-relationship"
+    | "crossover-career"
+    | "crossover-money"
+    | "crossover-healing"
+    | "crossover-bundle"
+    | "signal-wallpaper";
   title: string;
   price: number;
   currency: "USD";
@@ -122,7 +160,6 @@ export type IntakePayload = {
   birthTime?: string;
   birthCity?: string;
   consentEntertainmentDisclaimer: boolean;
-  email?: string;
   turnstileToken?: string;
 };
 
@@ -134,11 +171,17 @@ export type IntakeSession = {
   birthDate: string;
   birthTime?: string;
   birthCity?: string;
+  stage: SessionStage;
+  registeredAt?: string;
   consentEntertainmentDisclaimer: boolean;
   email?: string;
   baseProfile: BaseProfile;
-  reportId?: string;
-  latestOrderId?: string;
+  branchPreview: {
+    eastern: BranchPreview;
+    western: BranchPreview;
+  };
+  crossoverReportId?: string;
+  latestPaidOrderId?: string;
 };
 
 export type Order = {
@@ -150,6 +193,7 @@ export type Order = {
   stripeSessionId: string;
   paymentStatus: PaymentStatus;
   reportStatus: ReportStatus;
+  reportKind: "deep_dive";
   createdAt: string;
   updatedAt: string;
 };
@@ -157,12 +201,14 @@ export type Order = {
 export type ReportRecord = {
   id: string;
   intakeSessionId: string;
-  orderId: string;
+  orderId?: string;
   email: string;
   createdAt: string;
   updatedAt: string;
+  kind: "crossover_base" | "deep_dive";
   status: ReportStatus;
   elementProfile: ElementProfile;
+  crossover?: CrossoverReport;
   receipt?: ManifestReceipt;
   disclaimer: string;
   assets: DeliveryAsset[];

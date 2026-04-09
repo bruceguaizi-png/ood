@@ -25,14 +25,15 @@ export default function Home() {
               Begin with the signal.
             </h1>
             <p className="max-w-lg text-pretty text-base leading-8 text-stone-300 sm:text-lg">
-              No wall of lore. No crowded menu. Enter the essentials and let the first omen arrive.
+              No wall of lore. No crowded menu. Enter the essentials and reveal the two systems
+              before deciding whether to unlock the full reading.
             </p>
 
             <div className="grid gap-3 sm:grid-cols-3">
               {[
                 ["Live Gate", "Open now"],
-                ["Input", "Name / date / email"],
-                ["Output", "Signal first"],
+                ["Input", "Name / date"],
+                ["Output", "2 previews"],
               ].map(([label, value]) => (
                 <div
                   key={label}

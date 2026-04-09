@@ -49,17 +49,39 @@ async function readStore(): Promise<StoreShape> {
 
   for (const [id, session] of Object.entries(store.sessions)) {
     if (!session.baseProfile) {
+      const baseProfile = buildBaseProfile({
+        name: session.name ?? "Aster",
+        birthDate: session.birthDate,
+        birthTime: session.birthTime,
+        birthCity: session.birthCity,
+        consentEntertainmentDisclaimer: session.consentEntertainmentDisclaimer,
+      });
+
       store.sessions[id] = {
         ...session,
         name: session.name ?? "Aster",
-        baseProfile: buildBaseProfile({
-          name: session.name ?? "Aster",
-          birthDate: session.birthDate,
-          birthTime: session.birthTime,
-          birthCity: session.birthCity,
-          consentEntertainmentDisclaimer: session.consentEntertainmentDisclaimer,
-          email: session.email,
-        }),
+        stage: "basic_tested",
+        baseProfile,
+        branchPreview: {
+          eastern: {
+            system: "eastern",
+            title: "Eastern Destiny",
+            visualKey: "eastern-orbit",
+            teaser: "An eastern pattern is already visible in your structure.",
+            detailSummary: "Legacy session preview placeholder.",
+            personalityHook: "Your structure reveals a strong directional signal.",
+            graphicLabel: "Eastern Pattern",
+          },
+          western: {
+            system: "western",
+            title: "Western Star",
+            visualKey: "western-star",
+            teaser: "A western star pattern is already visible in your timing.",
+            detailSummary: "Legacy session preview placeholder.",
+            personalityHook: "Your star pattern leans toward expressive timing.",
+            graphicLabel: "Western Pattern",
+          },
+        },
       };
       changed = true;
     }
@@ -79,6 +101,7 @@ async function writeStore(store: StoreShape) {
 export async function createSession(
   payload: IntakePayload,
   baseProfile: IntakeSession["baseProfile"],
+  branchPreview: IntakeSession["branchPreview"],
 ) {
   const store = await readStore();
   const session: IntakeSession = {
@@ -89,9 +112,10 @@ export async function createSession(
     birthDate: payload.birthDate,
     birthTime: payload.birthTime,
     birthCity: payload.birthCity,
+    stage: "preview_unlocked",
     consentEntertainmentDisclaimer: payload.consentEntertainmentDisclaimer,
-    email: payload.email,
     baseProfile,
+    branchPreview,
   };
 
   store.sessions[session.id] = session;
@@ -127,6 +151,7 @@ export async function createOrder(input: {
   paymentStatus?: PaymentStatus;
   reportStatus?: ReportStatus;
   sku: Order["sku"];
+  reportKind: Order["reportKind"];
 }) {
   const store = await readStore();
   const order: Order = {
@@ -137,6 +162,7 @@ export async function createOrder(input: {
     stripeSessionId: input.stripeSessionId,
     paymentStatus: input.paymentStatus ?? "requires_payment",
     reportStatus: input.reportStatus ?? "not_started",
+    reportKind: input.reportKind,
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString(),
   };
@@ -147,7 +173,8 @@ export async function createOrder(input: {
     store.sessions[input.intakeSessionId] = {
       ...session,
       email: input.email,
-      latestOrderId: order.id,
+      latestPaidOrderId: order.id,
+      stage: "deep_dive_started",
       updatedAt: new Date().toISOString(),
     };
   }
@@ -201,7 +228,7 @@ export async function createOrUpdateReport(report: ReportRecord) {
   };
 
   const order = store.orders[report.orderId];
-  if (order) {
+  if (report.orderId && order) {
     store.orders[report.orderId] = {
       ...order,
       reportId: report.id,
@@ -214,7 +241,8 @@ export async function createOrUpdateReport(report: ReportRecord) {
   if (session) {
     store.sessions[report.intakeSessionId] = {
       ...session,
-      reportId: report.id,
+      crossoverReportId: report.kind === "crossover_base" ? report.id : session.crossoverReportId,
+      stage: report.kind === "crossover_base" ? "crossover_generated" : session.stage,
       updatedAt: new Date().toISOString(),
     };
   }
@@ -232,5 +260,17 @@ export async function getReportByOrderId(orderId: string) {
   const store = await readStore();
   return (
     Object.values(store.reports).find((report) => report.orderId === orderId) ?? null
+  );
+}
+
+export async function getReportBySessionAndKind(
+  sessionId: string,
+  kind: ReportRecord["kind"],
+) {
+  const store = await readStore();
+  return (
+    Object.values(store.reports).find(
+      (report) => report.intakeSessionId === sessionId && report.kind === kind,
+    ) ?? null
   );
 }

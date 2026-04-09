@@ -7,13 +7,13 @@ import { Shell } from "@/components/shell";
 
 const profileModules = [
   {
-    title: "My Orders",
-    body: "Review checkout state and retrieve purchased ritual artifacts.",
+    title: "My Paid Deep Dives",
+    body: "Review paid report state and retrieve purchased cross-over extensions.",
     href: "/me/history?email=ritual%40ood.aura",
   },
   {
-    title: "My Reports",
-    body: "Jump straight into previously generated readings and downloads.",
+    title: "My Free Cross-Over Reports",
+    body: "Jump back into previously unlocked combined reports and exported assets.",
     href: "/report/demo-report?email=ritual%40ood.aura",
   },
   {

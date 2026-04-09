@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { EmailUnlockForm } from "@/components/email-unlock-form";
 import { RitualCard } from "@/components/ritual-card";
 import { SectionLabel } from "@/components/section-label";
 import { Shell } from "@/components/shell";
@@ -23,15 +24,8 @@ export default async function PreviewPage({
 
   if (!session) notFound();
 
-  const profile = session.baseProfile.elementDistribution;
   const baseProfile = session.baseProfile;
-  const bars = [
-    ["Metal", profile.metal],
-    ["Wood", profile.wood],
-    ["Water", profile.water],
-    ["Fire", profile.fire],
-    ["Earth", profile.earth],
-  ] as const;
+  const previews = [session.branchPreview.eastern, session.branchPreview.western];
 
   return (
     <Shell className="space-y-8">
@@ -42,69 +36,69 @@ export default async function PreviewPage({
 
       <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr]">
         <RitualCard className="space-y-6">
-          <SectionLabel>Base Signal</SectionLabel>
+          <SectionLabel>Dual Preview</SectionLabel>
           <div className="space-y-3">
             <h1 className="text-balance font-serif text-4xl text-stone-50 sm:text-5xl">
-              {baseProfile.coreType}
+              Two systems. One signal.
             </h1>
             <p className="max-w-2xl text-pretty text-lg leading-8 text-stone-300">
-              {baseProfile.coreConclusion}
+              The basic test opened both your Eastern and Western previews. Each one gives a real
+              hook, but the deeper detail stays behind the unlock gate.
             </p>
           </div>
 
-          <div className="rounded-[28px] border border-white/10 bg-[radial-gradient(circle_at_top,rgba(111,232,255,0.14),transparent_36%),linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.02))] p-6">
-            <div className="grid place-items-center gap-4">
-              <div className="relative flex h-72 w-72 items-center justify-center">
-                <div className="absolute inset-0 rotate-45 rounded-[32px] border border-pink-200/18 motion-safe:animate-[orbitSpin_18s_linear_infinite]" />
-                <div className="absolute inset-10 rotate-45 rounded-[24px] border border-cyan-200/18 motion-safe:animate-[orbitSpin_12s_linear_infinite_reverse]" />
-                <div className="absolute inset-20 rotate-45 rounded-[18px] border border-white/12" />
-                <div className="z-10 text-center">
-                  <div className="font-mono text-xs uppercase tracking-[0.24em] text-stone-400">
-                    Oracle Core
-                  </div>
-                  <div className="mt-3 text-balance font-serif text-3xl text-stone-50">
-                    {baseProfile.chartVisual.glowLabel}
-                  </div>
-                  <div className="mt-2 text-sm text-stone-300">{baseProfile.todaySignal}</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="grid gap-4">
-            {bars.map(([label, value]) => (
-              <div key={label} className="space-y-2">
-                <div className="tabular-nums flex items-center justify-between text-sm text-stone-300">
-                  <span>{label}</span>
-                  <span>{value}</span>
-                </div>
-                <div className="h-2 overflow-hidden rounded-full bg-white/10">
+          <div className="grid gap-5 lg:grid-cols-2">
+            {previews.map((preview, index) => (
+              <div
+                key={preview.system}
+                className="rounded-[28px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.02))] p-5"
+              >
+                <div className="relative mb-5 flex min-h-[220px] items-center justify-center overflow-hidden rounded-[24px] border border-white/10 bg-black/20">
                   <div
-                    className="h-full rounded-full bg-gradient-to-r from-cyan-300 via-fuchsia-300 to-amber-200"
-                    style={{ width: `${value}%` }}
+                    className={
+                      index === 0
+                        ? "absolute h-44 w-44 rotate-45 rounded-[28px] border border-cyan-200/16 motion-safe:animate-[orbitSpin_16s_linear_infinite]"
+                        : "absolute h-44 w-44 rounded-full border border-amber-200/18 motion-safe:animate-[orbitSpin_18s_linear_infinite]"
+                    }
                   />
+                  <div
+                    className={
+                      index === 0
+                        ? "absolute h-28 w-28 rotate-45 rounded-[18px] border border-pink-200/15"
+                        : "absolute h-28 w-28 rounded-full border border-cyan-200/15"
+                    }
+                  />
+                  {index === 1 ? (
+                    <div className="absolute h-24 w-24 rotate-[30deg] border border-white/12" />
+                  ) : null}
+                  <div className="z-10 text-center">
+                    <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-stone-400">
+                      {preview.graphicLabel}
+                    </p>
+                    <p className="mt-3 text-balance font-serif text-3xl text-stone-50">
+                      {preview.title}
+                    </p>
+                  </div>
                 </div>
+                <p className="font-mono text-xs uppercase tracking-[0.22em] text-stone-400">
+                  {preview.system}
+                </p>
+                <p className="mt-3 text-sm leading-7 text-stone-100">{preview.teaser}</p>
+                <p className="mt-3 text-sm leading-7 text-stone-400">{preview.personalityHook}</p>
               </div>
             ))}
-          </div>
-
-          <div className="rounded-2xl border border-pink-300/15 bg-pink-300/8 p-5">
-            <p className="text-sm uppercase tracking-[0.26em] text-pink-200/80">
-              Today&apos;s signal
-            </p>
-            <p className="mt-3 text-sm leading-7 text-stone-200">{baseProfile.todaySignal}</p>
           </div>
         </RitualCard>
 
         <RitualCard className="space-y-5">
-          <SectionLabel>Next Transmission</SectionLabel>
+          <SectionLabel>Email Gate</SectionLabel>
           <div className="space-y-3">
             <h2 className="text-balance font-serif text-3xl text-stone-50">
-              Open the first omen.
+              Unlock the full cross-over reading.
             </h2>
             <p className="text-sm leading-7 text-stone-300">
-              Start with one core conclusion and three clean directions. The wider archive opens
-              after the first reading lands.
+              Register with your email to open both branch details and generate the combined report
+              that synthesizes them.
             </p>
           </div>
 
@@ -116,9 +110,9 @@ export default async function PreviewPage({
 
           <div className="grid gap-3 sm:grid-cols-3">
             {[
-              ["Core", "1 omen"],
-              ["Direction", "3 clues"],
-              ["Path", "Tracks unlock next"],
+              ["East", "Preview open"],
+              ["West", "Preview open"],
+              ["Next", "Cross-over report"],
             ].map(([label, value]) => (
               <div
                 key={label}
@@ -132,13 +126,16 @@ export default async function PreviewPage({
             ))}
           </div>
 
+          <EmailUnlockForm
+            sessionId={session.id}
+            name={session.name}
+            coreType={baseProfile.coreType}
+            dominantElement={baseProfile.profileRationale.dominantElement}
+            weakestElement={baseProfile.profileRationale.weakestElement}
+            elementDistribution={baseProfile.elementDistribution}
+          />
+
           <div className="flex flex-wrap gap-3">
-            <Link
-              href={`/summary/${session.id}`}
-              className="rounded-full bg-stone-100 px-5 py-3 text-sm font-semibold text-stone-950 transition hover:bg-cyan-100"
-            >
-              View My Core Reading
-            </Link>
             <Link
               href="/quiz"
               className="inline-flex items-center text-sm text-cyan-200 transition hover:text-cyan-100"

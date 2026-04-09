@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 
 import { buildBaseProfile } from "@/lib/server/base-profile";
+import { buildBranchPreviewPair } from "@/lib/server/ritual";
 import { createSession } from "@/lib/server/store";
 import { verifyTurnstile } from "@/lib/server/turnstile";
 import { intakeSchema } from "@/lib/validation";
@@ -22,11 +23,13 @@ export async function POST(request: Request) {
   }
 
   const baseProfile = buildBaseProfile(parsed.data);
-  const session = await createSession(parsed.data, baseProfile);
+  const branchPreview = buildBranchPreviewPair(baseProfile);
+  const session = await createSession(parsed.data, baseProfile, branchPreview);
 
   return NextResponse.json({
     sessionId: session.id,
     baseProfile: session.baseProfile,
-    email: session.email,
+    branchPreview: session.branchPreview,
+    stage: session.stage,
   });
 }

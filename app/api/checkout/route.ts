@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-import { MANIFEST_RECEIPT_SKU } from "@/lib/constants";
+import { DEEP_DIVE_SKUS } from "@/lib/constants";
 import { createCheckoutSession } from "@/lib/server/payments";
 import { createOrder, getSession, updateOrder } from "@/lib/server/store";
 import { verifyTurnstile } from "@/lib/server/turnstile";
@@ -27,17 +27,23 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Session not found" }, { status: 404 });
   }
 
+  const sku =
+    Object.values(DEEP_DIVE_SKUS).find((item) => item.code === parsed.data.skuCode) ??
+    DEEP_DIVE_SKUS.relationship;
+
   const provisionalOrder = await createOrder({
     intakeSessionId: parsed.data.intakeSessionId,
     email: parsed.data.email,
     stripeSessionId: `pending_${parsed.data.intakeSessionId}`,
-    sku: MANIFEST_RECEIPT_SKU,
+    sku,
+    reportKind: "deep_dive",
   });
 
   const checkout = await createCheckoutSession({
     intakeSessionId: parsed.data.intakeSessionId,
     orderId: provisionalOrder.id,
     email: parsed.data.email,
+    sku,
   });
 
   await updateOrder(provisionalOrder.id, {

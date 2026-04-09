@@ -16,6 +16,7 @@ async function ensureReportDir(reportId: string) {
 
 function reportHtml(report: ReportRecord) {
   const receipt = report.receipt;
+  const crossover = report.crossover;
   const palette = report.elementProfile.palette;
 
   return `<!doctype html>
@@ -94,15 +95,28 @@ function reportHtml(report: ReportRecord) {
     <main class="wrap">
       <section class="card">
         <div class="eyebrow">Object of Desire</div>
-        <h1>Manifest Receipt</h1>
-        <p>${receipt?.summary ?? ""}</p>
+        <h1>${report.kind === "crossover_base" ? "Cross-Over Report" : "Deep Dive Report"}</h1>
+        <p>${report.kind === "crossover_base" ? (crossover?.synthesisSummary ?? "") : (receipt?.summary ?? "")}</p>
         <div class="grid">
+          ${
+            report.kind === "crossover_base"
+              ? `
+          <div class="cell"><div class="label">Eastern</div><div class="value">${crossover?.eastern.title ?? ""}</div></div>
+          <div class="cell"><div class="label">Western</div><div class="value">${crossover?.western.title ?? ""}</div></div>
+          <div class="cell"><div class="label">Resonance</div><div class="value">${crossover?.resonance ?? ""}</div></div>
+          <div class="cell"><div class="label">Tension</div><div class="value">${crossover?.tension ?? ""}</div></div>
+          <div class="cell"><div class="label">Timing</div><div class="value">${crossover?.currentTimingSignal ?? ""}</div></div>
+          <div class="cell"><div class="label">Next Move</div><div class="value">${crossover?.nextMove ?? ""}</div></div>
+          `
+              : `
           <div class="cell"><div class="label">Theme</div><div class="value">${receipt?.theme ?? ""}</div></div>
           <div class="cell"><div class="label">Today's Pull</div><div class="value">${receipt?.tarotCard ?? ""}</div></div>
           <div class="cell"><div class="label">Best Move Today</div><div class="value">${receipt?.action ?? ""}</div></div>
           <div class="cell"><div class="label">Avoid Today</div><div class="value">${receipt?.caution ?? ""}</div></div>
           <div class="cell"><div class="label">Mantra</div><div class="value">${receipt?.mantra ?? ""}</div></div>
           <div class="cell"><div class="label">Energy Score</div><div class="value">${receipt?.energyScore ?? ""}/100</div></div>
+          `
+          }
         </div>
         <div class="disclaimer">${ENTERTAINMENT_DISCLAIMER}</div>
       </section>
@@ -113,6 +127,7 @@ function reportHtml(report: ReportRecord) {
 
 function shareSvg(report: ReportRecord) {
   const receipt = report.receipt;
+  const crossover = report.crossover;
   const palette = report.elementProfile.palette;
   return `<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
   <defs>
@@ -125,11 +140,11 @@ function shareSvg(report: ReportRecord) {
   <circle cx="980" cy="120" r="220" fill="${palette.glow}" fill-opacity="0.10"/>
   <circle cx="200" cy="520" r="180" fill="${palette.accent}" fill-opacity="0.10"/>
   <text x="86" y="118" fill="${palette.accent}" font-size="24" font-family="Georgia, serif" letter-spacing="6">OBJECT OF DESIRE</text>
-  <text x="86" y="220" fill="#F7F4EF" font-size="78" font-family="Georgia, serif">Manifest</text>
-  <text x="86" y="300" fill="#F7F4EF" font-size="78" font-family="Georgia, serif">Receipt</text>
-  <text x="86" y="390" fill="#E8DFD4" font-size="34" font-family="Georgia, serif">${escapeXml(receipt?.mantra ?? "")}</text>
-  <text x="86" y="478" fill="#B7B0C0" font-size="24" font-family="Arial, sans-serif">Today&apos;s pull: ${escapeXml(receipt?.tarotCard ?? "")}</text>
-  <text x="86" y="530" fill="#B7B0C0" font-size="24" font-family="Arial, sans-serif">Energy score: ${receipt?.energyScore ?? 0}/100</text>
+  <text x="86" y="220" fill="#F7F4EF" font-size="78" font-family="Georgia, serif">${report.kind === "crossover_base" ? "Cross-Over" : "Deep Dive"}</text>
+  <text x="86" y="300" fill="#F7F4EF" font-size="78" font-family="Georgia, serif">${report.kind === "crossover_base" ? "Report" : "Report"}</text>
+  <text x="86" y="390" fill="#E8DFD4" font-size="34" font-family="Georgia, serif">${escapeXml(report.kind === "crossover_base" ? (crossover?.nextMove ?? "") : (receipt?.mantra ?? ""))}</text>
+  <text x="86" y="478" fill="#B7B0C0" font-size="24" font-family="Arial, sans-serif">${report.kind === "crossover_base" ? `Eastern: ${escapeXml(crossover?.eastern.title ?? "")}` : `Today's pull: ${escapeXml(receipt?.tarotCard ?? "")}`}</text>
+  <text x="86" y="530" fill="#B7B0C0" font-size="24" font-family="Arial, sans-serif">${report.kind === "crossover_base" ? `Western: ${escapeXml(crossover?.western.title ?? "")}` : `Energy score: ${receipt?.energyScore ?? 0}/100`}</text>
   <text x="86" y="580" fill="#918A9B" font-size="16" font-family="Arial, sans-serif">${escapeXml(ENTERTAINMENT_DISCLAIMER)}</text>
 </svg>`;
 }
@@ -149,6 +164,7 @@ async function createPdf(report: ReportRecord) {
   const serif = await pdfDoc.embedFont(StandardFonts.TimesRoman);
   const bold = await pdfDoc.embedFont(StandardFonts.TimesRomanBold);
   const receipt = report.receipt;
+  const crossover = report.crossover;
   const palette = report.elementProfile.palette;
 
   page.drawRectangle({
@@ -167,7 +183,7 @@ async function createPdf(report: ReportRecord) {
     color: rgb(0.85, 0.54, 0.78),
   });
 
-  page.drawText("Manifest Receipt", {
+  page.drawText(report.kind === "crossover_base" ? "Cross-Over Report" : "Deep Dive Report", {
     x: 48,
     y: 730,
     size: 30,
@@ -176,14 +192,27 @@ async function createPdf(report: ReportRecord) {
   });
 
   const lines = [
-    `Theme: ${receipt?.theme ?? ""}`,
-    `Today's pull: ${receipt?.tarotCard ?? ""}`,
-    `Best move today: ${receipt?.action ?? ""}`,
-    `Avoid today: ${receipt?.caution ?? ""}`,
-    `Mantra: ${receipt?.mantra ?? ""}`,
-    `Energy score: ${receipt?.energyScore ?? 0}/100`,
-    "",
-    receipt?.summary ?? "",
+    ...(report.kind === "crossover_base"
+      ? [
+          `Eastern: ${crossover?.eastern.title ?? ""}`,
+          `Western: ${crossover?.western.title ?? ""}`,
+          `Resonance: ${crossover?.resonance ?? ""}`,
+          `Tension: ${crossover?.tension ?? ""}`,
+          `Timing: ${crossover?.currentTimingSignal ?? ""}`,
+          `Next move: ${crossover?.nextMove ?? ""}`,
+          "",
+          crossover?.synthesisSummary ?? "",
+        ]
+      : [
+          `Theme: ${receipt?.theme ?? ""}`,
+          `Today's pull: ${receipt?.tarotCard ?? ""}`,
+          `Best move today: ${receipt?.action ?? ""}`,
+          `Avoid today: ${receipt?.caution ?? ""}`,
+          `Mantra: ${receipt?.mantra ?? ""}`,
+          `Energy score: ${receipt?.energyScore ?? 0}/100`,
+          "",
+          receipt?.summary ?? "",
+        ]),
     "",
     ENTERTAINMENT_DISCLAIMER,
   ];
@@ -214,7 +243,7 @@ async function createPdf(report: ReportRecord) {
     borderWidth: 1,
   });
 
-  page.drawText(receipt?.tarotCard ?? "", {
+  page.drawText(report.kind === "crossover_base" ? "Cross-Over" : receipt?.tarotCard ?? "", {
     x: 438,
     y: 760,
     size: 16,

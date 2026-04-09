@@ -1,6 +1,15 @@
 import { format } from "date-fns";
 
-import { type ElementProfile, type FocusTheme, type IntakePayload, type ManifestReceipt } from "@/lib/types";
+import {
+  type BaseProfile,
+  type BranchPreview,
+  type BranchSystem,
+  type CrossoverReport,
+  type ElementProfile,
+  type FocusTheme,
+  type IntakePayload,
+  type ManifestReceipt,
+} from "@/lib/types";
 
 const paletteMap = {
   metal: { base: "#111827", accent: "#d3d7df", glow: "#fafafa" },
@@ -156,6 +165,123 @@ export function buildPreviewTeaser(payload: IntakePayload, profile: ElementProfi
   const theme: FocusTheme = profile.fire >= profile.water ? "confidence" : "healing";
   const copy = themeCopy[theme];
   return `${copy.teaser} Your dominant pattern right now is ${profile.archetype.toLowerCase()}.`;
+}
+
+function branchSeed(profile: BaseProfile, system: BranchSystem) {
+  return hash(
+    [
+      profile.identity.name,
+      profile.identity.birthday,
+      profile.identity.birthTime ?? "",
+      profile.identity.birthLocation ?? "",
+      profile.profileRationale.dominantElement,
+      profile.profileRationale.weakestElement,
+      system,
+    ].join("|"),
+  );
+}
+
+function easternTitle(profile: BaseProfile) {
+  const map = {
+    metal: "Eastern Destiny",
+    wood: "Growth Palace",
+    water: "Moon Palace",
+    fire: "Radiant Palace",
+    earth: "Grounded Palace",
+  } as const;
+  return map[profile.profileRationale.dominantElement] ?? "Eastern Destiny";
+}
+
+function westernTitle(profile: BaseProfile) {
+  const map = {
+    metal: "Western Star",
+    wood: "Solar Ascent",
+    water: "Lunar Thread",
+    fire: "Flare Chart",
+    earth: "Saturn Veil",
+  } as const;
+  return map[profile.profileRationale.supportElement] ?? "Western Star";
+}
+
+export function buildEasternPreview(profile: BaseProfile): BranchPreview {
+  const dominant = profile.profileRationale.dominantElement;
+  const weakest = profile.profileRationale.weakestElement;
+  const season = profile.profileRationale.seasonalTone;
+  const detailMap = {
+    metal: "Your eastern pattern is sharp, selective, and better at cutting through noise than performing softness.",
+    wood: "Your eastern pattern grows through direction. Movement matters most when it can find a spine.",
+    water: "Your eastern pattern listens before it acts. Subtle shifts reach you earlier than they reach most people.",
+    fire: "Your eastern pattern burns bright when attention and momentum move in the same direction.",
+    earth: "Your eastern pattern stabilizes through structure, steadiness, and long-range rhythm.",
+  } as const;
+
+  return {
+    system: "eastern",
+    title: easternTitle(profile),
+    visualKey: "eastern-orbit-grid",
+    teaser: `${season} amplifies your ${dominant} lane, while ${weakest} creates the hidden friction.`,
+    detailSummary: detailMap[dominant],
+    personalityHook: `Your eastern reading says your structure becomes strongest when ${dominant} leads without overcorrecting for ${weakest}.`,
+    graphicLabel: `${dominant.toUpperCase()} palace`,
+  };
+}
+
+export function buildWesternPreview(profile: BaseProfile): BranchPreview {
+  const support = profile.profileRationale.supportElement;
+  const phase = profile.profileRationale.dayPhase;
+  const weakest = profile.profileRationale.weakestElement;
+  const detailMap = {
+    metal: "Your western chart reads as lucid, distant, and strategically magnetic.",
+    wood: "Your western chart reads as future-facing, restless, and ready to evolve.",
+    water: "Your western chart reads as intuitive, atmospheric, and emotionally precise.",
+    fire: "Your western chart reads as visible, expressive, and strongest when it stops hesitating.",
+    earth: "Your western chart reads as composed, anchored, and privately durable.",
+  } as const;
+
+  return {
+    system: "western",
+    title: westernTitle(profile),
+    visualKey: "western-hexagram-star",
+    teaser: `${phase === "unknown" ? "Your star pattern" : `${phase} timing`} pulls toward ${support}, while ${weakest} creates the subtle contradiction.`,
+    detailSummary: detailMap[support],
+    personalityHook: `Your western reading says the public version of you becomes clearer when ${support} stops hiding behind ${weakest}.`,
+    graphicLabel: `${support.toUpperCase()} star`,
+  };
+}
+
+export function buildBranchPreviewPair(profile: BaseProfile) {
+  return {
+    eastern: buildEasternPreview(profile),
+    western: buildWesternPreview(profile),
+  };
+}
+
+export function buildCrossoverReport(
+  profile: BaseProfile,
+  branchPreview: {
+    eastern: BranchPreview;
+    western: BranchPreview;
+  },
+): CrossoverReport {
+  const dominant = profile.profileRationale.dominantElement;
+  const weakest = profile.profileRationale.weakestElement;
+  const support = profile.profileRationale.supportElement;
+  const tensionSeed = branchSeed(profile, "western") % 2;
+
+  return {
+    eastern: branchPreview.eastern,
+    western: branchPreview.western,
+    synthesisTitle: `Cross-Over Synthesis for ${profile.identity.name}`,
+    synthesisSummary: `Your eastern structure leads with ${dominant}, while your western pattern keeps pulling expression toward ${support}. The combined reading says your real leverage appears when those two systems stop competing and start reinforcing each other.`,
+    resonance: `Both systems agree that ${dominant} is carrying the strongest usable signal right now. This is the part of your life pattern that feels easiest to trust.`,
+    tension: tensionSeed === 0
+      ? `${weakest} is where the two systems disagree with your habits. One part of your profile wants safety; the other wants visible motion.`
+      : `The hidden tension lives in ${weakest}. Your structure reads it as caution, but your star pattern reads it as the cost of staying too contained.`,
+    personalityPattern: `Your personality pattern is less about being “one thing” and more about how ${dominant} and ${support} alternate between inner structure and outer performance.`,
+    currentTimingSignal: `This cycle favors acting from your strongest pattern first, then repairing ${weakest} once the field has started moving.`,
+    nextMove: `Take the first visible step that lets ${dominant} stay clean, while using ${support} to make the move legible to other people.`,
+    shareCaption: `My O.O.D cross-over reading says my strongest path opens when my inner pattern and public signal stop working against each other.`,
+  };
 }
 
 export function buildManifestReceipt(

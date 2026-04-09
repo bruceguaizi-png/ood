@@ -914,6 +914,487 @@
           }
         ]
       }
+    },
+    "sess_jUQVAnbv9cXl": {
+      "id": "sess_jUQVAnbv9cXl",
+      "createdAt": "2026-04-08T10:20:55.376Z",
+      "updatedAt": "2026-04-08T10:20:55.376Z",
+      "name": "123",
+      "birthDate": "2333-03-22",
+      "birthTime": "",
+      "birthCity": "",
+      "consentEntertainmentDisclaimer": true,
+      "email": "123@123.com",
+      "baseProfile": {
+        "identity": {
+          "name": "123",
+          "birthday": "2333-03-22",
+          "birthTime": "",
+          "birthLocation": ""
+        },
+        "chartType": "hexagram",
+        "chartVisual": {
+          "chartType": "hexagram",
+          "dominantElement": "wood",
+          "ringOrder": [
+            "metal",
+            "wood",
+            "water",
+            "fire",
+            "earth"
+          ],
+          "glowLabel": "123's live pattern"
+        },
+        "coreType": "The Ritual Architect",
+        "elementDistribution": {
+          "metal": 37,
+          "wood": 79,
+          "water": 76,
+          "fire": 61,
+          "earth": 78,
+          "archetype": "The Ritual Architect",
+          "palette": {
+            "base": "#07170f",
+            "accent": "#6dde88",
+            "glow": "#cfffe0"
+          }
+        },
+        "profileRationale": {
+          "dominantElement": "wood",
+          "weakestElement": "metal",
+          "supportElement": "earth",
+          "seasonalTone": "spring",
+          "dayPhase": "unknown",
+          "tensionPair": [
+            "wood",
+            "metal"
+          ]
+        },
+        "todaySignal": "Today favors naming the first real step. earth wants growth to become directional instead of staying conceptual.",
+        "coreConclusion": "Your field leads with wood while metal is still asking for support. The profile is not short on movement. It is asking for one path strong enough to hold your growth.",
+        "topInsights": [
+          {
+            "title": "Where you tend to get stuck",
+            "body": "You are not short on drive. The issue is that metal stays underfed, so your momentum spreads wider than it roots."
+          },
+          {
+            "title": "The signal worth trusting",
+            "body": "Growth is the strongest tone in your profile right now, with earth helping turn expansion into real movement."
+          },
+          {
+            "title": "The best next direction",
+            "body": "Go to growth and goal alignment first so abstract desire can become a visible path."
+          }
+        ],
+        "recommendedTracks": [
+          {
+            "kind": "fandom-relationship",
+            "title": "Relationship and attraction",
+            "preview": "See how you read connection, how you move closer, and what emotional tension is most active right now.",
+            "cta": "Open relationship track",
+            "why": "You enter relationships with a strong growth drive, so this track will likely mirror you quickly."
+          },
+          {
+            "kind": "personal-growth",
+            "title": "Personal growth",
+            "preview": "Find the recurring behavior loop most likely to stall you and the inner switch most worth adjusting.",
+            "cta": "Open growth track",
+            "why": "Your profile is especially ready for growth work and directional clarity first."
+          },
+          {
+            "kind": "fortune-upgrade",
+            "title": "Fortune upgrade",
+            "preview": "Turn today's signal into a practical direction, a caution, and a move that strengthens the day.",
+            "cta": "Open fortune track",
+            "why": "Your current fortune question is about choosing a direction, not waiting for luck."
+          },
+          {
+            "kind": "goal-alignment",
+            "title": "Goal alignment",
+            "preview": "Map the profile's momentum, friction, and timing into a concrete way of moving real goals forward.",
+            "cta": "Open goal track",
+            "why": "Your profile is very supportive of long-horizon progress toward meaningful goals."
+          }
+        ]
+      }
+    },
+    "sess_w9Urb53c1SoI": {
+      "id": "sess_w9Urb53c1SoI",
+      "createdAt": "2026-04-09T11:55:29.051Z",
+      "updatedAt": "2026-04-09T11:55:40.397Z",
+      "name": "123",
+      "birthDate": "1222-03-12",
+      "birthTime": "",
+      "birthCity": "",
+      "stage": "crossover_generated",
+      "consentEntertainmentDisclaimer": true,
+      "baseProfile": {
+        "identity": {
+          "name": "123",
+          "birthday": "1222-03-12",
+          "birthTime": "",
+          "birthLocation": ""
+        },
+        "chartType": "hexagram",
+        "chartVisual": {
+          "chartType": "hexagram",
+          "dominantElement": "fire",
+          "ringOrder": [
+            "metal",
+            "wood",
+            "water",
+            "fire",
+            "earth"
+          ],
+          "glowLabel": "123's live pattern"
+        },
+        "coreType": "The Ritual Architect",
+        "elementDistribution": {
+          "metal": 57,
+          "wood": 42,
+          "water": 52,
+          "fire": 82,
+          "earth": 47,
+          "archetype": "The Ritual Architect",
+          "palette": {
+            "base": "#220711",
+            "accent": "#ff4db8",
+            "glow": "#ffc3ea"
+          }
+        },
+        "profileRationale": {
+          "dominantElement": "fire",
+          "weakestElement": "wood",
+          "supportElement": "metal",
+          "seasonalTone": "spring",
+          "dayPhase": "unknown",
+          "tensionPair": [
+            "fire",
+            "wood"
+          ]
+        },
+        "todaySignal": "Today favors one immediate move. metal can turn raw heat into usable momentum if you act before the field cools.",
+        "coreConclusion": "Your field leads with fire while wood lowers your tolerance for delay. The profile is hot, direct, and ready to move, but it works best when that heat has a target.",
+        "topInsights": [
+          {
+            "title": "Where you tend to get stuck",
+            "body": "You usually know what you want, but when wood falls behind, your heat can outrun the patience that would have made it cleaner."
+          },
+          {
+            "title": "The signal worth trusting",
+            "body": "The brightest force in your profile right now is action heat, with metal helping momentum build once the direction is right."
+          },
+          {
+            "title": "The best next direction",
+            "body": "Start with goal alignment or fortune, then use a card draw as an immediate amplifier."
+          }
+        ],
+        "recommendedTracks": [
+          {
+            "kind": "fandom-relationship",
+            "title": "Relationship and attraction",
+            "preview": "See how you read connection, how you move closer, and what emotional tension is most active right now.",
+            "cta": "Open relationship track",
+            "why": "Your magnetism and expressive drive are both strong, so this track should give quick feedback."
+          },
+          {
+            "kind": "personal-growth",
+            "title": "Personal growth",
+            "preview": "Find the recurring behavior loop most likely to stall you and the inner switch most worth adjusting.",
+            "cta": "Open growth track",
+            "why": "The growth track helps separate impulse from real direction."
+          },
+          {
+            "kind": "fortune-upgrade",
+            "title": "Fortune upgrade",
+            "preview": "Turn today's signal into a practical direction, a caution, and a move that strengthens the day.",
+            "cta": "Open fortune track",
+            "why": "Your profile is especially suited to making a small upgrade move today, not someday."
+          },
+          {
+            "kind": "goal-alignment",
+            "title": "Goal alignment",
+            "preview": "Map the profile's momentum, friction, and timing into a concrete way of moving real goals forward.",
+            "cta": "Open goal track",
+            "why": "Right now your energy is best used by aiming it at one concrete goal."
+          }
+        ]
+      },
+      "branchPreview": {
+        "eastern": {
+          "system": "eastern",
+          "title": "Radiant Palace",
+          "visualKey": "eastern-orbit-grid",
+          "teaser": "spring amplifies your fire lane, while wood creates the hidden friction.",
+          "detailSummary": "Your eastern pattern burns bright when attention and momentum move in the same direction.",
+          "personalityHook": "Your eastern reading says your structure becomes strongest when fire leads without overcorrecting for wood.",
+          "graphicLabel": "FIRE palace"
+        },
+        "western": {
+          "system": "western",
+          "title": "Western Star",
+          "visualKey": "western-hexagram-star",
+          "teaser": "Your star pattern pulls toward metal, while wood creates the subtle contradiction.",
+          "detailSummary": "Your western chart reads as lucid, distant, and strategically magnetic.",
+          "personalityHook": "Your western reading says the public version of you becomes clearer when metal stops hiding behind wood.",
+          "graphicLabel": "METAL star"
+        }
+      },
+      "email": "123@123.com",
+      "registeredAt": "2026-04-09T11:55:40.381Z",
+      "crossoverReportId": "rpt_eD1kd4r7fafg"
+    },
+    "sess_m5pVLdvsnTr6": {
+      "id": "sess_m5pVLdvsnTr6",
+      "createdAt": "2026-04-09T11:56:36.877Z",
+      "updatedAt": "2026-04-09T11:57:19.459Z",
+      "name": "123",
+      "birthDate": "2121-04-12",
+      "birthTime": "",
+      "birthCity": "",
+      "stage": "crossover_generated",
+      "consentEntertainmentDisclaimer": true,
+      "baseProfile": {
+        "identity": {
+          "name": "123",
+          "birthday": "2121-04-12",
+          "birthTime": "",
+          "birthLocation": ""
+        },
+        "chartType": "hexagram",
+        "chartVisual": {
+          "chartType": "hexagram",
+          "dominantElement": "fire",
+          "ringOrder": [
+            "metal",
+            "wood",
+            "water",
+            "fire",
+            "earth"
+          ],
+          "glowLabel": "123's live pattern"
+        },
+        "coreType": "The Ritual Architect",
+        "elementDistribution": {
+          "metal": 61,
+          "wood": 46,
+          "water": 56,
+          "fire": 86,
+          "earth": 51,
+          "archetype": "The Ritual Architect",
+          "palette": {
+            "base": "#220711",
+            "accent": "#ff4db8",
+            "glow": "#ffc3ea"
+          }
+        },
+        "profileRationale": {
+          "dominantElement": "fire",
+          "weakestElement": "wood",
+          "supportElement": "metal",
+          "seasonalTone": "spring",
+          "dayPhase": "unknown",
+          "tensionPair": [
+            "fire",
+            "wood"
+          ]
+        },
+        "todaySignal": "Today favors one immediate move. metal can turn raw heat into usable momentum if you act before the field cools.",
+        "coreConclusion": "Your field leads with fire while wood lowers your tolerance for delay. The profile is hot, direct, and ready to move, but it works best when that heat has a target.",
+        "topInsights": [
+          {
+            "title": "Where you tend to get stuck",
+            "body": "You usually know what you want, but when wood falls behind, your heat can outrun the patience that would have made it cleaner."
+          },
+          {
+            "title": "The signal worth trusting",
+            "body": "The brightest force in your profile right now is action heat, with metal helping momentum build once the direction is right."
+          },
+          {
+            "title": "The best next direction",
+            "body": "Start with goal alignment or fortune, then use a card draw as an immediate amplifier."
+          }
+        ],
+        "recommendedTracks": [
+          {
+            "kind": "fandom-relationship",
+            "title": "Relationship and attraction",
+            "preview": "See how you read connection, how you move closer, and what emotional tension is most active right now.",
+            "cta": "Open relationship track",
+            "why": "Your magnetism and expressive drive are both strong, so this track should give quick feedback."
+          },
+          {
+            "kind": "personal-growth",
+            "title": "Personal growth",
+            "preview": "Find the recurring behavior loop most likely to stall you and the inner switch most worth adjusting.",
+            "cta": "Open growth track",
+            "why": "The growth track helps separate impulse from real direction."
+          },
+          {
+            "kind": "fortune-upgrade",
+            "title": "Fortune upgrade",
+            "preview": "Turn today's signal into a practical direction, a caution, and a move that strengthens the day.",
+            "cta": "Open fortune track",
+            "why": "Your profile is especially suited to making a small upgrade move today, not someday."
+          },
+          {
+            "kind": "goal-alignment",
+            "title": "Goal alignment",
+            "preview": "Map the profile's momentum, friction, and timing into a concrete way of moving real goals forward.",
+            "cta": "Open goal track",
+            "why": "Right now your energy is best used by aiming it at one concrete goal."
+          }
+        ]
+      },
+      "branchPreview": {
+        "eastern": {
+          "system": "eastern",
+          "title": "Radiant Palace",
+          "visualKey": "eastern-orbit-grid",
+          "teaser": "spring amplifies your fire lane, while wood creates the hidden friction.",
+          "detailSummary": "Your eastern pattern burns bright when attention and momentum move in the same direction.",
+          "personalityHook": "Your eastern reading says your structure becomes strongest when fire leads without overcorrecting for wood.",
+          "graphicLabel": "FIRE palace"
+        },
+        "western": {
+          "system": "western",
+          "title": "Western Star",
+          "visualKey": "western-hexagram-star",
+          "teaser": "Your star pattern pulls toward metal, while wood creates the subtle contradiction.",
+          "detailSummary": "Your western chart reads as lucid, distant, and strategically magnetic.",
+          "personalityHook": "Your western reading says the public version of you becomes clearer when metal stops hiding behind wood.",
+          "graphicLabel": "METAL star"
+        }
+      },
+      "email": "21@123.com",
+      "registeredAt": "2026-04-09T11:57:19.440Z",
+      "crossoverReportId": "rpt_uJwYdLJMWbxc"
+    },
+    "sess_vkQY9B9NAXhm": {
+      "id": "sess_vkQY9B9NAXhm",
+      "createdAt": "2026-04-09T11:58:24.706Z",
+      "updatedAt": "2026-04-09T11:58:30.422Z",
+      "name": "123",
+      "birthDate": "1222-01-12",
+      "birthTime": "",
+      "birthCity": "",
+      "stage": "crossover_generated",
+      "consentEntertainmentDisclaimer": true,
+      "baseProfile": {
+        "identity": {
+          "name": "123",
+          "birthday": "1222-01-12",
+          "birthTime": "",
+          "birthLocation": ""
+        },
+        "chartType": "hexagram",
+        "chartVisual": {
+          "chartType": "hexagram",
+          "dominantElement": "wood",
+          "ringOrder": [
+            "metal",
+            "wood",
+            "water",
+            "fire",
+            "earth"
+          ],
+          "glowLabel": "123's live pattern"
+        },
+        "coreType": "The Soft Strategist",
+        "elementDistribution": {
+          "metal": 60,
+          "wood": 76,
+          "water": 62,
+          "fire": 65,
+          "earth": 40,
+          "archetype": "The Soft Strategist",
+          "palette": {
+            "base": "#07170f",
+            "accent": "#6dde88",
+            "glow": "#cfffe0"
+          }
+        },
+        "profileRationale": {
+          "dominantElement": "wood",
+          "weakestElement": "earth",
+          "supportElement": "fire",
+          "seasonalTone": "winter",
+          "dayPhase": "unknown",
+          "tensionPair": [
+            "wood",
+            "earth"
+          ]
+        },
+        "todaySignal": "Today favors naming the first real step. fire wants growth to become directional instead of staying conceptual.",
+        "coreConclusion": "Your field leads with wood while earth is still asking for support. The profile is not short on movement. It is asking for one path strong enough to hold your growth.",
+        "topInsights": [
+          {
+            "title": "Where you tend to get stuck",
+            "body": "You are not short on drive. The issue is that earth stays underfed, so your momentum spreads wider than it roots."
+          },
+          {
+            "title": "The signal worth trusting",
+            "body": "Growth is the strongest tone in your profile right now, with fire helping turn expansion into real movement."
+          },
+          {
+            "title": "The best next direction",
+            "body": "Go to growth and goal alignment first so abstract desire can become a visible path."
+          }
+        ],
+        "recommendedTracks": [
+          {
+            "kind": "fandom-relationship",
+            "title": "Relationship and attraction",
+            "preview": "See how you read connection, how you move closer, and what emotional tension is most active right now.",
+            "cta": "Open relationship track",
+            "why": "You enter relationships with a strong growth drive, so this track will likely mirror you quickly."
+          },
+          {
+            "kind": "personal-growth",
+            "title": "Personal growth",
+            "preview": "Find the recurring behavior loop most likely to stall you and the inner switch most worth adjusting.",
+            "cta": "Open growth track",
+            "why": "Your profile is especially ready for growth work and directional clarity first."
+          },
+          {
+            "kind": "fortune-upgrade",
+            "title": "Fortune upgrade",
+            "preview": "Turn today's signal into a practical direction, a caution, and a move that strengthens the day.",
+            "cta": "Open fortune track",
+            "why": "Your current fortune question is about choosing a direction, not waiting for luck."
+          },
+          {
+            "kind": "goal-alignment",
+            "title": "Goal alignment",
+            "preview": "Map the profile's momentum, friction, and timing into a concrete way of moving real goals forward.",
+            "cta": "Open goal track",
+            "why": "Your profile is very supportive of long-horizon progress toward meaningful goals."
+          }
+        ]
+      },
+      "branchPreview": {
+        "eastern": {
+          "system": "eastern",
+          "title": "Growth Palace",
+          "visualKey": "eastern-orbit-grid",
+          "teaser": "winter amplifies your wood lane, while earth creates the hidden friction.",
+          "detailSummary": "Your eastern pattern grows through direction. Movement matters most when it can find a spine.",
+          "personalityHook": "Your eastern reading says your structure becomes strongest when wood leads without overcorrecting for earth.",
+          "graphicLabel": "WOOD palace"
+        },
+        "western": {
+          "system": "western",
+          "title": "Flare Chart",
+          "visualKey": "western-hexagram-star",
+          "teaser": "Your star pattern pulls toward fire, while earth creates the subtle contradiction.",
+          "detailSummary": "Your western chart reads as visible, expressive, and strongest when it stops hesitating.",
+          "personalityHook": "Your western reading says the public version of you becomes clearer when fire stops hiding behind earth.",
+          "graphicLabel": "FIRE star"
+        }
+      },
+      "email": "121221@12.com",
+      "registeredAt": "2026-04-09T11:58:30.405Z",
+      "crossoverReportId": "rpt_FXN_gWt3_npn"
     }
   },
   "orders": {
@@ -1001,6 +1482,201 @@
         "summary": "The Magnetic Builder energy leads today. Your glow returns the second you stop rehearsing for permission. Lead with the sentence you usually save for last.",
         "shareCaption": "My O.O.D receipt for today: My power becomes visible when I stop editing it down."
       }
+    },
+    "rpt_eD1kd4r7fafg": {
+      "id": "rpt_eD1kd4r7fafg",
+      "intakeSessionId": "sess_w9Urb53c1SoI",
+      "email": "123@123.com",
+      "createdAt": "2026-04-09T11:55:40.382Z",
+      "updatedAt": "2026-04-09T11:55:40.396Z",
+      "kind": "crossover_base",
+      "status": "ready",
+      "elementProfile": {
+        "metal": 57,
+        "wood": 42,
+        "water": 52,
+        "fire": 82,
+        "earth": 47,
+        "archetype": "The Ritual Architect",
+        "palette": {
+          "base": "#220711",
+          "accent": "#ff4db8",
+          "glow": "#ffc3ea"
+        }
+      },
+      "disclaimer": "For entertainment and self-reflection only. O.O.D does not provide medical, legal, financial, or mental health advice.",
+      "crossover": {
+        "eastern": {
+          "system": "eastern",
+          "title": "Radiant Palace",
+          "visualKey": "eastern-orbit-grid",
+          "teaser": "spring amplifies your fire lane, while wood creates the hidden friction.",
+          "detailSummary": "Your eastern pattern burns bright when attention and momentum move in the same direction.",
+          "personalityHook": "Your eastern reading says your structure becomes strongest when fire leads without overcorrecting for wood.",
+          "graphicLabel": "FIRE palace"
+        },
+        "western": {
+          "system": "western",
+          "title": "Western Star",
+          "visualKey": "western-hexagram-star",
+          "teaser": "Your star pattern pulls toward metal, while wood creates the subtle contradiction.",
+          "detailSummary": "Your western chart reads as lucid, distant, and strategically magnetic.",
+          "personalityHook": "Your western reading says the public version of you becomes clearer when metal stops hiding behind wood.",
+          "graphicLabel": "METAL star"
+        },
+        "synthesisTitle": "Cross-Over Synthesis for 123",
+        "synthesisSummary": "Your eastern structure leads with fire, while your western pattern keeps pulling expression toward metal. The combined reading says your real leverage appears when those two systems stop competing and start reinforcing each other.",
+        "resonance": "Both systems agree that fire is carrying the strongest usable signal right now. This is the part of your life pattern that feels easiest to trust.",
+        "tension": "wood is where the two systems disagree with your habits. One part of your profile wants safety; the other wants visible motion.",
+        "personalityPattern": "Your personality pattern is less about being “one thing” and more about how fire and metal alternate between inner structure and outer performance.",
+        "currentTimingSignal": "This cycle favors acting from your strongest pattern first, then repairing wood once the field has started moving.",
+        "nextMove": "Take the first visible step that lets fire stay clean, while using metal to make the move legible to other people.",
+        "shareCaption": "My O.O.D cross-over reading says my strongest path opens when my inner pattern and public signal stop working against each other."
+      },
+      "assets": [
+        {
+          "kind": "html",
+          "url": "/api/report/rpt_eD1kd4r7fafg/download?kind=html"
+        },
+        {
+          "kind": "png",
+          "url": "/api/report/rpt_eD1kd4r7fafg/download?kind=png"
+        },
+        {
+          "kind": "pdf",
+          "url": "/api/report/rpt_eD1kd4r7fafg/download?kind=pdf"
+        }
+      ]
+    },
+    "rpt_uJwYdLJMWbxc": {
+      "id": "rpt_uJwYdLJMWbxc",
+      "intakeSessionId": "sess_m5pVLdvsnTr6",
+      "email": "21@123.com",
+      "createdAt": "2026-04-09T11:57:19.446Z",
+      "updatedAt": "2026-04-09T11:57:19.457Z",
+      "kind": "crossover_base",
+      "status": "ready",
+      "elementProfile": {
+        "metal": 61,
+        "wood": 46,
+        "water": 56,
+        "fire": 86,
+        "earth": 51,
+        "archetype": "The Ritual Architect",
+        "palette": {
+          "base": "#220711",
+          "accent": "#ff4db8",
+          "glow": "#ffc3ea"
+        }
+      },
+      "disclaimer": "For entertainment and self-reflection only. O.O.D does not provide medical, legal, financial, or mental health advice.",
+      "crossover": {
+        "eastern": {
+          "system": "eastern",
+          "title": "Radiant Palace",
+          "visualKey": "eastern-orbit-grid",
+          "teaser": "spring amplifies your fire lane, while wood creates the hidden friction.",
+          "detailSummary": "Your eastern pattern burns bright when attention and momentum move in the same direction.",
+          "personalityHook": "Your eastern reading says your structure becomes strongest when fire leads without overcorrecting for wood.",
+          "graphicLabel": "FIRE palace"
+        },
+        "western": {
+          "system": "western",
+          "title": "Western Star",
+          "visualKey": "western-hexagram-star",
+          "teaser": "Your star pattern pulls toward metal, while wood creates the subtle contradiction.",
+          "detailSummary": "Your western chart reads as lucid, distant, and strategically magnetic.",
+          "personalityHook": "Your western reading says the public version of you becomes clearer when metal stops hiding behind wood.",
+          "graphicLabel": "METAL star"
+        },
+        "synthesisTitle": "Cross-Over Synthesis for 123",
+        "synthesisSummary": "Your eastern structure leads with fire, while your western pattern keeps pulling expression toward metal. The combined reading says your real leverage appears when those two systems stop competing and start reinforcing each other.",
+        "resonance": "Both systems agree that fire is carrying the strongest usable signal right now. This is the part of your life pattern that feels easiest to trust.",
+        "tension": "wood is where the two systems disagree with your habits. One part of your profile wants safety; the other wants visible motion.",
+        "personalityPattern": "Your personality pattern is less about being “one thing” and more about how fire and metal alternate between inner structure and outer performance.",
+        "currentTimingSignal": "This cycle favors acting from your strongest pattern first, then repairing wood once the field has started moving.",
+        "nextMove": "Take the first visible step that lets fire stay clean, while using metal to make the move legible to other people.",
+        "shareCaption": "My O.O.D cross-over reading says my strongest path opens when my inner pattern and public signal stop working against each other."
+      },
+      "assets": [
+        {
+          "kind": "html",
+          "url": "/api/report/rpt_uJwYdLJMWbxc/download?kind=html"
+        },
+        {
+          "kind": "png",
+          "url": "/api/report/rpt_uJwYdLJMWbxc/download?kind=png"
+        },
+        {
+          "kind": "pdf",
+          "url": "/api/report/rpt_uJwYdLJMWbxc/download?kind=pdf"
+        }
+      ]
+    },
+    "rpt_FXN_gWt3_npn": {
+      "id": "rpt_FXN_gWt3_npn",
+      "intakeSessionId": "sess_vkQY9B9NAXhm",
+      "email": "121221@12.com",
+      "createdAt": "2026-04-09T11:58:30.410Z",
+      "updatedAt": "2026-04-09T11:58:30.420Z",
+      "kind": "crossover_base",
+      "status": "ready",
+      "elementProfile": {
+        "metal": 60,
+        "wood": 76,
+        "water": 62,
+        "fire": 65,
+        "earth": 40,
+        "archetype": "The Soft Strategist",
+        "palette": {
+          "base": "#07170f",
+          "accent": "#6dde88",
+          "glow": "#cfffe0"
+        }
+      },
+      "disclaimer": "For entertainment and self-reflection only. O.O.D does not provide medical, legal, financial, or mental health advice.",
+      "crossover": {
+        "eastern": {
+          "system": "eastern",
+          "title": "Growth Palace",
+          "visualKey": "eastern-orbit-grid",
+          "teaser": "winter amplifies your wood lane, while earth creates the hidden friction.",
+          "detailSummary": "Your eastern pattern grows through direction. Movement matters most when it can find a spine.",
+          "personalityHook": "Your eastern reading says your structure becomes strongest when wood leads without overcorrecting for earth.",
+          "graphicLabel": "WOOD palace"
+        },
+        "western": {
+          "system": "western",
+          "title": "Flare Chart",
+          "visualKey": "western-hexagram-star",
+          "teaser": "Your star pattern pulls toward fire, while earth creates the subtle contradiction.",
+          "detailSummary": "Your western chart reads as visible, expressive, and strongest when it stops hesitating.",
+          "personalityHook": "Your western reading says the public version of you becomes clearer when fire stops hiding behind earth.",
+          "graphicLabel": "FIRE star"
+        },
+        "synthesisTitle": "Cross-Over Synthesis for 123",
+        "synthesisSummary": "Your eastern structure leads with wood, while your western pattern keeps pulling expression toward fire. The combined reading says your real leverage appears when those two systems stop competing and start reinforcing each other.",
+        "resonance": "Both systems agree that wood is carrying the strongest usable signal right now. This is the part of your life pattern that feels easiest to trust.",
+        "tension": "earth is where the two systems disagree with your habits. One part of your profile wants safety; the other wants visible motion.",
+        "personalityPattern": "Your personality pattern is less about being “one thing” and more about how wood and fire alternate between inner structure and outer performance.",
+        "currentTimingSignal": "This cycle favors acting from your strongest pattern first, then repairing earth once the field has started moving.",
+        "nextMove": "Take the first visible step that lets wood stay clean, while using fire to make the move legible to other people.",
+        "shareCaption": "My O.O.D cross-over reading says my strongest path opens when my inner pattern and public signal stop working against each other."
+      },
+      "assets": [
+        {
+          "kind": "html",
+          "url": "/api/report/rpt_FXN_gWt3_npn/download?kind=html"
+        },
+        {
+          "kind": "png",
+          "url": "/api/report/rpt_FXN_gWt3_npn/download?kind=png"
+        },
+        {
+          "kind": "pdf",
+          "url": "/api/report/rpt_FXN_gWt3_npn/download?kind=pdf"
+        }
+      ]
     }
   }
 }

@@ -19,10 +19,10 @@ export default async function HistoryPage({ searchParams }: HistoryPageProps) {
       <div className="grid gap-8 lg:grid-cols-[0.72fr_1.28fr]">
         <RitualCard className="space-y-6">
           <SectionLabel>History access</SectionLabel>
-          <h1 className="font-serif text-4xl text-stone-50">Re-enter your receipts</h1>
+          <h1 className="font-serif text-4xl text-stone-50">Re-enter your reports</h1>
           <p className="text-base leading-7 text-stone-300">
-            Use the delivery email you checked out with. In local beta mode, this reads from the
-            mock store so you can inspect the end-to-end flow without live credentials.
+            Use the email you unlocked or purchased with. In local beta mode, this reads from the
+            mock store so you can inspect free and paid report flows.
           </p>
           <EmailHistoryForm />
         </RitualCard>
@@ -38,7 +38,7 @@ export default async function HistoryPage({ searchParams }: HistoryPageProps) {
           {!email ? (
             <RitualCard>
               <p className="text-sm text-stone-300">
-                Enter an email to retrieve paid beta receipts and generated assets.
+                Enter an email to retrieve unlocked reports and paid deep dives.
               </p>
             </RitualCard>
           ) : null}
@@ -58,7 +58,8 @@ export default async function HistoryPage({ searchParams }: HistoryPageProps) {
                     </div>
                   </div>
                   <p className="text-sm leading-7 text-stone-300">
-                    {report?.receipt?.summary ??
+                    {report?.crossover?.synthesisSummary ??
+                      report?.receipt?.summary ??
                       "This order exists, but the report is still generating or needs support."}
                   </p>
                   {report ? (
@@ -67,7 +68,7 @@ export default async function HistoryPage({ searchParams }: HistoryPageProps) {
                         href={`/report/${report.id}?email=${encodeURIComponent(order.email)}`}
                         className="rounded-full bg-stone-100 px-4 py-2 text-sm font-semibold text-stone-950 transition hover:bg-cyan-100"
                       >
-                        Open receipt
+                        Open report
                       </Link>
                       {report.assets.map((asset) => (
                         <Link
