@@ -1,20 +1,22 @@
 import Link from "next/link";
+import { redirect } from "next/navigation";
 
 import { ProfileCenterClient } from "@/components/profile-center-client";
 import { PageHero } from "@/components/page-hero";
 import { RitualCard } from "@/components/ritual-card";
 import { Shell } from "@/components/shell";
+import { getCurrentUser } from "@/lib/server/auth";
 
 const profileModules = [
   {
     title: "My Paid Deep Dives",
     body: "Review paid report state and retrieve purchased cross-over extensions.",
-    href: "/me/history?email=ritual%40ood.aura",
+    href: "/me/history",
   },
   {
     title: "My Free Cross-Over Reports",
     body: "Jump back into previously unlocked combined reports and exported assets.",
-    href: "/report/demo-report?email=ritual%40ood.aura",
+    href: "/report/demo-report",
   },
   {
     title: "Shop Extensions",
@@ -23,7 +25,12 @@ const profileModules = [
   },
 ] as const;
 
-export default function ProfilePage() {
+export default async function ProfilePage() {
+  const user = await getCurrentUser();
+  if (!user) {
+    redirect("/auth/login?next=/profile");
+  }
+
   return (
     <Shell className="space-y-12" activeHref="/profile">
       <PageHero

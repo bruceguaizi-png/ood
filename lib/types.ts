@@ -154,6 +154,19 @@ export type DeliveryAsset = {
   url: string;
 };
 
+export type NarrativeSection = {
+  key: string;
+  title: string;
+  body: string;
+};
+
+export type ReportNarrative = {
+  headline: string;
+  summary: string;
+  sections: NarrativeSection[];
+  shareCaption: string;
+};
+
 export type IntakePayload = {
   name: string;
   birthDate: string;
@@ -165,6 +178,7 @@ export type IntakePayload = {
 
 export type IntakeSession = {
   id: string;
+  userId?: string;
   createdAt: string;
   updatedAt: string;
   name: string;
@@ -187,6 +201,7 @@ export type IntakeSession = {
 export type Order = {
   id: string;
   intakeSessionId: string;
+  userId?: string;
   reportId?: string;
   email: string;
   sku: SKU;
@@ -201,6 +216,7 @@ export type Order = {
 export type ReportRecord = {
   id: string;
   intakeSessionId: string;
+  userId?: string;
   orderId?: string;
   email: string;
   createdAt: string;
@@ -210,6 +226,9 @@ export type ReportRecord = {
   elementProfile: ElementProfile;
   crossover?: CrossoverReport;
   receipt?: ManifestReceipt;
+  narrative?: ReportNarrative;
+  domain?: "relationship" | "career" | "growth" | "health" | "bundle";
+  followUpQuestion?: string;
   disclaimer: string;
   assets: DeliveryAsset[];
   error?: string;

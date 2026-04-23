@@ -1,10 +1,17 @@
 import { NextResponse } from "next/server";
 
 import { generateCrossoverReportFromSession, generateReportFromOrder } from "@/lib/server/generate-report";
+import { getCurrentUser } from "@/lib/server/auth";
+import { canAccessOrder, canAccessReport } from "@/lib/server/report-access";
 import { getOrder, getReportByOrderId, getReportBySessionAndKind, getSession } from "@/lib/server/store";
 import { generateReportSchema } from "@/lib/validation";
 
 export async function GET(request: Request) {
+  const user = await getCurrentUser();
+  if (!user) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
   const url = new URL(request.url);
   const orderId = url.searchParams.get("orderId");
   const sessionId = url.searchParams.get("sessionId");
@@ -19,8 +26,15 @@ export async function GET(request: Request) {
       return NextResponse.json({ error: "Session not found" }, { status: 404 });
     }
 
+    if (session.userId !== user.id && session.email?.toLowerCase() !== user.email.toLowerCase()) {
+      return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+    }
+
     const report = await getReportBySessionAndKind(sessionId, "crossover_base");
     if (report) {
+      if (!canAccessReport(report, user)) {
+        return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+      }
       return NextResponse.json({ report, status: report.status });
     }
 
@@ -32,8 +46,15 @@ export async function GET(request: Request) {
     return NextResponse.json({ error: "Order not found" }, { status: 404 });
   }
 
+  if (!canAccessOrder(order, user)) {
+    return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+  }
+
   const report = await getReportByOrderId(orderId!);
   if (report) {
+    if (!canAccessReport(report, user)) {
+      return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+    }
     return NextResponse.json({ report, status: report.status });
   }
 

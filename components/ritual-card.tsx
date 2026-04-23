@@ -7,7 +7,7 @@ export function RitualCard(props: {
   return (
     <div
       className={cn(
-        "relative overflow-hidden rounded-[30px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03))] p-6 shadow-[0_24px_100px_rgba(0,0,0,0.38)] backdrop-blur",
+        "relative overflow-hidden rounded-[26px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03))] p-4 shadow-[0_24px_100px_rgba(0,0,0,0.38)] backdrop-blur sm:rounded-[30px] sm:p-6",
         props.className,
       )}
     >

@@ -11,6 +11,8 @@ import { TurnstileField } from "@/components/turnstile-field";
 export function CheckoutButton(props: {
   session: IntakeSession;
   price: number;
+  skuCode?: string;
+  label?: string;
 }) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -31,6 +33,7 @@ export function CheckoutButton(props: {
         body: JSON.stringify({
           intakeSessionId: props.session.id,
           email: props.session.email,
+          skuCode: props.skuCode ?? "crossover-relationship",
           turnstileToken: token,
         }),
       });
@@ -60,7 +63,7 @@ export function CheckoutButton(props: {
         onClick={() => void handleCheckout()}
         className="h-14 rounded-full bg-pink-200 px-6 text-sm font-semibold text-stone-950 transition hover:bg-pink-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-200/45 disabled:cursor-not-allowed disabled:opacity-60"
       >
-        {loading ? "Opening checkout…" : `Unlock full receipt for ${currency(props.price)}`}
+        {loading ? "Opening checkout…" : props.label ?? `Unlock full receipt for ${currency(props.price)}`}
       </button>
     </div>
   );

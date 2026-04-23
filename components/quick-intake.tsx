@@ -106,7 +106,7 @@ export function QuickIntake() {
 
   return (
     <form
-      className="relative overflow-hidden rounded-[34px] border border-white/10 bg-[linear-gradient(180deg,rgba(6,11,20,0.96),rgba(3,7,14,0.9))] p-5 shadow-[0_36px_140px_rgba(0,0,0,0.48)] sm:p-6"
+      className="relative overflow-hidden rounded-[28px] border border-white/10 bg-[linear-gradient(180deg,rgba(6,11,20,0.96),rgba(3,7,14,0.9))] p-4 shadow-[0_36px_140px_rgba(0,0,0,0.48)] sm:rounded-[34px] sm:p-6"
       onSubmit={handleSubmit}
     >
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(111,232,255,0.16),transparent_32%),radial-gradient(circle_at_85%_15%,rgba(255,194,153,0.12),transparent_24%)]" />
@@ -115,16 +115,16 @@ export function QuickIntake() {
       <div className="pointer-events-none absolute inset-x-8 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.3),transparent)]" />
 
       <div className="relative space-y-5">
-        <div className="flex items-start justify-between gap-4">
+        <div className="flex flex-wrap items-start justify-between gap-3">
           <div className="space-y-2">
             <p className="text-[11px] uppercase tracking-[0.34em] text-cyan-100/72">
               Private Entry
             </p>
-            <h2 className="max-w-md text-balance font-serif text-4xl leading-[0.9] text-stone-50 sm:text-5xl">
+            <h2 className="max-w-md text-balance font-serif text-[2.1rem] leading-[0.92] text-stone-50 sm:text-5xl">
               Let the sign appear.
             </h2>
           </div>
-          <div className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 font-mono text-[11px] uppercase tracking-[0.22em] text-stone-300">
+          <div className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 font-mono text-[10px] uppercase tracking-[0.22em] text-stone-300 sm:text-[11px]">
             3 fields
           </div>
         </div>
@@ -158,8 +158,8 @@ export function QuickIntake() {
             </div>
           </div>
 
-          <div className="space-y-4 rounded-[28px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02))] p-4">
-            <div className="relative flex min-h-[188px] items-center justify-center overflow-hidden rounded-[24px] border border-white/10 bg-[#10131b]">
+          <div className="order-first space-y-4 rounded-[24px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02))] p-3 md:order-none md:rounded-[28px] md:p-4">
+            <div className="relative flex min-h-[150px] items-center justify-center overflow-hidden rounded-[20px] border border-white/10 bg-[#10131b] md:min-h-[188px] md:rounded-[24px]">
               <div
                 className="absolute inset-0 bg-cover bg-center opacity-72"
                 style={{ backgroundImage: 'url(/first-opening-bg.jpg)' }}
@@ -173,7 +173,7 @@ export function QuickIntake() {
                 <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-stone-300/90">
                   First Opening
                 </p>
-                <p className="mt-3 text-balance font-serif text-3xl text-stone-50 drop-shadow-[0_6px_28px_rgba(0,0,0,0.42)]">
+                <p className="mt-2 text-balance font-serif text-2xl text-stone-50 drop-shadow-[0_6px_28px_rgba(0,0,0,0.42)] md:mt-3 md:text-3xl">
                   One sign. Two mirrors.
                 </p>
               </div>
@@ -245,14 +245,14 @@ export function QuickIntake() {
           </p>
         ) : null}
 
-        <div className="flex flex-wrap items-center justify-between gap-3">
-          <p className="text-xs uppercase tracking-[0.24em] text-stone-500">
+        <div className="flex flex-col items-stretch gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
+          <p className="text-center text-xs uppercase tracking-[0.24em] text-stone-500 sm:text-left">
             Preview first. Full ritual later.
           </p>
           <button
             type="submit"
             disabled={!canSubmit}
-            className="inline-flex min-h-[60px] items-center rounded-full border border-amber-100/45 bg-[linear-gradient(135deg,#fff7e3_0%,#ffe7b8_40%,#ffd37b_100%)] px-7 text-sm font-semibold uppercase tracking-[0.18em] text-stone-950 shadow-[0_18px_56px_rgba(255,211,123,0.24)] transition hover:-translate-y-0.5 hover:shadow-[0_24px_72px_rgba(255,211,123,0.3)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-100/70 disabled:cursor-not-allowed disabled:opacity-55"
+            className="inline-flex min-h-[60px] w-full items-center justify-center rounded-full border border-amber-100/45 bg-[linear-gradient(135deg,#fff7e3_0%,#ffe7b8_40%,#ffd37b_100%)] px-7 text-sm font-semibold uppercase tracking-[0.18em] text-stone-950 shadow-[0_18px_56px_rgba(255,211,123,0.24)] transition hover:-translate-y-0.5 hover:shadow-[0_24px_72px_rgba(255,211,123,0.3)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-100/70 disabled:cursor-not-allowed disabled:opacity-55 sm:w-auto"
           >
             {submitting ? "Opening the reading..." : "Enter the reading"}
           </button>

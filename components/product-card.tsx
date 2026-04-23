@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 import { RitualCard } from "@/components/ritual-card";
@@ -24,9 +25,11 @@ function StandardCover({ slug }: { slug: string }) {
 function ImageCover(props: { src: string; alt: string }) {
   return (
     <div className="relative min-h-[270px] overflow-hidden rounded-[28px] border border-white/8 bg-[#f1ebe2]">
-      <img
+      <Image
         src={props.src}
         alt={props.alt}
+        fill
+        sizes="(min-width: 1024px) 33vw, 100vw"
         className="absolute inset-0 h-full w-full object-cover"
       />
       <div className="absolute bottom-4 left-4 rounded-full border border-white/20 bg-white/20 px-3 py-1 text-[11px] uppercase tracking-[0.28em] text-stone-900/80 backdrop-blur-sm">

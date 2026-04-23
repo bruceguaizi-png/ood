@@ -50,6 +50,7 @@ export function makeDemoOrder(): Order {
 
 export function makeDemoReport(): ReportRecord {
   const session = makeDemoSession();
+  const crossover = buildCrossoverReport(session.baseProfile, session.branchPreview);
   return {
     id: "demo-report",
     intakeSessionId: "demo-session",
@@ -60,7 +61,24 @@ export function makeDemoReport(): ReportRecord {
     status: "ready",
     disclaimer: ENTERTAINMENT_DISCLAIMER,
     elementProfile: session.baseProfile.elementDistribution,
-    crossover: buildCrossoverReport(session.baseProfile, session.branchPreview),
+    crossover,
+    narrative: {
+      headline: crossover.synthesisTitle,
+      summary: crossover.synthesisSummary,
+      sections: [
+        {
+          key: "opening",
+          title: "一、开篇总述",
+          body: "Aster is in a transition phase where inner identity and outer timing are finally visible together.",
+        },
+        {
+          key: "timing",
+          title: "二、当前阶段",
+          body: "The strongest signal in this demo profile is that visible movement now creates clarity faster than waiting does.",
+        },
+      ],
+      shareCaption: crossover.shareCaption,
+    },
     assets: [
       { kind: "html", url: "/api/report/demo-report/download?kind=html" },
       { kind: "png", url: "/api/report/demo-report/download?kind=png" },

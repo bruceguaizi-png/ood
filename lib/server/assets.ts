@@ -17,7 +17,18 @@ async function ensureReportDir(reportId: string) {
 function reportHtml(report: ReportRecord) {
   const receipt = report.receipt;
   const crossover = report.crossover;
+  const narrative = report.narrative;
   const palette = report.elementProfile.palette;
+  const narrativeHtml = narrative?.sections
+    .map(
+      (section) => `
+        <section class="story-block">
+          <h2>${section.title}</h2>
+          <p>${section.body}</p>
+        </section>
+      `,
+    )
+    .join("") ?? "";
 
   return `<!doctype html>
 <html lang="en">
@@ -85,6 +96,24 @@ function reportHtml(report: ReportRecord) {
         color: rgba(255,255,255,0.56);
         font-size: 12px;
       }
+      .story {
+        margin-top: 28px;
+        display: grid;
+        gap: 16px;
+      }
+      .story-block {
+        border-top: 1px solid rgba(255,255,255,0.08);
+        padding-top: 18px;
+      }
+      .story-block h2 {
+        margin: 0 0 10px;
+        font-size: 20px;
+      }
+      .story-block p {
+        margin: 0;
+        line-height: 1.7;
+        color: rgba(248,245,239,0.88);
+      }
       @media (max-width: 720px) {
         h1 { font-size: 34px; }
         .grid { grid-template-columns: 1fr; }
@@ -96,7 +125,7 @@ function reportHtml(report: ReportRecord) {
       <section class="card">
         <div class="eyebrow">Object of Desire</div>
         <h1>${report.kind === "crossover_base" ? "Cross-Over Report" : "Deep Dive Report"}</h1>
-        <p>${report.kind === "crossover_base" ? (crossover?.synthesisSummary ?? "") : (receipt?.summary ?? "")}</p>
+        <p>${narrative?.summary ?? (report.kind === "crossover_base" ? (crossover?.synthesisSummary ?? "") : (receipt?.summary ?? ""))}</p>
         <div class="grid">
           ${
             report.kind === "crossover_base"
@@ -118,6 +147,7 @@ function reportHtml(report: ReportRecord) {
           `
           }
         </div>
+        ${narrativeHtml ? `<div class="story">${narrativeHtml}</div>` : ""}
         <div class="disclaimer">${ENTERTAINMENT_DISCLAIMER}</div>
       </section>
     </main>
@@ -128,6 +158,7 @@ function reportHtml(report: ReportRecord) {
 function shareSvg(report: ReportRecord) {
   const receipt = report.receipt;
   const crossover = report.crossover;
+  const narrative = report.narrative;
   const palette = report.elementProfile.palette;
   return `<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
   <defs>
@@ -142,9 +173,9 @@ function shareSvg(report: ReportRecord) {
   <text x="86" y="118" fill="${palette.accent}" font-size="24" font-family="Georgia, serif" letter-spacing="6">OBJECT OF DESIRE</text>
   <text x="86" y="220" fill="#F7F4EF" font-size="78" font-family="Georgia, serif">${report.kind === "crossover_base" ? "Cross-Over" : "Deep Dive"}</text>
   <text x="86" y="300" fill="#F7F4EF" font-size="78" font-family="Georgia, serif">${report.kind === "crossover_base" ? "Report" : "Report"}</text>
-  <text x="86" y="390" fill="#E8DFD4" font-size="34" font-family="Georgia, serif">${escapeXml(report.kind === "crossover_base" ? (crossover?.nextMove ?? "") : (receipt?.mantra ?? ""))}</text>
+  <text x="86" y="390" fill="#E8DFD4" font-size="34" font-family="Georgia, serif">${escapeXml(report.kind === "crossover_base" ? (crossover?.nextMove ?? narrative?.summary ?? "") : (receipt?.mantra ?? narrative?.summary ?? ""))}</text>
   <text x="86" y="478" fill="#B7B0C0" font-size="24" font-family="Arial, sans-serif">${report.kind === "crossover_base" ? `Eastern: ${escapeXml(crossover?.eastern.title ?? "")}` : `Today's pull: ${escapeXml(receipt?.tarotCard ?? "")}`}</text>
-  <text x="86" y="530" fill="#B7B0C0" font-size="24" font-family="Arial, sans-serif">${report.kind === "crossover_base" ? `Western: ${escapeXml(crossover?.western.title ?? "")}` : `Energy score: ${receipt?.energyScore ?? 0}/100`}</text>
+  <text x="86" y="530" fill="#B7B0C0" font-size="24" font-family="Arial, sans-serif">${report.kind === "crossover_base" ? `Western: ${escapeXml(crossover?.western.title ?? "")}` : `${escapeXml(report.domain ?? "bundle")} deep dive`}</text>
   <text x="86" y="580" fill="#918A9B" font-size="16" font-family="Arial, sans-serif">${escapeXml(ENTERTAINMENT_DISCLAIMER)}</text>
 </svg>`;
 }
@@ -158,112 +189,187 @@ function escapeXml(value: string) {
     .replaceAll("'", "&apos;");
 }
 
+function isLatin1Safe(value: string) {
+  return /^[\x00-\xFF]*$/.test(value);
+}
+
+function toPdfSafeLine(value: string) {
+  if (isLatin1Safe(value)) return value;
+  return "[See HTML version for full non-Latin text]";
+}
+
 async function createPdf(report: ReportRecord) {
-  const pdfDoc = await PDFDocument.create();
-  const page = pdfDoc.addPage([595, 842]);
-  const serif = await pdfDoc.embedFont(StandardFonts.TimesRoman);
-  const bold = await pdfDoc.embedFont(StandardFonts.TimesRomanBold);
-  const receipt = report.receipt;
-  const crossover = report.crossover;
-  const palette = report.elementProfile.palette;
+  try {
+    const pdfDoc = await PDFDocument.create();
+    const page = pdfDoc.addPage([595, 842]);
+    const serif = await pdfDoc.embedFont(StandardFonts.TimesRoman);
+    const bold = await pdfDoc.embedFont(StandardFonts.TimesRomanBold);
+    const receipt = report.receipt;
+    const crossover = report.crossover;
+    const narrative = report.narrative;
+    const palette = report.elementProfile.palette;
 
-  page.drawRectangle({
-    x: 0,
-    y: 0,
-    width: 595,
-    height: 842,
-    color: rgb(0.03, 0.03, 0.06),
-  });
-
-  page.drawText("OBJECT OF DESIRE", {
-    x: 48,
-    y: 786,
-    size: 14,
-    font: bold,
-    color: rgb(0.85, 0.54, 0.78),
-  });
-
-  page.drawText(report.kind === "crossover_base" ? "Cross-Over Report" : "Deep Dive Report", {
-    x: 48,
-    y: 730,
-    size: 30,
-    font: bold,
-    color: rgb(0.97, 0.95, 0.92),
-  });
-
-  const lines = [
-    ...(report.kind === "crossover_base"
-      ? [
-          `Eastern: ${crossover?.eastern.title ?? ""}`,
-          `Western: ${crossover?.western.title ?? ""}`,
-          `Resonance: ${crossover?.resonance ?? ""}`,
-          `Tension: ${crossover?.tension ?? ""}`,
-          `Timing: ${crossover?.currentTimingSignal ?? ""}`,
-          `Next move: ${crossover?.nextMove ?? ""}`,
-          "",
-          crossover?.synthesisSummary ?? "",
-        ]
-      : [
-          `Theme: ${receipt?.theme ?? ""}`,
-          `Today's pull: ${receipt?.tarotCard ?? ""}`,
-          `Best move today: ${receipt?.action ?? ""}`,
-          `Avoid today: ${receipt?.caution ?? ""}`,
-          `Mantra: ${receipt?.mantra ?? ""}`,
-          `Energy score: ${receipt?.energyScore ?? 0}/100`,
-          "",
-          receipt?.summary ?? "",
-        ]),
-    "",
-    ENTERTAINMENT_DISCLAIMER,
-  ];
-
-  let y = 672;
-  for (const line of lines) {
-    page.drawText(line, {
-      x: 48,
-      y,
-      size: line === ENTERTAINMENT_DISCLAIMER ? 11 : 15,
-      font: line.startsWith("Theme:") ? bold : serif,
-      color:
-        line === ENTERTAINMENT_DISCLAIMER
-          ? rgb(0.65, 0.64, 0.7)
-          : rgb(0.95, 0.95, 0.94),
-      maxWidth: 495,
+    page.drawRectangle({
+      x: 0,
+      y: 0,
+      width: 595,
+      height: 842,
+      color: rgb(0.03, 0.03, 0.06),
     });
-    y -= line.length > 80 ? 38 : 26;
-  }
 
-  page.drawRectangle({
-    x: 420,
-    y: 700,
-    width: 120,
-    height: 120,
-    color: rgb(0.1, 0.12, 0.2),
-    borderColor: rgb(0.9, 0.65, 0.75),
-    borderWidth: 1,
-  });
+    page.drawText("OBJECT OF DESIRE", {
+      x: 48,
+      y: 786,
+      size: 14,
+      font: bold,
+      color: rgb(0.85, 0.54, 0.78),
+    });
 
-  page.drawText(report.kind === "crossover_base" ? "Cross-Over" : receipt?.tarotCard ?? "", {
-    x: 438,
-    y: 760,
-    size: 16,
-    font: bold,
-    color: rgb(0.97, 0.95, 0.92),
-  });
+    page.drawText(report.kind === "crossover_base" ? "Cross-Over Report" : "Deep Dive Report", {
+      x: 48,
+      y: 730,
+      size: 30,
+      font: bold,
+      color: rgb(0.97, 0.95, 0.92),
+    });
 
-  page.drawText(
-    `${report.elementProfile.archetype}\n${palette.accent.toUpperCase()}`,
-    {
+    const lines = [
+      ...(report.kind === "crossover_base"
+        ? [
+            toPdfSafeLine(`Eastern: ${crossover?.eastern.title ?? ""}`),
+            toPdfSafeLine(`Western: ${crossover?.western.title ?? ""}`),
+            toPdfSafeLine(`Resonance: ${crossover?.resonance ?? ""}`),
+            toPdfSafeLine(`Tension: ${crossover?.tension ?? ""}`),
+            toPdfSafeLine(`Timing: ${crossover?.currentTimingSignal ?? ""}`),
+            toPdfSafeLine(`Next move: ${crossover?.nextMove ?? ""}`),
+            "",
+            toPdfSafeLine(narrative?.summary ?? crossover?.synthesisSummary ?? ""),
+          ]
+        : [
+            toPdfSafeLine(`Theme: ${receipt?.theme ?? ""}`),
+            toPdfSafeLine(`Today's pull: ${receipt?.tarotCard ?? ""}`),
+            toPdfSafeLine(`Best move today: ${receipt?.action ?? ""}`),
+            toPdfSafeLine(`Avoid today: ${receipt?.caution ?? ""}`),
+            toPdfSafeLine(`Mantra: ${receipt?.mantra ?? ""}`),
+            toPdfSafeLine(`Domain: ${report.domain ?? "bundle"}`),
+            "",
+            toPdfSafeLine(narrative?.summary ?? receipt?.summary ?? ""),
+          ]),
+      ...(narrative?.sections.flatMap((section) => [
+        toPdfSafeLine(section.title),
+        toPdfSafeLine(section.body),
+        "",
+      ]) ?? []),
+      "",
+      ENTERTAINMENT_DISCLAIMER,
+    ];
+
+    let y = 672;
+    for (const line of lines) {
+      page.drawText(line, {
+        x: 48,
+        y,
+        size: line === ENTERTAINMENT_DISCLAIMER ? 11 : 15,
+        font: line.startsWith("Theme:") ? bold : serif,
+        color:
+          line === ENTERTAINMENT_DISCLAIMER
+            ? rgb(0.65, 0.64, 0.7)
+            : rgb(0.95, 0.95, 0.94),
+        maxWidth: 495,
+      });
+      y -= line.length > 80 ? 38 : 26;
+    }
+
+    page.drawRectangle({
+      x: 420,
+      y: 700,
+      width: 120,
+      height: 120,
+      color: rgb(0.1, 0.12, 0.2),
+      borderColor: rgb(0.9, 0.65, 0.75),
+      borderWidth: 1,
+    });
+
+    page.drawText(report.kind === "crossover_base" ? "Cross-Over" : receipt?.tarotCard ?? "", {
       x: 438,
-      y: 724,
-      size: 10,
-      font: serif,
-      color: rgb(0.78, 0.84, 0.9),
-      lineHeight: 13,
-    },
-  );
+      y: 760,
+      size: 16,
+      font: bold,
+      color: rgb(0.97, 0.95, 0.92),
+    });
 
-  return Buffer.from(await pdfDoc.save());
+    page.drawText(
+      `${toPdfSafeLine(report.elementProfile.archetype)}\n${toPdfSafeLine(report.domain ?? palette.accent.toUpperCase())}`,
+      {
+        x: 438,
+        y: 724,
+        size: 10,
+        font: serif,
+        color: rgb(0.78, 0.84, 0.9),
+        lineHeight: 13,
+      },
+    );
+
+    return Buffer.from(await pdfDoc.save());
+  } catch {
+    const pdfDoc = await PDFDocument.create();
+    const page = pdfDoc.addPage([595, 842]);
+    const serif = await pdfDoc.embedFont(StandardFonts.TimesRoman);
+    const bold = await pdfDoc.embedFont(StandardFonts.TimesRomanBold);
+
+    page.drawRectangle({
+      x: 0,
+      y: 0,
+      width: 595,
+      height: 842,
+      color: rgb(0.03, 0.03, 0.06),
+    });
+
+    page.drawText("OBJECT OF DESIRE", {
+      x: 48,
+      y: 786,
+      size: 14,
+      font: bold,
+      color: rgb(0.85, 0.54, 0.78),
+    });
+
+    page.drawText("PDF fallback version", {
+      x: 48,
+      y: 730,
+      size: 24,
+      font: bold,
+      color: rgb(0.97, 0.95, 0.92),
+    });
+
+    const fallbackLines = [
+      "This PDF uses a limited Latin font set.",
+      "For the full report text, open the HTML version from the same report page.",
+      "",
+      `Report ID: ${report.id}`,
+      `Kind: ${report.kind}`,
+      `Email: ${report.email}`,
+      "",
+      ENTERTAINMENT_DISCLAIMER,
+    ];
+
+    let y = 672;
+    for (const line of fallbackLines) {
+      page.drawText(line, {
+        x: 48,
+        y,
+        size: line === ENTERTAINMENT_DISCLAIMER ? 11 : 15,
+        font: serif,
+        color:
+          line === ENTERTAINMENT_DISCLAIMER
+            ? rgb(0.65, 0.64, 0.7)
+            : rgb(0.95, 0.95, 0.94),
+        maxWidth: 495,
+      });
+      y -= 28;
+    }
+
+    return Buffer.from(await pdfDoc.save());
+  }
 }
 
 export async function generateReportAssets(report: ReportRecord) {

@@ -1,0 +1,110 @@
+{
+  "reportId": "rpt_eRwHe3FyD_lt",
+  "kind": "crossover_base",
+  "provider": {
+    "id": "responses",
+    "model": "gemini-3-flash-preview",
+    "mode": "live"
+  },
+  "generatedAt": "2026-04-23T04:50:43.761Z",
+  "promptVersion": "flowith-prompts-2026-04-23",
+  "context": {
+    "reportId": "rpt_eRwHe3FyD_lt",
+    "reportKind": "crossover_base",
+    "user": {
+      "name": "bruce",
+      "birthDate": "2001-03-22",
+      "birthTime": "",
+      "birthCity": ""
+    },
+    "baseProfile": {
+      "coreType": "The Magnetic Builder",
+      "dominantElement": "wood",
+      "weakestElement": "metal",
+      "supportElement": "earth",
+      "seasonalTone": "spring",
+      "dayPhase": "unknown",
+      "archetype": "The Magnetic Builder",
+      "coreConclusion": "Your field leads with wood while metal is still asking for support. The profile is not short on movement. It is asking for one path strong enough to hold your growth.",
+      "todaySignal": "Today favors naming the first real step. earth wants growth to become directional instead of staying conceptual."
+    },
+    "westernPreview": {
+      "title": "Saturn Veil",
+      "teaser": "Your star pattern pulls toward earth, while metal creates the subtle contradiction.",
+      "detailSummary": "Your western chart reads as composed, anchored, and privately durable.",
+      "personalityHook": "Your western reading says the public version of you becomes clearer when earth stops hiding behind metal.",
+      "graphicLabel": "EARTH star"
+    },
+    "easternPreview": {
+      "title": "Growth Palace",
+      "teaser": "spring amplifies your wood lane, while metal creates the hidden friction.",
+      "detailSummary": "Your eastern pattern grows through direction. Movement matters most when it can find a spine.",
+      "personalityHook": "Your eastern reading says your structure becomes strongest when wood leads without overcorrecting for metal.",
+      "graphicLabel": "WOOD palace"
+    },
+    "order": {}
+  },
+  "westernPreview": {
+    "title": "The Architect of Momentum",
+    "summary": "Your western blueprint reveals an Aries spirit anchored by a heavy terrestrial pull, transforming raw impulse into architectural precision.",
+    "body": "While your Sun sits at the pioneering start of the zodiac, your chart lacks the typical restlessness of fire. Instead, your star pattern pulls toward a dense, earth-centric focus that demands tangible results. The 'metal' element in your profile functions as a sophisticated defense mechanism—a layer of cool, composed armor that protects your inner sensitivity. This creates a fascinating paradox: you have the drive to lead, yet you prefer the quiet strength of the builder. Your public identity gains its greatest clarity when you stop using your structural discipline as a hiding place and allow your grounded, magnetic nature to take the lead.",
+    "keyConclusions": [
+      "Aries initiative redirected through a lens of extreme patience and practicality.",
+      "A private durability that allows you to outlast more volatile competitors.",
+      "A structural 'metal' shell that offers protection but occasionally masks your natural magnetism.",
+      "The need to balance rigid self-control with the organic growth of your core ambitions."
+    ]
+  },
+  "easternPreview": {
+    "title": "Directing Your Natural Momentum",
+    "summary": "Your energy is naturally expansive and visionary, but your greatest progress comes from building the discipline to channel that growth into lasting results.",
+    "body": "Born in the peak of the spring season, your internal energy mirrors a forest in high growth—full of potential and rapid expansion. Because your Wood element is so dominant, you likely find it easy to start new projects, generate ideas, and adapt to change. However, the friction you feel often comes from a lack of 'metal'—the ability to prune, say no, and stick to a rigid structure. Instead of trying to force yourself into a restrictive box, focus on creating a flexible spine for your life. When you lead with your natural creativity but allow just enough discipline to keep you on track, you stop spinning your wheels and start building a legacy. Your path isn't about slowing down; it's about ensuring your movement has a clear, unbreakable direction.",
+    "keyConclusions": [
+      "Prioritize finishing one major goal over starting three new ones.",
+      "Use external tools like calendars or mentors to provide the structure you naturally lack.",
+      "View 'no' as a tool for growth rather than a limitation.",
+      "Your strength lies in vision; your growth lies in the details of execution."
+    ]
+  },
+  "crossover": {
+    "headline": "The Magnetic Architect: Anchoring the Expansion",
+    "summary": "Bruce, your field is currently a powerhouse of movement, characterized by a dominant Wood energy that pushes for constant growth. However, this expansion is meeting a structural friction—a Metal weakness that struggles to contain the sheer volume of your output. The crossover indicates that your public clarity and personal strength depend on Earth’s ability to turn conceptual brilliance into a singular, directional path.",
+    "sections": [
+      {
+        "key": "expansion_paradox",
+        "title": "The Growth Engine",
+        "body": "Wood leads your field, creating a magnetic pull toward new horizons. While your movement is high, the relative lack of Metal means you are often building faster than you can refine, leading to a state of perpetual becoming."
+      },
+      {
+        "key": "earth_anchor",
+        "title": "The Support Foundation",
+        "body": "Earth acts as your support system, demanding that your growth becomes tangible. It is no longer enough to exist in the conceptual realm; the field is asking for a solid landing zone where your ideas can take root."
+      },
+      {
+        "key": "public_mirror",
+        "title": "The Western Conflict",
+        "body": "Your star pattern pulls toward Earth, while Metal creates a subtle contradiction in how you are perceived. The public version of you becomes significantly clearer when you allow your grounded nature to lead instead of hiding behind structural defenses."
+      },
+      {
+        "key": "seasonal_friction",
+        "title": "The Eastern Tension",
+        "body": "Spring amplifies your Wood lane, providing a seasonal boost to your natural momentum. However, the hidden friction with Metal suggests a tendency to overcorrect. Your structure is strongest when you lead with growth without forcing the architecture."
+      },
+      {
+        "key": "singular_path",
+        "title": "The Core Mandate",
+        "body": "The profile is not short on movement, but it is asking for one path strong enough to hold your growth. Success right now is less about finding new directions and more about choosing the one that can withstand your scale."
+      }
+    ],
+    "resonance": "High-velocity expansion and a natural magnetic attraction to new systems.",
+    "tension": "The gap between conceptual vision and the structural discipline required to finalize it.",
+    "personalityPattern": "A visionary builder who thrives on momentum but occasionally bypasses the necessary grounding to sustain long-term structures.",
+    "currentTimingSignal": "Today favors naming the first real step; Earth demands that growth becomes directional rather than staying purely conceptual.",
+    "nextMove": "Identify the single most viable project and commit to its physical, non-negotiable requirements.",
+    "shareCaption": "Moving from the 'what if' to the 'what is.' Aligning the Magnetic Builder with a path that can finally hold the growth.",
+    "signalRelationship": "How a lack of structural boundaries might be impacting the stability of your closest containers.",
+    "signalCareer": "The transition from a multi-hyphenate expansion to a singular, authoritative legacy.",
+    "signalGrowth": "Bridging the gap between seasonal momentum and permanent internal architecture.",
+    "signalHealth": "Balancing the high-energy nervous system of the Wood element with stabilizing Earth rhythms."
+  }
+}

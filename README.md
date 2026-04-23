@@ -1,4 +1,13 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+O.O.D paid beta is a Next.js 16 app for intake, ritual previews, gated reports, and paid deep dives.
+
+## Auth
+
+The project now supports:
+
+- lightweight email-based entry for `/profile` and `/me/history`
+- Local file-backed beta data for sessions, reports, and orders
+
+Set the Supabase env vars in `.env.local`. No extra database schema is required for the current lightweight account setup.
 
 ## Getting Started
 

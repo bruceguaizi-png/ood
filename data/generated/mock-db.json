@@ -2871,6 +2871,510 @@
           "graphicLabel": "EARTH star"
         }
       }
+    },
+    "sess_qWSCBj6N0wBi": {
+      "id": "sess_qWSCBj6N0wBi",
+      "createdAt": "2026-04-23T04:47:12.571Z",
+      "updatedAt": "2026-04-23T04:48:02.175Z",
+      "name": "十一",
+      "birthDate": "1998-09-17",
+      "birthTime": "06:18",
+      "birthCity": "Seoul",
+      "stage": "crossover_generated",
+      "consentEntertainmentDisclaimer": true,
+      "baseProfile": {
+        "identity": {
+          "name": "十一",
+          "birthday": "1998-09-17",
+          "birthTime": "06:18",
+          "birthLocation": "Seoul"
+        },
+        "chartType": "hexagram",
+        "chartVisual": {
+          "chartType": "hexagram",
+          "dominantElement": "water",
+          "ringOrder": [
+            "metal",
+            "wood",
+            "water",
+            "fire",
+            "earth"
+          ],
+          "glowLabel": "十一's live pattern"
+        },
+        "coreType": "The Velvet Instigator",
+        "elementDistribution": {
+          "metal": 68,
+          "wood": 61,
+          "water": 87,
+          "fire": 57,
+          "earth": 87,
+          "archetype": "The Velvet Instigator",
+          "palette": {
+            "base": "#061229",
+            "accent": "#57ccff",
+            "glow": "#9ae6ff"
+          }
+        },
+        "profileRationale": {
+          "dominantElement": "water",
+          "weakestElement": "fire",
+          "supportElement": "earth",
+          "seasonalTone": "autumn",
+          "dayPhase": "dawn",
+          "tensionPair": [
+            "water",
+            "fire"
+          ]
+        },
+        "todaySignal": "Today favors reading emotional and timing signals first. earth helps you respond without drowning in subtlety.",
+        "coreConclusion": "Your field leads with water while fire keeps the edge of your sensitivity exposed. Emotional and relational signals will arrive early for you, so your power depends on reading them cleanly rather than resisting them.",
+        "topInsights": [
+          {
+            "title": "Where you tend to get stuck",
+            "body": "You feel everything in fine detail, and when fire dips too low, emotional weather can flood the whole field."
+          },
+          {
+            "title": "The signal worth trusting",
+            "body": "十一's strongest signal right now is sensitivity, while earth quietly helps timing cues become usable instead of overwhelming."
+          },
+          {
+            "title": "The best next direction",
+            "body": "Open relationship or fortune first, then decide whether a card draw should become today's extra signal."
+          }
+        ],
+        "recommendedTracks": [
+          {
+            "kind": "fandom-relationship",
+            "title": "Relationship and attraction",
+            "preview": "See how you read connection, how you move closer, and what emotional tension is most active right now.",
+            "cta": "Open relationship track",
+            "why": "You are most attuned to emotional and relational signals, so this track is likely to hit first."
+          },
+          {
+            "kind": "personal-growth",
+            "title": "Personal growth",
+            "preview": "Find the recurring behavior loop most likely to stall you and the inner switch most worth adjusting.",
+            "cta": "Open growth track",
+            "why": "The growth track helps explain why you often end up feeling more than other people notice."
+          },
+          {
+            "kind": "fortune-upgrade",
+            "title": "Fortune upgrade",
+            "preview": "Turn today's signal into a practical direction, a caution, and a move that strengthens the day.",
+            "cta": "Open fortune track",
+            "why": "Today's fortune is more about detail alerts and emotional blind-spot avoidance."
+          },
+          {
+            "kind": "goal-alignment",
+            "title": "Goal alignment",
+            "preview": "Map the profile's momentum, friction, and timing into a concrete way of moving real goals forward.",
+            "cta": "Open goal track",
+            "why": "Goal alignment helps you turn intuition into gentler but sustained motion."
+          }
+        ]
+      },
+      "branchPreview": {
+        "eastern": {
+          "system": "eastern",
+          "title": "Moon Palace",
+          "visualKey": "eastern-orbit-grid",
+          "teaser": "autumn amplifies your water lane, while fire creates the hidden friction.",
+          "detailSummary": "Your eastern pattern listens before it acts. Subtle shifts reach you earlier than they reach most people.",
+          "personalityHook": "Your eastern reading says your structure becomes strongest when water leads without overcorrecting for fire.",
+          "graphicLabel": "WATER palace"
+        },
+        "western": {
+          "system": "western",
+          "title": "Saturn Veil",
+          "visualKey": "western-hexagram-star",
+          "teaser": "dawn timing pulls toward earth, while fire creates the subtle contradiction.",
+          "detailSummary": "Your western chart reads as composed, anchored, and privately durable.",
+          "personalityHook": "Your western reading says the public version of you becomes clearer when earth stops hiding behind fire.",
+          "graphicLabel": "EARTH star"
+        }
+      },
+      "email": "test@example.com",
+      "registeredAt": "2026-04-23T04:47:26.333Z",
+      "crossoverReportId": "rpt_n-PtgeomQo1G"
+    },
+    "sess_en4oSj9vhmwv": {
+      "id": "sess_en4oSj9vhmwv",
+      "createdAt": "2026-04-23T04:50:13.318Z",
+      "updatedAt": "2026-04-23T04:50:57.849Z",
+      "name": "bruce",
+      "birthDate": "2001-03-22",
+      "birthTime": "",
+      "birthCity": "",
+      "stage": "crossover_generated",
+      "consentEntertainmentDisclaimer": true,
+      "baseProfile": {
+        "identity": {
+          "name": "bruce",
+          "birthday": "2001-03-22",
+          "birthTime": "",
+          "birthLocation": ""
+        },
+        "chartType": "hexagram",
+        "chartVisual": {
+          "chartType": "hexagram",
+          "dominantElement": "wood",
+          "ringOrder": [
+            "metal",
+            "wood",
+            "water",
+            "fire",
+            "earth"
+          ],
+          "glowLabel": "bruce's live pattern"
+        },
+        "coreType": "The Magnetic Builder",
+        "elementDistribution": {
+          "metal": 38,
+          "wood": 80,
+          "water": 77,
+          "fire": 62,
+          "earth": 79,
+          "archetype": "The Magnetic Builder",
+          "palette": {
+            "base": "#07170f",
+            "accent": "#6dde88",
+            "glow": "#cfffe0"
+          }
+        },
+        "profileRationale": {
+          "dominantElement": "wood",
+          "weakestElement": "metal",
+          "supportElement": "earth",
+          "seasonalTone": "spring",
+          "dayPhase": "unknown",
+          "tensionPair": [
+            "wood",
+            "metal"
+          ]
+        },
+        "todaySignal": "Today favors naming the first real step. earth wants growth to become directional instead of staying conceptual.",
+        "coreConclusion": "Your field leads with wood while metal is still asking for support. The profile is not short on movement. It is asking for one path strong enough to hold your growth.",
+        "topInsights": [
+          {
+            "title": "Where you tend to get stuck",
+            "body": "You are not short on drive. The issue is that metal stays underfed, so your momentum spreads wider than it roots."
+          },
+          {
+            "title": "The signal worth trusting",
+            "body": "Growth is the strongest tone in your profile right now, with earth helping turn expansion into real movement."
+          },
+          {
+            "title": "The best next direction",
+            "body": "Go to growth and goal alignment first so abstract desire can become a visible path."
+          }
+        ],
+        "recommendedTracks": [
+          {
+            "kind": "fandom-relationship",
+            "title": "Relationship and attraction",
+            "preview": "See how you read connection, how you move closer, and what emotional tension is most active right now.",
+            "cta": "Open relationship track",
+            "why": "You enter relationships with a strong growth drive, so this track will likely mirror you quickly."
+          },
+          {
+            "kind": "personal-growth",
+            "title": "Personal growth",
+            "preview": "Find the recurring behavior loop most likely to stall you and the inner switch most worth adjusting.",
+            "cta": "Open growth track",
+            "why": "Your profile is especially ready for growth work and directional clarity first."
+          },
+          {
+            "kind": "fortune-upgrade",
+            "title": "Fortune upgrade",
+            "preview": "Turn today's signal into a practical direction, a caution, and a move that strengthens the day.",
+            "cta": "Open fortune track",
+            "why": "Your current fortune question is about choosing a direction, not waiting for luck."
+          },
+          {
+            "kind": "goal-alignment",
+            "title": "Goal alignment",
+            "preview": "Map the profile's momentum, friction, and timing into a concrete way of moving real goals forward.",
+            "cta": "Open goal track",
+            "why": "Your profile is very supportive of long-horizon progress toward meaningful goals."
+          }
+        ]
+      },
+      "branchPreview": {
+        "eastern": {
+          "system": "eastern",
+          "title": "Growth Palace",
+          "visualKey": "eastern-orbit-grid",
+          "teaser": "spring amplifies your wood lane, while metal creates the hidden friction.",
+          "detailSummary": "Your eastern pattern grows through direction. Movement matters most when it can find a spine.",
+          "personalityHook": "Your eastern reading says your structure becomes strongest when wood leads without overcorrecting for metal.",
+          "graphicLabel": "WOOD palace"
+        },
+        "western": {
+          "system": "western",
+          "title": "Saturn Veil",
+          "visualKey": "western-hexagram-star",
+          "teaser": "Your star pattern pulls toward earth, while metal creates the subtle contradiction.",
+          "detailSummary": "Your western chart reads as composed, anchored, and privately durable.",
+          "personalityHook": "Your western reading says the public version of you becomes clearer when earth stops hiding behind metal.",
+          "graphicLabel": "EARTH star"
+        }
+      },
+      "email": "guoziyi329@163.com",
+      "registeredAt": "2026-04-23T04:50:24.269Z",
+      "crossoverReportId": "rpt_eRwHe3FyD_lt"
+    },
+    "sess_dkhBRUeAxKZH": {
+      "id": "sess_dkhBRUeAxKZH",
+      "createdAt": "2026-04-23T04:57:38.647Z",
+      "updatedAt": "2026-04-23T05:00:23.419Z",
+      "name": "十一",
+      "birthDate": "1998-09-17",
+      "birthTime": "06:18",
+      "birthCity": "Seoul",
+      "stage": "crossover_generated",
+      "consentEntertainmentDisclaimer": true,
+      "baseProfile": {
+        "identity": {
+          "name": "十一",
+          "birthday": "1998-09-17",
+          "birthTime": "06:18",
+          "birthLocation": "Seoul"
+        },
+        "chartType": "hexagram",
+        "chartVisual": {
+          "chartType": "hexagram",
+          "dominantElement": "water",
+          "ringOrder": [
+            "metal",
+            "wood",
+            "water",
+            "fire",
+            "earth"
+          ],
+          "glowLabel": "十一's live pattern"
+        },
+        "coreType": "The Velvet Instigator",
+        "elementDistribution": {
+          "metal": 68,
+          "wood": 61,
+          "water": 87,
+          "fire": 57,
+          "earth": 87,
+          "archetype": "The Velvet Instigator",
+          "palette": {
+            "base": "#061229",
+            "accent": "#57ccff",
+            "glow": "#9ae6ff"
+          }
+        },
+        "profileRationale": {
+          "dominantElement": "water",
+          "weakestElement": "fire",
+          "supportElement": "earth",
+          "seasonalTone": "autumn",
+          "dayPhase": "dawn",
+          "tensionPair": [
+            "water",
+            "fire"
+          ]
+        },
+        "todaySignal": "Today favors reading emotional and timing signals first. earth helps you respond without drowning in subtlety.",
+        "coreConclusion": "Your field leads with water while fire keeps the edge of your sensitivity exposed. Emotional and relational signals will arrive early for you, so your power depends on reading them cleanly rather than resisting them.",
+        "topInsights": [
+          {
+            "title": "Where you tend to get stuck",
+            "body": "You feel everything in fine detail, and when fire dips too low, emotional weather can flood the whole field."
+          },
+          {
+            "title": "The signal worth trusting",
+            "body": "十一's strongest signal right now is sensitivity, while earth quietly helps timing cues become usable instead of overwhelming."
+          },
+          {
+            "title": "The best next direction",
+            "body": "Open relationship or fortune first, then decide whether a card draw should become today's extra signal."
+          }
+        ],
+        "recommendedTracks": [
+          {
+            "kind": "fandom-relationship",
+            "title": "Relationship and attraction",
+            "preview": "See how you read connection, how you move closer, and what emotional tension is most active right now.",
+            "cta": "Open relationship track",
+            "why": "You are most attuned to emotional and relational signals, so this track is likely to hit first."
+          },
+          {
+            "kind": "personal-growth",
+            "title": "Personal growth",
+            "preview": "Find the recurring behavior loop most likely to stall you and the inner switch most worth adjusting.",
+            "cta": "Open growth track",
+            "why": "The growth track helps explain why you often end up feeling more than other people notice."
+          },
+          {
+            "kind": "fortune-upgrade",
+            "title": "Fortune upgrade",
+            "preview": "Turn today's signal into a practical direction, a caution, and a move that strengthens the day.",
+            "cta": "Open fortune track",
+            "why": "Today's fortune is more about detail alerts and emotional blind-spot avoidance."
+          },
+          {
+            "kind": "goal-alignment",
+            "title": "Goal alignment",
+            "preview": "Map the profile's momentum, friction, and timing into a concrete way of moving real goals forward.",
+            "cta": "Open goal track",
+            "why": "Goal alignment helps you turn intuition into gentler but sustained motion."
+          }
+        ]
+      },
+      "branchPreview": {
+        "eastern": {
+          "system": "eastern",
+          "title": "Moon Palace",
+          "visualKey": "eastern-orbit-grid",
+          "teaser": "autumn amplifies your water lane, while fire creates the hidden friction.",
+          "detailSummary": "Your eastern pattern listens before it acts. Subtle shifts reach you earlier than they reach most people.",
+          "personalityHook": "Your eastern reading says your structure becomes strongest when water leads without overcorrecting for fire.",
+          "graphicLabel": "WATER palace"
+        },
+        "western": {
+          "system": "western",
+          "title": "Saturn Veil",
+          "visualKey": "western-hexagram-star",
+          "teaser": "dawn timing pulls toward earth, while fire creates the subtle contradiction.",
+          "detailSummary": "Your western chart reads as composed, anchored, and privately durable.",
+          "personalityHook": "Your western reading says the public version of you becomes clearer when earth stops hiding behind fire.",
+          "graphicLabel": "EARTH star"
+        }
+      },
+      "email": "mobiletest@example.com",
+      "registeredAt": "2026-04-23T04:59:38.291Z",
+      "crossoverReportId": "rpt_NcR7svwMBs4p"
+    },
+    "sess_zfW1MLeJQYsl": {
+      "id": "sess_zfW1MLeJQYsl",
+      "createdAt": "2026-04-23T05:02:23.384Z",
+      "updatedAt": "2026-04-23T05:03:28.132Z",
+      "name": "十一",
+      "birthDate": "1998-09-17",
+      "birthTime": "06:18",
+      "birthCity": "Seoul",
+      "stage": "crossover_generated",
+      "consentEntertainmentDisclaimer": true,
+      "baseProfile": {
+        "identity": {
+          "name": "十一",
+          "birthday": "1998-09-17",
+          "birthTime": "06:18",
+          "birthLocation": "Seoul"
+        },
+        "chartType": "hexagram",
+        "chartVisual": {
+          "chartType": "hexagram",
+          "dominantElement": "water",
+          "ringOrder": [
+            "metal",
+            "wood",
+            "water",
+            "fire",
+            "earth"
+          ],
+          "glowLabel": "十一's live pattern"
+        },
+        "coreType": "The Velvet Instigator",
+        "elementDistribution": {
+          "metal": 68,
+          "wood": 61,
+          "water": 87,
+          "fire": 57,
+          "earth": 87,
+          "archetype": "The Velvet Instigator",
+          "palette": {
+            "base": "#061229",
+            "accent": "#57ccff",
+            "glow": "#9ae6ff"
+          }
+        },
+        "profileRationale": {
+          "dominantElement": "water",
+          "weakestElement": "fire",
+          "supportElement": "earth",
+          "seasonalTone": "autumn",
+          "dayPhase": "dawn",
+          "tensionPair": [
+            "water",
+            "fire"
+          ]
+        },
+        "todaySignal": "Today favors reading emotional and timing signals first. earth helps you respond without drowning in subtlety.",
+        "coreConclusion": "Your field leads with water while fire keeps the edge of your sensitivity exposed. Emotional and relational signals will arrive early for you, so your power depends on reading them cleanly rather than resisting them.",
+        "topInsights": [
+          {
+            "title": "Where you tend to get stuck",
+            "body": "You feel everything in fine detail, and when fire dips too low, emotional weather can flood the whole field."
+          },
+          {
+            "title": "The signal worth trusting",
+            "body": "十一's strongest signal right now is sensitivity, while earth quietly helps timing cues become usable instead of overwhelming."
+          },
+          {
+            "title": "The best next direction",
+            "body": "Open relationship or fortune first, then decide whether a card draw should become today's extra signal."
+          }
+        ],
+        "recommendedTracks": [
+          {
+            "kind": "fandom-relationship",
+            "title": "Relationship and attraction",
+            "preview": "See how you read connection, how you move closer, and what emotional tension is most active right now.",
+            "cta": "Open relationship track",
+            "why": "You are most attuned to emotional and relational signals, so this track is likely to hit first."
+          },
+          {
+            "kind": "personal-growth",
+            "title": "Personal growth",
+            "preview": "Find the recurring behavior loop most likely to stall you and the inner switch most worth adjusting.",
+            "cta": "Open growth track",
+            "why": "The growth track helps explain why you often end up feeling more than other people notice."
+          },
+          {
+            "kind": "fortune-upgrade",
+            "title": "Fortune upgrade",
+            "preview": "Turn today's signal into a practical direction, a caution, and a move that strengthens the day.",
+            "cta": "Open fortune track",
+            "why": "Today's fortune is more about detail alerts and emotional blind-spot avoidance."
+          },
+          {
+            "kind": "goal-alignment",
+            "title": "Goal alignment",
+            "preview": "Map the profile's momentum, friction, and timing into a concrete way of moving real goals forward.",
+            "cta": "Open goal track",
+            "why": "Goal alignment helps you turn intuition into gentler but sustained motion."
+          }
+        ]
+      },
+      "branchPreview": {
+        "eastern": {
+          "system": "eastern",
+          "title": "Moon Palace",
+          "visualKey": "eastern-orbit-grid",
+          "teaser": "autumn amplifies your water lane, while fire creates the hidden friction.",
+          "detailSummary": "Your eastern pattern listens before it acts. Subtle shifts reach you earlier than they reach most people.",
+          "personalityHook": "Your eastern reading says your structure becomes strongest when water leads without overcorrecting for fire.",
+          "graphicLabel": "WATER palace"
+        },
+        "western": {
+          "system": "western",
+          "title": "Saturn Veil",
+          "visualKey": "western-hexagram-star",
+          "teaser": "dawn timing pulls toward earth, while fire creates the subtle contradiction.",
+          "detailSummary": "Your western chart reads as composed, anchored, and privately durable.",
+          "personalityHook": "Your western reading says the public version of you becomes clearer when earth stops hiding behind fire.",
+          "graphicLabel": "EARTH star"
+        }
+      },
+      "email": "finaltest@example.com",
+      "registeredAt": "2026-04-23T05:02:43.023Z",
+      "crossoverReportId": "rpt_dQg1rWZ2uoMn"
     }
   },
   "orders": {
@@ -3153,6 +3657,306 @@
           "url": "/api/report/rpt_FXN_gWt3_npn/download?kind=pdf"
         }
       ]
+    },
+    "rpt_n-PtgeomQo1G": {
+      "id": "rpt_n-PtgeomQo1G",
+      "intakeSessionId": "sess_qWSCBj6N0wBi",
+      "email": "test@example.com",
+      "createdAt": "2026-04-23T04:47:26.337Z",
+      "updatedAt": "2026-04-23T04:48:02.173Z",
+      "kind": "crossover_base",
+      "status": "ready",
+      "elementProfile": {
+        "metal": 68,
+        "wood": 61,
+        "water": 87,
+        "fire": 57,
+        "earth": 87,
+        "archetype": "The Velvet Instigator",
+        "palette": {
+          "base": "#061229",
+          "accent": "#57ccff",
+          "glow": "#9ae6ff"
+        }
+      },
+      "disclaimer": "For entertainment and self-reflection only. O.O.D does not provide medical, legal, financial, or mental health advice.",
+      "crossover": {
+        "eastern": {
+          "system": "eastern",
+          "title": "Moon Palace",
+          "visualKey": "eastern-orbit-grid",
+          "teaser": "autumn amplifies your water lane, while fire creates the hidden friction.",
+          "detailSummary": "Your eastern pattern listens before it acts. Subtle shifts reach you earlier than they reach most people.",
+          "personalityHook": "Your eastern reading says your structure becomes strongest when water leads without overcorrecting for fire.",
+          "graphicLabel": "WATER palace"
+        },
+        "western": {
+          "system": "western",
+          "title": "Saturn Veil",
+          "visualKey": "western-hexagram-star",
+          "teaser": "dawn timing pulls toward earth, while fire creates the subtle contradiction.",
+          "detailSummary": "Your western chart reads as composed, anchored, and privately durable.",
+          "personalityHook": "Your western reading says the public version of you becomes clearer when earth stops hiding behind fire.",
+          "graphicLabel": "EARTH star"
+        },
+        "synthesisTitle": "The Velvet Instigator: Navigating the Exposed Edge of 十一",
+        "synthesisSummary": "Your current alignment positions you as a catalyst who moves through fluid influence rather than friction. While your dominant water leads the way, your weakened fire keeps your sensitivity sharp and exposed, making this a pivotal moment for grounding your intuitive hits into tangible reality through earth support.",
+        "resonance": "Deep emotional intuition and the ability to influence environments through subtle shifts in presence.",
+        "tension": "The constant friction between a vast internal water landscape and a fragile fire that leaves your emotional nerves exposed.",
+        "personalityPattern": "A catalyst who prefers the ripple effect to the direct strike; you change the container to change the contents.",
+        "currentTimingSignal": "Emotional and relational signals are arriving early; success depends on reading them cleanly rather than resisting the vulnerability they bring.",
+        "nextMove": "Identify one subtle emotional signal you’ve been ignoring and use an earth-based action—like scheduling or physical documentation—to stabilize it.",
+        "shareCaption": "For 十一: Power isn't found in the fire you lack, but in the water you master. The Velvet Instigator moves the world through the quietest ripples."
+      },
+      "narrative": {
+        "headline": "The Velvet Instigator: Navigating the Exposed Edge of 十一",
+        "summary": "Your current alignment positions you as a catalyst who moves through fluid influence rather than friction. While your dominant water leads the way, your weakened fire keeps your sensitivity sharp and exposed, making this a pivotal moment for grounding your intuitive hits into tangible reality through earth support.",
+        "sections": [
+          {
+            "key": "fluid_dominance",
+            "title": "The Permeable Boundary",
+            "body": "Your field currently leads with water, allowing you to sense the unspoken architecture of any room. However, because fire is your weakest element, you lack the typical defensive barrier that others use to mask their intent. This exposure is not a flaw; it is the source of your 'Velvet Instigator' power, allowing you to move others by being the most resonant frequency in the space."
+          },
+          {
+            "key": "structural_clarity",
+            "title": "The Public Revelation",
+            "body": "There is a shift occurring in how you are perceived by the collective. Your western reading suggests the public version of you becomes clearer when earth stops hiding behind fire. By leaning into your support element, you provide a stable landing spot for the emotional data you collect, transforming raw sensitivity into professional authority."
+          },
+          {
+            "key": "seasonal_friction",
+            "title": "The Autumnal Flow",
+            "body": "The current seasonal transition to autumn amplifies your water lane, deepening your capacity for introspection. Yet, fire creates a hidden friction within this flow. Your eastern reading indicates your structure becomes strongest when water leads without overcorrecting for fire; you do not need to burn brighter to be seen, you simply need to flow with more intent."
+          },
+          {
+            "key": "timing_mechanics",
+            "title": "The Dawn Transition",
+            "body": "Timing is everything for the Instigator. Dawn timing pulls your energy toward earth, offering a window of stability before the day's fire creates its subtle contradiction. This is the moment to anchor your intentions before the heat of social interaction begins to test your emotional boundaries."
+          },
+          {
+            "key": "strategic_response",
+            "title": "The Earth Anchor",
+            "body": "Today favors reading emotional and timing signals first. Earth helps you respond without drowning in the subtlety of your own perceptions. By prioritizing the 'when' and 'how' over the 'why,' you maintain your edge without becoming overwhelmed by the sheer volume of incoming sensory data."
+          }
+        ],
+        "shareCaption": "For 十一: Power isn't found in the fire you lack, but in the water you master. The Velvet Instigator moves the world through the quietest ripples."
+      },
+      "assets": [
+        {
+          "kind": "html",
+          "url": "/api/report/rpt_n-PtgeomQo1G/download?kind=html"
+        },
+        {
+          "kind": "png",
+          "url": "/api/report/rpt_n-PtgeomQo1G/download?kind=png"
+        },
+        {
+          "kind": "pdf",
+          "url": "/api/report/rpt_n-PtgeomQo1G/download?kind=pdf"
+        }
+      ]
+    },
+    "rpt_eRwHe3FyD_lt": {
+      "id": "rpt_eRwHe3FyD_lt",
+      "intakeSessionId": "sess_en4oSj9vhmwv",
+      "email": "guoziyi329@163.com",
+      "createdAt": "2026-04-23T04:50:24.276Z",
+      "updatedAt": "2026-04-23T04:50:57.846Z",
+      "kind": "crossover_base",
+      "status": "ready",
+      "elementProfile": {
+        "metal": 38,
+        "wood": 80,
+        "water": 77,
+        "fire": 62,
+        "earth": 79,
+        "archetype": "The Magnetic Builder",
+        "palette": {
+          "base": "#07170f",
+          "accent": "#6dde88",
+          "glow": "#cfffe0"
+        }
+      },
+      "disclaimer": "For entertainment and self-reflection only. O.O.D does not provide medical, legal, financial, or mental health advice.",
+      "crossover": {
+        "eastern": {
+          "system": "eastern",
+          "title": "Growth Palace",
+          "visualKey": "eastern-orbit-grid",
+          "teaser": "spring amplifies your wood lane, while metal creates the hidden friction.",
+          "detailSummary": "Your eastern pattern grows through direction. Movement matters most when it can find a spine.",
+          "personalityHook": "Your eastern reading says your structure becomes strongest when wood leads without overcorrecting for metal.",
+          "graphicLabel": "WOOD palace"
+        },
+        "western": {
+          "system": "western",
+          "title": "Saturn Veil",
+          "visualKey": "western-hexagram-star",
+          "teaser": "Your star pattern pulls toward earth, while metal creates the subtle contradiction.",
+          "detailSummary": "Your western chart reads as composed, anchored, and privately durable.",
+          "personalityHook": "Your western reading says the public version of you becomes clearer when earth stops hiding behind metal.",
+          "graphicLabel": "EARTH star"
+        },
+        "synthesisTitle": "The Magnetic Architect: Anchoring the Expansion",
+        "synthesisSummary": "Bruce, your field is currently a powerhouse of movement, characterized by a dominant Wood energy that pushes for constant growth. However, this expansion is meeting a structural friction—a Metal weakness that struggles to contain the sheer volume of your output. The crossover indicates that your public clarity and personal strength depend on Earth’s ability to turn conceptual brilliance into a singular, directional path.",
+        "resonance": "High-velocity expansion and a natural magnetic attraction to new systems.",
+        "tension": "The gap between conceptual vision and the structural discipline required to finalize it.",
+        "personalityPattern": "A visionary builder who thrives on momentum but occasionally bypasses the necessary grounding to sustain long-term structures.",
+        "currentTimingSignal": "Today favors naming the first real step; Earth demands that growth becomes directional rather than staying purely conceptual.",
+        "nextMove": "Identify the single most viable project and commit to its physical, non-negotiable requirements.",
+        "shareCaption": "Moving from the 'what if' to the 'what is.' Aligning the Magnetic Builder with a path that can finally hold the growth."
+      },
+      "narrative": {
+        "headline": "The Magnetic Architect: Anchoring the Expansion",
+        "summary": "Bruce, your field is currently a powerhouse of movement, characterized by a dominant Wood energy that pushes for constant growth. However, this expansion is meeting a structural friction—a Metal weakness that struggles to contain the sheer volume of your output. The crossover indicates that your public clarity and personal strength depend on Earth’s ability to turn conceptual brilliance into a singular, directional path.",
+        "sections": [
+          {
+            "key": "expansion_paradox",
+            "title": "The Growth Engine",
+            "body": "Wood leads your field, creating a magnetic pull toward new horizons. While your movement is high, the relative lack of Metal means you are often building faster than you can refine, leading to a state of perpetual becoming."
+          },
+          {
+            "key": "earth_anchor",
+            "title": "The Support Foundation",
+            "body": "Earth acts as your support system, demanding that your growth becomes tangible. It is no longer enough to exist in the conceptual realm; the field is asking for a solid landing zone where your ideas can take root."
+          },
+          {
+            "key": "public_mirror",
+            "title": "The Western Conflict",
+            "body": "Your star pattern pulls toward Earth, while Metal creates a subtle contradiction in how you are perceived. The public version of you becomes significantly clearer when you allow your grounded nature to lead instead of hiding behind structural defenses."
+          },
+          {
+            "key": "seasonal_friction",
+            "title": "The Eastern Tension",
+            "body": "Spring amplifies your Wood lane, providing a seasonal boost to your natural momentum. However, the hidden friction with Metal suggests a tendency to overcorrect. Your structure is strongest when you lead with growth without forcing the architecture."
+          },
+          {
+            "key": "singular_path",
+            "title": "The Core Mandate",
+            "body": "The profile is not short on movement, but it is asking for one path strong enough to hold your growth. Success right now is less about finding new directions and more about choosing the one that can withstand your scale."
+          }
+        ],
+        "shareCaption": "Moving from the 'what if' to the 'what is.' Aligning the Magnetic Builder with a path that can finally hold the growth."
+      },
+      "assets": [
+        {
+          "kind": "html",
+          "url": "/api/report/rpt_eRwHe3FyD_lt/download?kind=html"
+        },
+        {
+          "kind": "png",
+          "url": "/api/report/rpt_eRwHe3FyD_lt/download?kind=png"
+        },
+        {
+          "kind": "pdf",
+          "url": "/api/report/rpt_eRwHe3FyD_lt/download?kind=pdf"
+        }
+      ]
+    },
+    "rpt_NcR7svwMBs4p": {
+      "id": "rpt_NcR7svwMBs4p",
+      "intakeSessionId": "sess_dkhBRUeAxKZH",
+      "email": "mobiletest@example.com",
+      "createdAt": "2026-04-23T04:59:38.299Z",
+      "updatedAt": "2026-04-23T05:00:23.419Z",
+      "kind": "crossover_base",
+      "status": "failed",
+      "elementProfile": {
+        "metal": 68,
+        "wood": 61,
+        "water": 87,
+        "fire": 57,
+        "earth": 87,
+        "archetype": "The Velvet Instigator",
+        "palette": {
+          "base": "#061229",
+          "accent": "#57ccff",
+          "glow": "#9ae6ff"
+        }
+      },
+      "disclaimer": "For entertainment and self-reflection only. O.O.D does not provide medical, legal, financial, or mental health advice.",
+      "crossover": {
+        "eastern": {
+          "system": "eastern",
+          "title": "Moon Palace",
+          "visualKey": "eastern-orbit-grid",
+          "teaser": "autumn amplifies your water lane, while fire creates the hidden friction.",
+          "detailSummary": "Your eastern pattern listens before it acts. Subtle shifts reach you earlier than they reach most people.",
+          "personalityHook": "Your eastern reading says your structure becomes strongest when water leads without overcorrecting for fire.",
+          "graphicLabel": "WATER palace"
+        },
+        "western": {
+          "system": "western",
+          "title": "Saturn Veil",
+          "visualKey": "western-hexagram-star",
+          "teaser": "dawn timing pulls toward earth, while fire creates the subtle contradiction.",
+          "detailSummary": "Your western chart reads as composed, anchored, and privately durable.",
+          "personalityHook": "Your western reading says the public version of you becomes clearer when earth stops hiding behind fire.",
+          "graphicLabel": "EARTH star"
+        },
+        "synthesisTitle": "Cross-Over Synthesis for 十一",
+        "synthesisSummary": "Your eastern structure leads with water, while your western pattern keeps pulling expression toward earth. The combined reading says your real leverage appears when those two systems stop competing and start reinforcing each other.",
+        "resonance": "Both systems agree that water is carrying the strongest usable signal right now. This is the part of your life pattern that feels easiest to trust.",
+        "tension": "The hidden tension lives in fire. Your structure reads it as caution, but your star pattern reads it as the cost of staying too contained.",
+        "personalityPattern": "Your personality pattern is less about being “one thing” and more about how water and earth alternate between inner structure and outer performance.",
+        "currentTimingSignal": "This cycle favors acting from your strongest pattern first, then repairing fire once the field has started moving.",
+        "nextMove": "Take the first visible step that lets water stay clean, while using earth to make the move legible to other people.",
+        "shareCaption": "My O.O.D cross-over reading says my strongest path opens when my inner pattern and public signal stop working against each other."
+      },
+      "assets": [],
+      "error": "WinAnsi cannot encode \"当\" (0x5f53)"
+    },
+    "rpt_dQg1rWZ2uoMn": {
+      "id": "rpt_dQg1rWZ2uoMn",
+      "intakeSessionId": "sess_zfW1MLeJQYsl",
+      "email": "finaltest@example.com",
+      "createdAt": "2026-04-23T05:02:43.028Z",
+      "updatedAt": "2026-04-23T05:03:28.132Z",
+      "kind": "crossover_base",
+      "status": "failed",
+      "elementProfile": {
+        "metal": 68,
+        "wood": 61,
+        "water": 87,
+        "fire": 57,
+        "earth": 87,
+        "archetype": "The Velvet Instigator",
+        "palette": {
+          "base": "#061229",
+          "accent": "#57ccff",
+          "glow": "#9ae6ff"
+        }
+      },
+      "disclaimer": "For entertainment and self-reflection only. O.O.D does not provide medical, legal, financial, or mental health advice.",
+      "crossover": {
+        "eastern": {
+          "system": "eastern",
+          "title": "Moon Palace",
+          "visualKey": "eastern-orbit-grid",
+          "teaser": "autumn amplifies your water lane, while fire creates the hidden friction.",
+          "detailSummary": "Your eastern pattern listens before it acts. Subtle shifts reach you earlier than they reach most people.",
+          "personalityHook": "Your eastern reading says your structure becomes strongest when water leads without overcorrecting for fire.",
+          "graphicLabel": "WATER palace"
+        },
+        "western": {
+          "system": "western",
+          "title": "Saturn Veil",
+          "visualKey": "western-hexagram-star",
+          "teaser": "dawn timing pulls toward earth, while fire creates the subtle contradiction.",
+          "detailSummary": "Your western chart reads as composed, anchored, and privately durable.",
+          "personalityHook": "Your western reading says the public version of you becomes clearer when earth stops hiding behind fire.",
+          "graphicLabel": "EARTH star"
+        },
+        "synthesisTitle": "Cross-Over Synthesis for 十一",
+        "synthesisSummary": "Your eastern structure leads with water, while your western pattern keeps pulling expression toward earth. The combined reading says your real leverage appears when those two systems stop competing and start reinforcing each other.",
+        "resonance": "Both systems agree that water is carrying the strongest usable signal right now. This is the part of your life pattern that feels easiest to trust.",
+        "tension": "The hidden tension lives in fire. Your structure reads it as caution, but your star pattern reads it as the cost of staying too contained.",
+        "personalityPattern": "Your personality pattern is less about being “one thing” and more about how water and earth alternate between inner structure and outer performance.",
+        "currentTimingSignal": "This cycle favors acting from your strongest pattern first, then repairing fire once the field has started moving.",
+        "nextMove": "Take the first visible step that lets water stay clean, while using earth to make the move legible to other people.",
+        "shareCaption": "My O.O.D cross-over reading says my strongest path opens when my inner pattern and public signal stop working against each other."
+      },
+      "assets": [],
+      "error": "WinAnsi cannot encode \"当\" (0x5f53)"
     }
   }
 }

@@ -1,9 +1,10 @@
+import { getSiteOrigin } from "@/lib/site-url";
+
 import { type SKU } from "@/lib/types";
 
 export const APP_NAME = "O.O.D";
 export const APP_TAGLINE = "Object of Desire";
-export const APP_DOMAIN =
-  process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000";
+export const APP_DOMAIN = getSiteOrigin();
 
 export const ENTERTAINMENT_DISCLAIMER =
   "For entertainment and self-reflection only. O.O.D does not provide medical, legal, financial, or mental health advice.";

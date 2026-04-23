@@ -3,14 +3,16 @@ import { ProductCard } from "@/components/product-card";
 import { RitualCartDrawer } from "@/components/ritual-cart-drawer";
 import { Shell } from "@/components/shell";
 import { shopProducts } from "@/lib/site-content";
-import { subReportBlueprints } from "@/lib/sub-report-blueprints";
+import { subReportBlueprints, type SubReportSlug } from "@/lib/sub-report-blueprints";
 
 type ShopPageProps = {
   searchParams: Promise<{ product?: string }>;
 };
 export default async function ShopPage({ searchParams }: ShopPageProps) {
   const { product } = await searchParams;
-  const displayProducts = shopProducts.filter((item) => item.type === "report");
+  const displayProducts = shopProducts.filter(
+    (item): item is (typeof shopProducts)[number] & { slug: SubReportSlug } => item.type === "report",
+  );
   const selected = displayProducts.find((item) => item.slug === product) ?? displayProducts[0];
   const blueprint = subReportBlueprints[selected.slug];
 

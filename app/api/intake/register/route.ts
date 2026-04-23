@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 
 import { TRACKING_EVENTS } from "@/lib/constants";
+import { getCurrentUser } from "@/lib/server/auth";
 import { generateCrossoverReportFromSession } from "@/lib/server/generate-report";
 import { captureServerEvent } from "@/lib/server/posthog";
 import { getSession, updateSession } from "@/lib/server/store";
@@ -29,6 +30,7 @@ export async function POST(request: Request) {
   }
 
   const updatedSession = await updateSession(session.id, {
+    userId: (await getCurrentUser())?.id ?? session.userId,
     email: parsed.data.email,
     stage: "email_captured",
     registeredAt: new Date().toISOString(),

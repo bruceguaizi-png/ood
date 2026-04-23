@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 
 import { DEEP_DIVE_SKUS } from "@/lib/constants";
+import { getCurrentUser } from "@/lib/server/auth";
 import { createCheckoutSession } from "@/lib/server/payments";
 import { createOrder, getSession, updateOrder } from "@/lib/server/store";
 import { verifyTurnstile } from "@/lib/server/turnstile";
@@ -30,19 +31,22 @@ export async function POST(request: Request) {
   const sku =
     Object.values(DEEP_DIVE_SKUS).find((item) => item.code === parsed.data.skuCode) ??
     DEEP_DIVE_SKUS.relationship;
+  const user = await getCurrentUser();
+  const effectiveEmail = user?.email ?? parsed.data.email;
 
   const provisionalOrder = await createOrder({
     intakeSessionId: parsed.data.intakeSessionId,
-    email: parsed.data.email,
+    email: effectiveEmail,
     stripeSessionId: `pending_${parsed.data.intakeSessionId}`,
     sku,
     reportKind: "deep_dive",
+    userId: user?.id ?? session.userId,
   });
 
   const checkout = await createCheckoutSession({
     intakeSessionId: parsed.data.intakeSessionId,
     orderId: provisionalOrder.id,
-    email: parsed.data.email,
+    email: effectiveEmail,
     sku,
   });
 

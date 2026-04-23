@@ -8,7 +8,7 @@ export function ServiceCard({ service }: { service: DivinationService }) {
     service.status === "live"
       ? "/quiz"
       : service.status === "demo"
-        ? "/report/demo-report?email=ritual%40ood.aura"
+        ? "/report/demo-report"
         : "/about";
 
   return (

@@ -1,5 +1,7 @@
 import clsx, { type ClassValue } from "clsx";
 
+import { getSiteOrigin } from "@/lib/site-url";
+
 export function cn(...inputs: ClassValue[]) {
   return clsx(inputs);
 }
@@ -12,8 +14,7 @@ export function currency(cents: number, code = "USD") {
 }
 
 export function absoluteUrl(path: string) {
-  const base = process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000";
-  return new URL(path, base).toString();
+  return new URL(path, getSiteOrigin()).toString();
 }
 
 export function sleep(ms: number) {

@@ -1,9 +1,11 @@
 import Link from "next/link";
+import { redirect } from "next/navigation";
 
 import { ReportStatusPoller } from "@/components/report-status-poller";
 import { RitualCard } from "@/components/ritual-card";
 import { SectionLabel } from "@/components/section-label";
 import { Shell } from "@/components/shell";
+import { getCurrentUser } from "@/lib/server/auth";
 import { generateReportFromOrder } from "@/lib/server/generate-report";
 import { getOrder, getReport } from "@/lib/server/store";
 
@@ -19,8 +21,13 @@ export default async function CheckoutSuccessPage({
   searchParams,
 }: CheckoutSuccessPageProps) {
   const { order_id: orderId, mock } = await searchParams;
+  const user = await getCurrentUser();
   const order = orderId ? await getOrder(orderId) : null;
   let report = order?.reportId ? await getReport(order.reportId) : null;
+
+  if (order?.userId && (!user || user.id !== order.userId)) {
+    redirect(`/auth/login?next=${encodeURIComponent(`/checkout/success?order_id=${order.id}`)}`);
+  }
 
   if (order && mock === "1" && !report) {
     report = await generateReportFromOrder(order.id);
@@ -46,7 +53,7 @@ export default async function CheckoutSuccessPage({
 
         {report?.status === "ready" ? (
           <Link
-            href={`/report/${report.id}?email=${encodeURIComponent(report.email)}`}
+            href={`/report/${report.id}`}
             className="inline-flex rounded-full bg-stone-100 px-5 py-3 text-sm font-semibold text-stone-950 transition hover:bg-cyan-100"
           >
             Open my receipt

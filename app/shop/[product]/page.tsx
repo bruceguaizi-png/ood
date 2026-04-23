@@ -1,14 +1,18 @@
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { CheckoutButton } from "@/components/checkout-button";
 import { RitualCard } from "@/components/ritual-card";
 import { SectionLabel } from "@/components/section-label";
 import { Shell } from "@/components/shell";
+import { getSession } from "@/lib/server/store";
 import { shopProducts } from "@/lib/site-content";
 import { subReportBlueprints, type SubReportSlug } from "@/lib/sub-report-blueprints";
 
 type SubReportPageProps = {
   params: Promise<{ product: string }>;
+  searchParams: Promise<{ session?: string }>;
 };
 
 function previewImageFor(product: SubReportSlug) {
@@ -18,14 +22,23 @@ function previewImageFor(product: SubReportSlug) {
   return "/sub-report-health.jpg";
 }
 
-export default async function SubReportPage({ params }: SubReportPageProps) {
+function skuCodeForProduct(product: SubReportSlug) {
+  if (product === "relationship-deep-dive") return "crossover-relationship" as const;
+  if (product === "career-deep-dive") return "crossover-career" as const;
+  if (product === "money-deep-dive") return "crossover-money" as const;
+  return "crossover-healing" as const;
+}
+
+export default async function SubReportPage({ params, searchParams }: SubReportPageProps) {
   const { product } = await params;
+  const { session: sessionId } = await searchParams;
   const selected = shopProducts.find((item) => item.slug === product && item.type === "report");
 
   if (!selected) notFound();
 
   const blueprint = subReportBlueprints[selected.slug as SubReportSlug];
   if (!blueprint) notFound();
+  const intakeSession = sessionId ? await getSession(sessionId) : null;
 
   return (
     <Shell className="space-y-12" activeHref="/shop">
@@ -41,9 +54,12 @@ export default async function SubReportPage({ params }: SubReportPageProps) {
           <div className="relative overflow-hidden rounded-[30px] border border-white/10 bg-[#0b1018] p-3 shadow-[0_20px_60px_rgba(0,0,0,0.25)]">
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(128,220,228,0.12),transparent_28%),radial-gradient(circle_at_bottom_right,rgba(255,150,120,0.12),transparent_24%)]" />
             <div className="overflow-hidden rounded-[22px] border border-white/8 bg-[#f4efe7]">
-              <img
+              <Image
                 src={previewImageFor(selected.slug as SubReportSlug)}
                 alt={`${blueprint.shortTitle} field preview`}
+                width={1200}
+                height={800}
+                sizes="(min-width: 1024px) 960px, 100vw"
                 className="h-[250px] w-full object-contain bg-[#f4efe7] p-4"
               />
             </div>
@@ -113,19 +129,34 @@ export default async function SubReportPage({ params }: SubReportPageProps) {
           </div>
 
           <div className="flex flex-wrap items-center gap-4 pt-1">
-            <Link
-              href="/quiz"
-              className="inline-flex min-h-[56px] items-center rounded-full bg-stone-100 px-7 text-base font-semibold text-stone-950 shadow-[0_14px_36px_rgba(255,255,255,0.12)] transition hover:bg-cyan-100"
-            >
-              Unlock now
-            </Link>
+            {intakeSession?.email ? (
+              <CheckoutButton
+                session={intakeSession}
+                price={299}
+                skuCode={skuCodeForProduct(selected.slug as SubReportSlug)}
+                label={`Unlock ${selected.title} for ${selected.priceLabel}`}
+              />
+            ) : (
+              <Link
+                href="/quiz"
+                className="inline-flex min-h-[56px] items-center rounded-full bg-stone-100 px-7 text-base font-semibold text-stone-950 shadow-[0_14px_36px_rgba(255,255,255,0.12)] transition hover:bg-cyan-100"
+              >
+                Start with free reading first
+              </Link>
+            )}
             <Link
               href="/"
               className="rounded-full border border-white/10 px-5 py-3 text-sm text-stone-100 transition hover:bg-white/8"
             >
-              Start from base reading
+              Return to entry
             </Link>
           </div>
+          {!intakeSession?.email ? (
+            <p className="text-sm leading-7 text-stone-400">
+              Paid checkout only opens after the user completes the free ritual and unlocks the
+              cross-over layer with an email.
+            </p>
+          ) : null}
         </RitualCard>
       </section>
     </Shell>

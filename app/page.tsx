@@ -8,7 +8,7 @@ export default function Home() {
     <Shell className="space-y-8" activeHref="/" navMode="full">
       <TrackView event={TRACKING_EVENTS.landingView} />
 
-      <section className="relative overflow-hidden rounded-[40px] border border-white/8">
+      <section className="relative overflow-hidden rounded-[28px] border border-white/8 sm:rounded-[40px]">
         <div
           className="absolute inset-[-10%] bg-cover bg-center opacity-58 scale-[1.08]"
           style={{ backgroundImage: 'url(/home-hero-bg.jpg)' }}
@@ -19,7 +19,7 @@ export default function Home() {
         <div className="absolute inset-x-0 top-0 h-32 bg-[linear-gradient(180deg,rgba(4,7,14,0.42),transparent)]" />
         <div className="absolute inset-x-0 bottom-0 h-40 bg-[linear-gradient(0deg,rgba(4,7,14,0.58),transparent)]" />
 
-        <div className="relative space-y-8 px-5 py-6 sm:px-8 sm:py-8 lg:px-10 lg:py-10">
+        <div className="relative space-y-6 px-3 py-4 sm:space-y-8 sm:px-8 sm:py-8 lg:px-10 lg:py-10">
           <section className="mx-auto w-full max-w-[54rem]">
             <HomeQuickIntake />
           </section>

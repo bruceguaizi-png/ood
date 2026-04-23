@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 
 import { ReportStatusPoller } from "@/components/report-status-poller";
 import { RitualCard } from "@/components/ritual-card";
@@ -8,7 +8,9 @@ import { ShareButton } from "@/components/share-button";
 import { Shell } from "@/components/shell";
 import { TrackView } from "@/components/track-view";
 import { TRACKING_EVENTS } from "@/lib/constants";
+import { getCurrentUser } from "@/lib/server/auth";
 import { generateReportFromOrder } from "@/lib/server/generate-report";
+import { canAccessReport } from "@/lib/server/report-access";
 import { getReport } from "@/lib/server/store";
 
 type ReportPageProps = {
@@ -18,18 +20,27 @@ type ReportPageProps = {
 
 export default async function ReportPage({ params, searchParams }: ReportPageProps) {
   const { id } = await params;
-  const { email } = await searchParams;
+  await searchParams;
+  const user = await getCurrentUser();
   let report = await getReport(id);
 
   if (!report) notFound();
+
+  if (!user && report.id !== "demo-report") {
+    redirect(`/auth/login?next=${encodeURIComponent(`/report/${id}`)}`);
+  }
 
   if (report.kind === "deep_dive" && report.orderId && report.status === "ready" && report.assets.length === 0) {
     report = await generateReportFromOrder(report.orderId);
   }
 
-  const permitted = email ? email.toLowerCase() === report.email.toLowerCase() : true;
+  if (!canAccessReport(report, user)) {
+    notFound();
+  }
+
   const receipt = report.receipt;
   const crossover = report.crossover;
+  const narrative = report.narrative;
 
   return (
     <Shell className="space-y-8">
@@ -38,28 +49,30 @@ export default async function ReportPage({ params, searchParams }: ReportPagePro
         properties={{ reportId: report.id, kind: report.kind }}
       />
 
-      <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
+      <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:gap-8">
         <RitualCard className="space-y-6">
           <SectionLabel>{report.kind === "crossover_base" ? "Cross-Over Report" : "Deep Dive Report"}</SectionLabel>
           <div className="space-y-3">
             <h1 className="text-balance font-serif text-4xl text-stone-50 sm:text-5xl">
-              {report.kind === "crossover_base"
-                ? crossover?.synthesisTitle ?? "Cross-over report pending"
-                : receipt?.theme
-                  ? `${receipt.theme.charAt(0).toUpperCase()}${receipt.theme.slice(1)} Deep Dive`
-                  : "Deep dive pending"}
+              {narrative?.headline ??
+                (report.kind === "crossover_base"
+                  ? crossover?.synthesisTitle ?? "Cross-over report pending"
+                  : receipt?.theme
+                    ? `${receipt.theme.charAt(0).toUpperCase()}${receipt.theme.slice(1)} Deep Dive`
+                    : "Deep dive pending")}
             </h1>
-            <p className="text-pretty text-lg leading-8 text-stone-300">
-              {report.kind === "crossover_base"
-                ? crossover?.synthesisSummary ??
-                  "Your cross-over report is still rendering. Leave this page open and it will refresh itself."
-                : receipt?.summary ??
-                  "Your report is still rendering. Leave this page open and it will refresh itself."}
+            <p className="text-pretty text-base leading-7 text-stone-300 sm:text-lg sm:leading-8">
+              {narrative?.summary ??
+                (report.kind === "crossover_base"
+                  ? crossover?.synthesisSummary ??
+                    "Your cross-over report is still rendering. Leave this page open and it will refresh itself."
+                  : receipt?.summary ??
+                    "Your report is still rendering. Leave this page open and it will refresh itself.")}
             </p>
           </div>
 
           {report.kind === "crossover_base" && crossover ? (
-            <div className="rounded-[28px] border border-white/10 bg-[radial-gradient(circle_at_top,rgba(255,194,153,0.14),transparent_26%),radial-gradient(circle_at_bottom,rgba(111,232,255,0.12),transparent_28%),linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.02))] p-6">
+            <div className="rounded-[24px] border border-white/10 bg-[radial-gradient(circle_at_top,rgba(255,194,153,0.14),transparent_26%),radial-gradient(circle_at_bottom,rgba(111,232,255,0.12),transparent_28%),linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.02))] p-4 sm:rounded-[28px] sm:p-6">
               <div className="grid gap-4 sm:grid-cols-2">
                 {[
                   ["Resonance", crossover.resonance],
@@ -82,9 +95,9 @@ export default async function ReportPage({ params, searchParams }: ReportPagePro
           ) : null}
 
           {report.kind === "deep_dive" && receipt ? (
-            <div className="rounded-[28px] border border-white/10 bg-[radial-gradient(circle_at_top,rgba(255,194,153,0.14),transparent_26%),radial-gradient(circle_at_bottom,rgba(111,232,255,0.12),transparent_28%),linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.02))] p-6">
+            <div className="rounded-[24px] border border-white/10 bg-[radial-gradient(circle_at_top,rgba(255,194,153,0.14),transparent_26%),radial-gradient(circle_at_bottom,rgba(111,232,255,0.12),transparent_28%),linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.02))] p-4 sm:rounded-[28px] sm:p-6">
               <div className="grid gap-4 md:grid-cols-[0.9fr_1.1fr] md:items-center">
-                <div className="relative flex min-h-[260px] items-center justify-center overflow-hidden rounded-[24px] border border-white/10 bg-black/20">
+                <div className="relative flex min-h-[220px] items-center justify-center overflow-hidden rounded-[20px] border border-white/10 bg-black/20 sm:min-h-[260px] sm:rounded-[24px]">
                   <div className="absolute h-52 w-52 rounded-full border border-amber-200/18 motion-safe:animate-[orbitSpin_18s_linear_infinite]" />
                   <div className="absolute h-36 w-36 rounded-full border border-cyan-200/16 motion-safe:animate-[orbitSpin_12s_linear_infinite_reverse]" />
                   <div className="absolute h-24 w-24 rounded-full border border-white/12" />
@@ -136,8 +149,8 @@ export default async function ReportPage({ params, searchParams }: ReportPagePro
           {report.kind === "deep_dive" && receipt ? (
             <div className="grid gap-4 md:grid-cols-2">
               {[
+                ["Domain", report.domain ?? "bundle"],
                 ["Theme", receipt.theme],
-                ["Energy score", `${receipt.energyScore}/100`],
                 ["Best move", receipt.action],
                 ["Avoid", receipt.caution],
                 ["Share line", receipt.shareCaption],
@@ -155,15 +168,36 @@ export default async function ReportPage({ params, searchParams }: ReportPagePro
               ))}
             </div>
           ) : null}
+
+          {narrative?.sections?.length ? (
+            <div className="space-y-4">
+              {narrative.sections.map((section) => (
+                <div
+                  key={section.key}
+                  className="rounded-[20px] border border-white/10 bg-white/[0.03] p-4 sm:rounded-[24px] sm:p-5"
+                >
+                  <h2 className="font-serif text-xl text-stone-50 sm:text-2xl">{section.title}</h2>
+                  <p className="mt-3 text-[15px] leading-7 text-stone-200 sm:text-base sm:leading-8">{section.body}</p>
+                </div>
+              ))}
+            </div>
+          ) : null}
+
+          {report.followUpQuestion ? (
+            <div className="rounded-[24px] border border-cyan-200/15 bg-cyan-300/10 p-5">
+              <div className="text-xs uppercase tracking-[0.24em] text-cyan-100/80">
+                Follow-up
+              </div>
+              <p className="mt-3 text-base leading-8 text-cyan-50">{report.followUpQuestion}</p>
+            </div>
+          ) : null}
         </RitualCard>
 
         <div className="space-y-6">
           <RitualCard className="space-y-4">
             <SectionLabel>Access</SectionLabel>
             <p className="text-sm leading-7 text-stone-300">
-              {permitted
-                ? "This beta link is open because the provided email matches the delivery record."
-                : "Open this page from the delivery email for auto-verified access."}
+              This report is protected by your verified account session.
             </p>
             <div className="tabular-nums space-y-2 text-sm text-stone-400">
               <p>Email: {report.email}</p>
@@ -194,7 +228,7 @@ export default async function ReportPage({ params, searchParams }: ReportPagePro
           <RitualCard className="space-y-4">
             <SectionLabel>History</SectionLabel>
             <Link
-              href={`/me/history?email=${encodeURIComponent(report.email)}`}
+              href="/me/history"
               className="inline-flex rounded-full bg-pink-200 px-4 py-2 text-sm font-semibold text-stone-950 transition hover:bg-pink-100"
             >
               Open My Full History

@@ -1,0 +1,110 @@
+{
+  "reportId": "rpt_n-PtgeomQo1G",
+  "kind": "crossover_base",
+  "provider": {
+    "id": "responses",
+    "model": "gemini-3-flash-preview",
+    "mode": "live"
+  },
+  "generatedAt": "2026-04-23T04:47:47.182Z",
+  "promptVersion": "flowith-prompts-2026-04-23",
+  "context": {
+    "reportId": "rpt_n-PtgeomQo1G",
+    "reportKind": "crossover_base",
+    "user": {
+      "name": "十一",
+      "birthDate": "1998-09-17",
+      "birthTime": "06:18",
+      "birthCity": "Seoul"
+    },
+    "baseProfile": {
+      "coreType": "The Velvet Instigator",
+      "dominantElement": "water",
+      "weakestElement": "fire",
+      "supportElement": "earth",
+      "seasonalTone": "autumn",
+      "dayPhase": "dawn",
+      "archetype": "The Velvet Instigator",
+      "coreConclusion": "Your field leads with water while fire keeps the edge of your sensitivity exposed. Emotional and relational signals will arrive early for you, so your power depends on reading them cleanly rather than resisting them.",
+      "todaySignal": "Today favors reading emotional and timing signals first. earth helps you respond without drowning in subtlety."
+    },
+    "westernPreview": {
+      "title": "Saturn Veil",
+      "teaser": "dawn timing pulls toward earth, while fire creates the subtle contradiction.",
+      "detailSummary": "Your western chart reads as composed, anchored, and privately durable.",
+      "personalityHook": "Your western reading says the public version of you becomes clearer when earth stops hiding behind fire.",
+      "graphicLabel": "EARTH star"
+    },
+    "easternPreview": {
+      "title": "Moon Palace",
+      "teaser": "autumn amplifies your water lane, while fire creates the hidden friction.",
+      "detailSummary": "Your eastern pattern listens before it acts. Subtle shifts reach you earlier than they reach most people.",
+      "personalityHook": "Your eastern reading says your structure becomes strongest when water leads without overcorrecting for fire.",
+      "graphicLabel": "WATER palace"
+    },
+    "order": {}
+  },
+  "westernPreview": {
+    "title": "The Anchored Architect of Subtle Friction",
+    "summary": "A profile defined by Virgoan precision and a hidden internal spark, where the stillness of a Seoul dawn masks a calculated, transformative intent.",
+    "body": "Your Western chart is anchored by a Virgo Sun, providing the 'Velvet' texture—a composed, methodical exterior that values durability and order. However, the 06:18 dawn placement introduces a specific tension between your grounding Earth elements and a flickering, internal Fire. While Fire is your weakest element, its scarcity makes it your most potent tool for instigation; you do not waste energy on performative heat, but rather use it for precision strikes. You operate through a lens of quiet observation, yet your core impulse is to disrupt the status quo from within. The public sees the anchor, but the 'Instigator' truly emerges when you stop using your external composure to mask your more assertive, heat-seeking ambitions. You are at your most powerful when the Earth element serves as the fuel for the fire, rather than its extinguisher.",
+    "keyConclusions": [
+      "Virgo Sun placement provides a high-functioning, durable shell that masks internal volatility.",
+      "The dawn birth emphasizes an Earth-dominant persona that prioritizes long-term stability over temporary flair.",
+      "A scarcity of Fire creates a 'quality over quantity' dynamic, making your rare outbursts highly impactful.",
+      "True alignment occurs when your grounded Earth energy stops suppressing your inherent drive to provoke change."
+    ]
+  },
+  "easternPreview": {
+    "title": "The Dawn Current",
+    "summary": "Your energy reflects the clarity of a Seoul autumn morning—composed, intuitive, and deeply perceptive of the shifts around you.",
+    "body": "You possess an innate ability to sense the direction of a situation long before others have even realized a change is occurring. Because water dominates your profile during the metal-rich season of autumn, your intuition acts like a precision instrument. You don't need to force your way through obstacles; your strength lies in your ability to adapt and flow around them. The internal friction you occasionally feel usually arises when you try to project a high-energy, 'fire' persona that doesn't align with your natural rhythm. You are at your most powerful when you stop trying to force a spark and instead lean into your steady, cooling depth. By trusting your instinct to observe first, you navigate complex social and professional landscapes with a quiet authority that others eventually learn to rely on.",
+    "keyConclusions": [
+      "Your intuition is a strategic asset that detects market or social shifts before they go public.",
+      "Trying to mimic high-energy, aggressive styles leads to burnout; your power is in persistence, not intensity.",
+      "You thrive in roles that require high emotional intelligence and the ability to read between the lines.",
+      "Success comes from refining your natural flow rather than trying to ignite a passion you don't feel."
+    ]
+  },
+  "crossover": {
+    "headline": "The Velvet Instigator: Navigating the Exposed Edge of 十一",
+    "summary": "Your current alignment positions you as a catalyst who moves through fluid influence rather than friction. While your dominant water leads the way, your weakened fire keeps your sensitivity sharp and exposed, making this a pivotal moment for grounding your intuitive hits into tangible reality through earth support.",
+    "sections": [
+      {
+        "key": "fluid_dominance",
+        "title": "The Permeable Boundary",
+        "body": "Your field currently leads with water, allowing you to sense the unspoken architecture of any room. However, because fire is your weakest element, you lack the typical defensive barrier that others use to mask their intent. This exposure is not a flaw; it is the source of your 'Velvet Instigator' power, allowing you to move others by being the most resonant frequency in the space."
+      },
+      {
+        "key": "structural_clarity",
+        "title": "The Public Revelation",
+        "body": "There is a shift occurring in how you are perceived by the collective. Your western reading suggests the public version of you becomes clearer when earth stops hiding behind fire. By leaning into your support element, you provide a stable landing spot for the emotional data you collect, transforming raw sensitivity into professional authority."
+      },
+      {
+        "key": "seasonal_friction",
+        "title": "The Autumnal Flow",
+        "body": "The current seasonal transition to autumn amplifies your water lane, deepening your capacity for introspection. Yet, fire creates a hidden friction within this flow. Your eastern reading indicates your structure becomes strongest when water leads without overcorrecting for fire; you do not need to burn brighter to be seen, you simply need to flow with more intent."
+      },
+      {
+        "key": "timing_mechanics",
+        "title": "The Dawn Transition",
+        "body": "Timing is everything for the Instigator. Dawn timing pulls your energy toward earth, offering a window of stability before the day's fire creates its subtle contradiction. This is the moment to anchor your intentions before the heat of social interaction begins to test your emotional boundaries."
+      },
+      {
+        "key": "strategic_response",
+        "title": "The Earth Anchor",
+        "body": "Today favors reading emotional and timing signals first. Earth helps you respond without drowning in the subtlety of your own perceptions. By prioritizing the 'when' and 'how' over the 'why,' you maintain your edge without becoming overwhelmed by the sheer volume of incoming sensory data."
+      }
+    ],
+    "resonance": "Deep emotional intuition and the ability to influence environments through subtle shifts in presence.",
+    "tension": "The constant friction between a vast internal water landscape and a fragile fire that leaves your emotional nerves exposed.",
+    "personalityPattern": "A catalyst who prefers the ripple effect to the direct strike; you change the container to change the contents.",
+    "currentTimingSignal": "Emotional and relational signals are arriving early; success depends on reading them cleanly rather than resisting the vulnerability they bring.",
+    "nextMove": "Identify one subtle emotional signal you’ve been ignoring and use an earth-based action—like scheduling or physical documentation—to stabilize it.",
+    "shareCaption": "For 十一: Power isn't found in the fire you lack, but in the water you master. The Velvet Instigator moves the world through the quietest ripples.",
+    "signalRelationship": "A subtle shift in the unspoken contract between you and another.",
+    "signalCareer": "The moment where intuition meets the hard deadline.",
+    "signalGrowth": "Learning to stand in the heat without evaporating your core.",
+    "signalHealth": "Grounding the nervous system against the tide of high sensitivity."
+  }
+}

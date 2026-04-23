@@ -33,7 +33,7 @@ export function RitualHero(props: {
               Open my reading
             </Link>
             <Link
-              href="/report/demo-report?email=ritual%40ood.aura"
+              href="/report/demo-report"
               className="rounded-full border border-white/10 px-5 py-3 text-sm text-stone-100 transition hover:bg-white/8"
             >
               See a sample omen

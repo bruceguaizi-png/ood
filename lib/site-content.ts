@@ -160,7 +160,7 @@ export const artifactArchive: ArtifactRecord[] = [
     type: "receipt",
     function: "The archive's free synthesis document, built from the Eastern and Western branch readings.",
     symbolism: "The first complete document in the new flow: both systems held in one frame.",
-    destination: "/report/demo-report?email=ritual%40ood.aura",
+    destination: "/report/demo-report",
   },
   {
     slug: "relationship-deep-dive",

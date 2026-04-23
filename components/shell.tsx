@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { AuthStatus } from "@/components/auth-status";
 import { NavPill } from "@/components/nav-pill";
 import { APP_NAME, APP_TAGLINE, ENTERTAINMENT_DISCLAIMER } from "@/lib/constants";
 import { siteNav } from "@/lib/site-content";
@@ -25,28 +26,29 @@ export function Shell(props: {
       >
         Skip to content
       </a>
-      <div className="relative mx-auto flex min-h-screen w-full max-w-7xl flex-col px-6 pb-[calc(56px+var(--safe-bottom))] pt-[calc(24px+var(--safe-top))] sm:px-8 lg:px-12">
-        <header className="mb-10 flex items-center justify-between gap-6">
-          <Link href="/" className="group">
+      <div className="relative mx-auto flex min-h-screen w-full max-w-7xl flex-col px-4 pb-[calc(64px+var(--safe-bottom))] pt-[calc(16px+var(--safe-top))] sm:px-8 sm:pt-[calc(24px+var(--safe-top))] lg:px-12">
+        <header className="mb-6 flex flex-wrap items-start justify-between gap-4 sm:mb-10 sm:items-center sm:gap-6">
+          <Link href="/" className="group min-w-0">
             <div className="text-[11px] uppercase tracking-[0.52em] text-cyan-200/80">
               {APP_NAME}
             </div>
-            <div className="font-serif text-xl text-stone-100 transition group-hover:text-amber-100">
+            <div className="font-serif text-lg text-stone-100 transition group-hover:text-amber-100 sm:text-xl">
               {APP_TAGLINE}
             </div>
           </Link>
 
-          <nav className="flex items-center gap-3 text-sm text-stone-300">
+          <nav className="flex w-full items-center justify-between gap-3 text-sm text-stone-300 sm:w-auto sm:justify-end">
+            <AuthStatus />
             <Link
               href="/quiz"
-              className="hidden rounded-full border border-amber-200/20 bg-amber-100/10 px-4 py-2 text-amber-50 transition hover:bg-amber-100/16 lg:inline-flex"
+              className="inline-flex rounded-full border border-amber-200/20 bg-amber-100/10 px-4 py-2 text-xs uppercase tracking-[0.18em] text-amber-50 transition hover:bg-amber-100/16 sm:text-sm sm:normal-case sm:tracking-normal"
             >
               Enter ritual
             </Link>
           </nav>
         </header>
 
-        <div className="mb-8 flex flex-wrap gap-3">
+        <div className="mb-6 -mx-1 flex gap-3 overflow-x-auto px-1 pb-1 sm:mb-8 sm:flex-wrap sm:overflow-visible sm:px-0">
           {navItems.map((item) => (
             <NavPill
               key={item.href}

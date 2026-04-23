@@ -15,6 +15,11 @@ export const intakeRegisterSchema = z.object({
   turnstileToken: z.string().optional(),
 });
 
+export const authSignInSchema = z.object({
+  email: z.string().email(),
+  nextPath: z.string().min(1).optional(),
+});
+
 export const checkoutSchema = z.object({
   intakeSessionId: z.string().min(1),
   email: z.string().email(),

@@ -1,6 +1,7 @@
 import { nanoid } from "nanoid";
 
 import { ENTERTAINMENT_DISCLAIMER, TRACKING_EVENTS } from "@/lib/constants";
+import { generateAiBundle } from "@/lib/server/ai/pipeline";
 import { generateReportAssets } from "@/lib/server/assets";
 import { sendReceiptEmail } from "@/lib/server/email";
 import { captureServerEvent } from "@/lib/server/posthog";
@@ -27,6 +28,7 @@ export async function generateCrossoverReportFromSession(sessionId: string, emai
   const draft: ReportRecord = {
     id: reportId,
     intakeSessionId: session.id,
+    userId: session.userId,
     email,
     createdAt: existing?.createdAt ?? new Date().toISOString(),
     updatedAt: new Date().toISOString(),
@@ -35,15 +37,46 @@ export async function generateCrossoverReportFromSession(sessionId: string, emai
     elementProfile: session.baseProfile.elementDistribution,
     disclaimer: ENTERTAINMENT_DISCLAIMER,
     crossover: buildCrossoverReport(session.baseProfile, session.branchPreview),
+    narrative: undefined,
     assets: existing?.assets ?? [],
   };
 
   await createOrUpdateReport(draft);
 
   try {
+    const bundle = await generateAiBundle({
+      reportId,
+      kind: "crossover_base",
+      session,
+    });
+
     const readyDraft: ReportRecord = {
       ...draft,
       status: "ready",
+      domain: bundle.deepDive?.domain,
+      narrative: bundle.crossover
+        ? {
+            headline: bundle.crossover.headline,
+            summary: bundle.crossover.summary,
+            sections: bundle.crossover.sections,
+            shareCaption: bundle.crossover.shareCaption,
+          }
+        : draft.narrative,
+      followUpQuestion: undefined,
+      crossover: bundle.crossover
+        ? {
+            eastern: session.branchPreview.eastern,
+            western: session.branchPreview.western,
+            synthesisTitle: bundle.crossover.headline,
+            synthesisSummary: bundle.crossover.summary,
+            resonance: bundle.crossover.resonance,
+            tension: bundle.crossover.tension,
+            personalityPattern: bundle.crossover.personalityPattern,
+            currentTimingSignal: bundle.crossover.currentTimingSignal,
+            nextMove: bundle.crossover.nextMove,
+            shareCaption: bundle.crossover.shareCaption,
+          }
+        : draft.crossover,
     };
 
     const generated = await generateReportAssets(readyDraft);
@@ -51,6 +84,7 @@ export async function generateCrossoverReportFromSession(sessionId: string, emai
 
     await createOrUpdateReport(readyDraft);
     await updateSession(session.id, {
+      userId: session.userId,
       email,
       stage: "crossover_generated",
       crossoverReportId: readyDraft.id,
@@ -94,6 +128,7 @@ export async function generateReportFromOrder(orderId: string) {
     id: reportId,
     intakeSessionId: session.id,
     orderId: order.id,
+    userId: order.userId ?? session.userId,
     email: order.email,
     createdAt: existing?.createdAt ?? new Date().toISOString(),
     updatedAt: new Date().toISOString(),
@@ -101,12 +136,20 @@ export async function generateReportFromOrder(orderId: string) {
     status: "generating",
     elementProfile: session.baseProfile.elementDistribution,
     disclaimer: ENTERTAINMENT_DISCLAIMER,
+    narrative: undefined,
     assets: existing?.assets ?? [],
   };
 
   await createOrUpdateReport(draft);
 
   try {
+    const bundle = await generateAiBundle({
+      reportId,
+      kind: "deep_dive",
+      session,
+      order,
+    });
+
     const receipt = buildManifestReceipt(
       {
         name: session.name,
@@ -121,7 +164,24 @@ export async function generateReportFromOrder(orderId: string) {
     const readyDraft: ReportRecord = {
       ...draft,
       status: "ready",
-      receipt,
+      domain: bundle.deepDive?.domain,
+      followUpQuestion: bundle.deepDive?.followUpQuestion,
+      narrative: bundle.deepDive
+        ? {
+            headline: bundle.deepDive.headline,
+            summary: bundle.deepDive.summary,
+            sections: bundle.deepDive.sections,
+            shareCaption: bundle.deepDive.shareCaption,
+          }
+        : draft.narrative,
+      receipt: {
+        ...receipt,
+        action: bundle.deepDive?.actionFocus ?? receipt.action,
+        caution: bundle.deepDive?.caution ?? receipt.caution,
+        mantra: bundle.deepDive?.mantra ?? receipt.mantra,
+        summary: bundle.deepDive?.summary ?? receipt.summary,
+        shareCaption: bundle.deepDive?.shareCaption ?? receipt.shareCaption,
+      },
     };
 
     const generated = await generateReportAssets(readyDraft);

@@ -1,18 +1,20 @@
+import { redirect } from "next/navigation";
 import Link from "next/link";
 
-import { EmailHistoryForm } from "@/components/email-history-form";
 import { RitualCard } from "@/components/ritual-card";
 import { SectionLabel } from "@/components/section-label";
 import { Shell } from "@/components/shell";
-import { getReport, listOrdersByEmail } from "@/lib/server/store";
+import { getCurrentUser } from "@/lib/server/auth";
+import { getReport, listOrdersByUserId } from "@/lib/server/store";
 
-type HistoryPageProps = {
-  searchParams: Promise<{ email?: string }>;
-};
+export default async function HistoryPage() {
+  const user = await getCurrentUser();
+  if (!user) {
+    redirect("/auth/login?next=/me/history");
+  }
 
-export default async function HistoryPage({ searchParams }: HistoryPageProps) {
-  const { email } = await searchParams;
-  const orders = email ? await listOrdersByEmail(email) : [];
+  const orders = await listOrdersByUserId(user.id);
+  const resolvedEmail = user.email;
 
   return (
     <Shell className="space-y-8">
@@ -21,25 +23,16 @@ export default async function HistoryPage({ searchParams }: HistoryPageProps) {
           <SectionLabel>History access</SectionLabel>
           <h1 className="font-serif text-4xl text-stone-50">Re-enter your reports</h1>
           <p className="text-base leading-7 text-stone-300">
-            Use the email you unlocked or purchased with. In local beta mode, this reads from the
-            mock store so you can inspect free and paid report flows.
+            Your verified account is now the default history source. Any older orders matching this
+            email are linked automatically after sign-in.
           </p>
-          <EmailHistoryForm />
         </RitualCard>
 
         <div className="space-y-5">
           <SectionLabel>Orders</SectionLabel>
-          {email && orders.length === 0 ? (
+          {orders.length === 0 ? (
             <RitualCard>
-              <p className="text-sm text-stone-300">No receipts found for {email} yet.</p>
-            </RitualCard>
-          ) : null}
-
-          {!email ? (
-            <RitualCard>
-              <p className="text-sm text-stone-300">
-                Enter an email to retrieve unlocked reports and paid deep dives.
-              </p>
+              <p className="text-sm text-stone-300">No receipts found for {resolvedEmail} yet.</p>
             </RitualCard>
           ) : null}
 
@@ -65,7 +58,7 @@ export default async function HistoryPage({ searchParams }: HistoryPageProps) {
                   {report ? (
                     <div className="flex flex-wrap gap-3">
                       <Link
-                        href={`/report/${report.id}?email=${encodeURIComponent(order.email)}`}
+                        href={`/report/${report.id}`}
                         className="rounded-full bg-stone-100 px-4 py-2 text-sm font-semibold text-stone-950 transition hover:bg-cyan-100"
                       >
                         Open report

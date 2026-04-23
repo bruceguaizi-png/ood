@@ -34,26 +34,26 @@ export default async function PreviewPage({
         properties={{ sessionId: session.id, archetype: baseProfile.coreType }}
       />
 
-      <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr]">
+      <div className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr] lg:gap-8">
         <RitualCard className="space-y-6">
           <SectionLabel>Dual Preview</SectionLabel>
           <div className="space-y-3">
-            <h1 className="text-balance font-serif text-4xl text-stone-50 sm:text-5xl">
+            <h1 className="text-balance font-serif text-3xl text-stone-50 sm:text-5xl">
               Two systems. One signal.
             </h1>
-            <p className="max-w-2xl text-pretty text-lg leading-8 text-stone-300">
+            <p className="max-w-2xl text-pretty text-base leading-7 text-stone-300 sm:text-lg sm:leading-8">
               The basic test opened both your Eastern and Western previews. Each one gives a real
               hook, but the deeper detail stays behind the unlock gate.
             </p>
           </div>
 
-          <div className="grid gap-5 lg:grid-cols-2">
+          <div className="grid gap-4 lg:grid-cols-2 lg:gap-5">
             {previews.map((preview, index) => (
               <div
                 key={preview.system}
-                className="rounded-[28px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.02))] p-5"
+                className="rounded-[24px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.02))] p-4 sm:p-5"
               >
-                <div className="relative mb-5 flex min-h-[220px] items-center justify-center overflow-hidden rounded-[24px] border border-white/10 bg-black/20">
+                <div className="relative mb-4 flex min-h-[180px] items-center justify-center overflow-hidden rounded-[20px] border border-white/10 bg-black/20 sm:mb-5 sm:min-h-[220px] sm:rounded-[24px]">
                   <div
                     className={
                       index === 0
@@ -75,7 +75,7 @@ export default async function PreviewPage({
                     <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-stone-400">
                       {preview.graphicLabel}
                     </p>
-                    <p className="mt-3 text-balance font-serif text-3xl text-stone-50">
+                    <p className="mt-3 text-balance font-serif text-2xl text-stone-50 sm:text-3xl">
                       {preview.title}
                     </p>
                   </div>
@@ -93,7 +93,7 @@ export default async function PreviewPage({
         <RitualCard className="space-y-5">
           <SectionLabel>Email Gate</SectionLabel>
           <div className="space-y-3">
-            <h2 className="text-balance font-serif text-3xl text-stone-50">
+            <h2 className="text-balance font-serif text-2xl text-stone-50 sm:text-3xl">
               Unlock the full cross-over reading.
             </h2>
             <p className="text-sm leading-7 text-stone-300">

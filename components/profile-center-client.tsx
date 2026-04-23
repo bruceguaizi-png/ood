@@ -111,7 +111,7 @@ export function ProfileCenterClient() {
           <p className="text-xs uppercase tracking-[0.24em] text-stone-400">Recent reports</p>
           <div className="space-y-3">
             <Link
-              href="/report/demo-report?email=ritual%40ood.aura"
+              href="/report/demo-report"
               className="block rounded-2xl border border-white/10 bg-white/[0.03] p-4 transition hover:bg-white/[0.06]"
             >
               <div className="font-serif text-2xl text-stone-50">Demo confidence ritual</div>
@@ -157,7 +157,7 @@ export function ProfileCenterClient() {
               Open Shop
             </Link>
             <Link
-              href="/me/history?email=ritual%40ood.aura"
+              href="/me/history"
               className="rounded-full border border-white/10 px-4 py-2 text-sm text-stone-100 transition hover:bg-white/8"
             >
               Full History

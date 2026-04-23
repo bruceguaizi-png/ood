@@ -1,0 +1,120 @@
+{
+  "reportId": "rpt_NcR7svwMBs4p",
+  "kind": "crossover_base",
+  "provider": {
+    "id": "responses",
+    "model": "gemini-3-flash-preview",
+    "mode": "live"
+  },
+  "generatedAt": "2026-04-23T05:00:00.937Z",
+  "promptVersion": "flowith-prompts-2026-04-23",
+  "context": {
+    "reportId": "rpt_NcR7svwMBs4p",
+    "reportKind": "crossover_base",
+    "user": {
+      "name": "十一",
+      "birthDate": "1998-09-17",
+      "birthTime": "06:18",
+      "birthCity": "Seoul"
+    },
+    "baseProfile": {
+      "coreType": "The Velvet Instigator",
+      "dominantElement": "water",
+      "weakestElement": "fire",
+      "supportElement": "earth",
+      "seasonalTone": "autumn",
+      "dayPhase": "dawn",
+      "archetype": "The Velvet Instigator",
+      "coreConclusion": "Your field leads with water while fire keeps the edge of your sensitivity exposed. Emotional and relational signals will arrive early for you, so your power depends on reading them cleanly rather than resisting them.",
+      "todaySignal": "Today favors reading emotional and timing signals first. earth helps you respond without drowning in subtlety."
+    },
+    "westernPreview": {
+      "title": "Saturn Veil",
+      "teaser": "dawn timing pulls toward earth, while fire creates the subtle contradiction.",
+      "detailSummary": "Your western chart reads as composed, anchored, and privately durable.",
+      "personalityHook": "Your western reading says the public version of you becomes clearer when earth stops hiding behind fire.",
+      "graphicLabel": "EARTH star"
+    },
+    "easternPreview": {
+      "title": "Moon Palace",
+      "teaser": "autumn amplifies your water lane, while fire creates the hidden friction.",
+      "detailSummary": "Your eastern pattern listens before it acts. Subtle shifts reach you earlier than they reach most people.",
+      "personalityHook": "Your eastern reading says your structure becomes strongest when water leads without overcorrecting for fire.",
+      "graphicLabel": "WATER palace"
+    },
+    "order": {}
+  },
+  "westernPreview": {
+    "title": "The Anchor and the Ember",
+    "summary": "A study of the 06:18 dawn placement, where a meticulous Virgo-heavy signature provides a structured vessel for a hidden, Leo-driven internal intensity.",
+    "body": "Your Western chart is defined by the sharp tension between the analytical Earth of your Virgo Sun and the flickering, private Fire of your Leo placements. Born at the precise moment of daybreak in Seoul, your persona is built on a foundation of reliability and quiet observation, yet there is a subterranean heat that demands expression. This 'Velvet Instigator' energy manifests as a capacity to disrupt the status quo through surgical precision rather than raw noise. While your dominant Water provides the emotional intuition to navigate complex social currents, your Western alignment suggests that your true authority is unlocked only when you stop suppressing your internal fire in favor of performative composure. You are at your most potent when the Virgo strategist stops managing the Leo visionary and starts serving it.",
+    "keyConclusions": [
+      "The 06:18 sunrise placement anchors your public identity in analytical Earth, creating the 'Velvet' facade of the strategist.",
+      "A hidden Leo core acts as a silent engine, providing the 'Instigator' drive that your composed exterior often masks.",
+      "Your elemental lack of Fire is a psychological blind spot; you possess more heat than you permit yourself to show.",
+      "True clarity is achieved when your grounded Virgo nature stops acting as a shield for your ambitions and begins acting as their architect."
+    ]
+  },
+  "easternPreview": {
+    "title": "The Silent Current of the Morning",
+    "summary": "Your energy thrives on the cool, reflective clarity of an autumn dawn, where intuition speaks louder than forced action.",
+    "body": "In the Eastern tradition, your pattern is defined by a vast reservoir of Water that seeks a path forward without the turbulence of excessive heat. While the world often demands a 'fiery' display of passion or aggression, your structure is built for a different kind of mastery: the power of the subtle shift. You are naturally attuned to the subtext of conversations and the hidden trends in your environment. The friction you feel isn't a lack of ability, but rather the tension created when you try to force a high-energy persona that doesn't match your rhythmic, water-led nature. By leaning into your role as an observer and strategist, you turn 'hidden friction' into a navigational tool, moving through obstacles rather than crashing against them.",
+    "keyConclusions": [
+      "Your intuition is a precision instrument; if a situation feels 'off,' trust that signal immediately.",
+      "Conserve your social energy for high-impact moments rather than trying to maintain a constant 'high-heat' presence.",
+      "Strategic patience is your greatest competitive advantage—let others reveal their hand first.",
+      "You find your greatest strength when you stop trying to perform 'warmth' and start leading with 'clarity'."
+    ]
+  },
+  "crossover": {
+    "headline": "十一：在丝绒般的敏锐中，以大地的姿态确立边界",
+    "summary": "你正处于一个感知力极度扩张的阶段，水元素的主导让你能精准捕捉环境中的情绪暗流，但也因火元素的稀缺而显得防御力不足。当前的变局本质上是要求你停止用过度的情绪反应来掩盖内在的脆弱，转而利用大地的支撑力，将这种敏感转化为一种稳固的感召力。",
+    "sections": [
+      {
+        "key": "opening",
+        "title": "一、开篇总述",
+        "body": "为什么是这样的你，偏偏在现在，经历这样的变化？作为“天鹅绒煽动者”，你的生命逻辑在于通过柔性的感知去影响外部世界。当前正值东方的秋季，水元素被季节性放大，而西方的破晓时分又在呼唤大地的稳固。这种时空的重合，将你推向了一个必须直面“敏感与结构”的交界点。你感到的不安并非迷失，而是内在的火元素正在倒逼你放下防御，让真实的力量从水流中沉淀为坚实的土地。"
+      },
+      {
+        "key": "identity",
+        "title": "二、你是谁：核心人格与内在结构",
+        "body": "你的内在结构以水为骨架，这赋予了你极强的情感穿透力，能轻易察觉他人忽略的信号。然而，最弱的火元素是你皮肤上的一道裂缝，让你在面对冲突时既渴望表达又容易被灼伤。这种“天鹅绒”般的质感意味着你习惯用温和包裹锋芒，但当内在的火元素过度暴露时，你会因为害怕被看穿而产生不必要的自我折磨。土元素的支撑力是你潜意识中的安全阀，它在等待你从纯粹的感受者转变为局面的掌控者。"
+      },
+      {
+        "key": "timing",
+        "title": "三、当前阶段与大势判断",
+        "body": "从东方的视角看，秋季的肃杀与收敛正不断加深你的水元素泳道，让你的直觉变得前所未有的清晰。与此同时，西方占星语境下的黎明相位正在拉扯你的土元素，要求你将虚幻的感知具象化。现在的变化不是要你改变本性，而是要你停止“为了抵御火元素的灼热而过度波动”。这是一个从“被动感应”向“主动定调”转型的关键窗口，环境正在迫使你建立一种不依赖于情绪爆发的持久影响力。"
+      },
+      {
+        "key": "tension",
+        "title": "四、内在与外部之间的张力",
+        "body": "你目前最大的张力源于“大地在火光背后的隐藏”。在公共视野中，你试图用一种急促的、充满火药味的方式来证明自己的存在感，但这种方式与你本质的水元素格格不入。这种错位导致了你感到社交疲劳和表达失准。当西方视角下的自我呈现（火）与东方视角下的内在根基（水）发生冲突时，你越是想用力证明，就越容易感到空虚。真正的张力在于：你的力量本该像水一样无孔不入，你却偏偏想学火一样烈焰灼人。"
+      },
+      {
+        "key": "signals",
+        "title": "五、信号与线索",
+        "body": "在情感互动中，对方细微的沉默比激烈的言语包含更多真实信息。职业领域内，那些看似枯燥的流程和结构正在向你发出邀请，暗示这是你避开情绪内耗的唯一出口。个人成长方面，你对“稳定感”的渴望正超过对“新鲜感”的追求。身体感官上，呼吸的深度与节奏正成为你判断环境是否安全的物理指标。这些线索都在指向同一个方向：减少火的干扰，增加地的承载。"
+      },
+      {
+        "key": "future",
+        "title": "六、未来一段时间的重点提醒",
+        "body": "在接下来的周期里，你的核心任务是“不因火的匮乏而过度补偿”。当水元素引导你捕捉到负面信号时，不要急着跳进火堆里去对抗，而是要借用土元素的力量，退后一步观察。你的结构会在你停止为火元素“打补丁”时变得最强。这意味着在决策时，优先考虑逻辑的闭环而非情绪的宣泄。当水流能够顺着大地的沟壑流淌，而不是在火的炙烤下化为蒸汽，你的转型才算真正完成。"
+      },
+      {
+        "key": "closing",
+        "title": "七、结尾收束",
+        "body": "十一，你不需要变成一个坚硬的铁块来保护自己，你的力量恰恰在于那份未被封死的敏感。现在的变化，是为了让你学会如何在流动的感知中确立大地的坐标。当火元素不再是你的软肋，而是成为你敏锐触觉的尖端，你将发现，最温柔的煽动往往拥有最彻底的改变力量。请记住，让水领路，让地扎根，火只需负责照明，不必负责燃烧。"
+      }
+    ],
+    "resonance": "当你的直觉与现实的节奏合拍时，你会感到一种深沉的宁静，仿佛潮汐找到了海岸。",
+    "tension": "最强的水与最弱的火在秋季的冷冽中碰撞，产生了一种渴望稳定却又难以自抑的焦虑感。",
+    "personalityPattern": "天鹅绒般的柔性外壳下，包裹着对结构极度渴求的土象灵魂与敏感的水象核心。",
+    "currentTimingSignal": "黎明的光线正在穿透秋季的雾气，提醒你该从感性的梦境转向理性的布局。",
+    "nextMove": "在下一次情绪波动发生时，深呼吸三次，记录下事实而非感受，以此激活土元素的防御。",
+    "shareCaption": "在敏感与坚韧之间，我选择成为那股能穿透岩石的水流。",
+    "signalRelationship": "留意那些不需要你过度解释就能理解你沉默的瞬间。",
+    "signalCareer": "专业性的建立往往始于你停止对每一个评价产生情绪反应的那一刻。",
+    "signalGrowth": "接受自己的火元素短板，不再强求自己在竞争中表现得咄咄逼人。",
+    "signalHealth": "关注水分代谢与脊椎的支撑力，这是你内在水土平衡的物理映射。"
+  }
+}

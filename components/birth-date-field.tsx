@@ -1,7 +1,5 @@
 "use client";
 
-import { useState } from "react";
-
 const months = [
   { value: "01", label: "January" },
   { value: "02", label: "February" },
@@ -72,17 +70,14 @@ export function BirthDateField(props: {
   monthName?: string;
   dayName?: string;
 }) {
-  const [parts, setParts] = useState<DateParts>(() => parseDateParts(props.value));
+  const parts = parseDateParts(props.value);
 
   function update(next: Partial<DateParts>) {
-    setParts((current) => {
-      const nextParts = {
-        ...current,
-        ...next,
-      };
-      props.onChange(toIsoDate(nextParts));
-      return nextParts;
-    });
+    const nextParts = {
+      ...parts,
+      ...next,
+    };
+    props.onChange(toIsoDate(nextParts));
   }
 
   return (
